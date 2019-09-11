@@ -1,6 +1,6 @@
 import React from 'react';
 import { Router, Route, Switch } from 'dva/router';
-import Header from './components/header/header';
+import Header from './routes/header/header';
 
 function RouterConfig({ history }) {
   return (
