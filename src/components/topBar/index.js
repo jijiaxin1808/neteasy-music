@@ -8,9 +8,9 @@ class TopBar extends React.Component {
         return (
             <div>
                 {
-                    Data.map(( item )=> {
+                    Data.map(( item,index )=> {
                         return (
-                        <div className="topBarItem"  >
+                        <div className="topBarItem" key = { index }  >
                             <Link to={item.linkTo} >
                                 {item.name}
                             </Link>
@@ -20,19 +20,8 @@ class TopBar extends React.Component {
                 }
                 <div className="topBarSearch">
                     <span className="searchIcon">
-
                     </span>
                     <input />
-                </div>
-                <div className="topBarCreater">
-                    <Link to="/creater">
-                        {'创作者中心'}
-                    </Link>
-                </div>
-                <div className="topBarLogin">
-                    <Link to="/creater">
-                        {"登录"}
-                    </Link>
                 </div>
             </div>
         )
