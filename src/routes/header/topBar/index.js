@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
-import { Data } from '../../assets/TopData';
+import { Data } from '../../../assets/TopData';
 import React from 'react';
 import './index.less'
 
 class TopBar extends React.Component {
     render() {
         return (
-            <div>
+            <div className="topBar">
                 {
                     Data.map(( item,index )=> {
                         return (
@@ -19,8 +19,8 @@ class TopBar extends React.Component {
                     })
                 }
                 <div className="topBarSearch">
-                    <span className="searchIcon">
-                    </span>
+                    {/* <span className="searchIcon">
+                    </span> */}
                     <input />
                 </div>
             </div>

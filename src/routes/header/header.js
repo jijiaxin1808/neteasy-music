@@ -1,8 +1,8 @@
 import React from 'react';
 import './header.less';
-import Logo from '../../components/Logo';
-import TopBar from '../../components/topBar';
-import Login from '../../components/Login/index';
+import Logo from './Logo';
+import TopBar from './topBar';
+import Login from '../Login'
 
 class Header extends React.Component {
     render() {
@@ -14,6 +14,7 @@ class Header extends React.Component {
                     <Login />
                 </div>
             </div>
+            
         )
     }
 
