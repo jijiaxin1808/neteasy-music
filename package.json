@@ -1,12 +1,13 @@
 {
   "private": true,
   "scripts": {
-    "start": "roadhog server",
+    "dev": "roadhog server",
     "build": "roadhog build",
     "lint": "eslint --ext .js src test",
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "babel-plugin-import": "^1.12.1",
     "axios": "^0.19.0",
     "dva": "^2.4.1",
     "react": "^16.2.0",
