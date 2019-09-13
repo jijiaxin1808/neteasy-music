@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Logo.less';
+import './index.less';
 
 const Logo = ()=> {
     
