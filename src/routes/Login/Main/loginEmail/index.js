@@ -5,7 +5,6 @@ import LoginBar from "../../../../components/loginBar";
 import "./index.less";
 import { NavLink } from "dva/router";
 import { connect } from "dva";
-
 class LoginEmail extends React.Component {
 	
 	render() {
