@@ -1,6 +1,6 @@
-import dva from 'dva';
+import dva from "dva";
 import createHistory from "history/createBrowserHistory";
-import './index.css';
+import "./index.css";
 
 // 1. Initialize
 // 1. Initialize
@@ -21,7 +21,7 @@ models.keys().forEach(key => {
 });
 
 // 4. Router
-app.router(require('./router').default);
+app.router(require("./router").default);
 
 // 5. Start
-app.start('#root');
+app.start("#root");
