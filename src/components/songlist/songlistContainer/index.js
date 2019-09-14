@@ -1,41 +1,41 @@
-import React from 'react';
+import React from "react";
 import { connect } from "dva";
 import SongListInner from "../songlistUI";
 
 
 class SongListContainer extends React.Component {
 
-  render() {
+	render() {
 
-    const { categories, sub } = this.props;
+		const { categories, sub } = this.props;
 
-    return (
-      <div>
-        <SongListInner
-          categories={categories}
-          sub={sub}
-        />
-      </div>
-    );
-  }
-  componentDidMount() {
+		return (
+			<div>
+				<SongListInner
+					categories={categories}
+					sub={sub}
+				/>
+			</div>
+		);
+	}
+	componentDidMount() {
 
-    const { getTagList } = this.props;
+		const { getTagList } = this.props;
 
-    getTagList();
-  }
+		getTagList();
+	}
 }
 
 const mapDispatch = (dispatch) => ({
-    getTagList() {
-      dispatch({
-        type: 'SongList/getTags',
-      });
-    },
+	getTagList() {
+		dispatch({
+			type: "SongList/getTags",
+		});
+	},
 });
 
 export default connect(({ categories, sub }) => ({
-    categories,
-    sub,
+	categories,
+	sub,
 }), mapDispatch)(SongListContainer);
 

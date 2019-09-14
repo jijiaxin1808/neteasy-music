@@ -7,32 +7,6 @@ import LoginEmail from "./Main/loginEmail/index";
 import LoginPhone from "./../Login/Main/loginPhone";
 import Register from "./../Login/Main/register";
 
-const Data = [{
-	imgUrl:"url('../../../assets/logo.png') -150px -670px no-repeat",
-	name:"微信登录"
-},
-{
-	imgUrl:"",
-	name:"qq登录"
-},
-{
-	imgUrl:"",
-	name:"微博登录"
-},
-{
-	imgUrl:"",
-	name:"网易邮箱登录"
-}
-];
-
-
-
-
-
-
-
-
-
 
 class Login extends React.Component {
 	render() {
@@ -75,6 +49,18 @@ class Login extends React.Component {
 							onMouseUp = { (e)=> {mouseUp(e);} }
 							style={{top:`${X}`,left:`${Y}`}} />
 						<LoginPhone />
+					</div>
+				);
+			}
+			case "Register" : {
+				return (
+					<div className="login">
+						<LoginHeader  
+							onMouseMove={ (e)=> {mouseMove(e,login.isMouseDown);}}
+							onMouseDown = { (e)=> {mouseDown(e);} }
+							onMouseUp = { (e)=> {mouseUp(e);} }
+							style={{top:`${X}`,left:`${Y}`}} />
+						<Register />
 					</div>
 				);
 			}

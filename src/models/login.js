@@ -3,10 +3,13 @@ export default {
 	namespace: "login",
 	state: {
 		name: "登录",
-		type: "loginPhone",
+		type: "loginDefault",
 		isMouseDown: "false",
 		loginTop: "300px",
-		loginLeft: "700px"
+		loginLeft: "700px",
+		userName: "",
+		userEmail: "",
+		userPassword: ""
 	},
 	reducers: {
 		loginPhone( state,action ) {
@@ -27,6 +30,12 @@ export default {
 		changeStatus( state,action ) {
 			return { ...state,...action.payload };
 		},
+		clear( state ) {
+			return { ...state,userName:"",userEmail:"",userPassword:""};
+		} ,
+		changeInfo ( state,action ) {
+			return { ...state,...action.payload };
+		}
 
 	},
 	effects: {

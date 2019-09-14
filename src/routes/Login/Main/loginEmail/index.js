@@ -3,25 +3,70 @@ import Button from "../../../../components/Button";
 import Input from "../../../../components/Input";
 import LoginBar from "../../../../components/loginBar";
 import "./index.less";
-import {NavLink} from "dva/router";
+import { NavLink } from "dva/router";
+import { connect } from "dva";
 
 class LoginEmail extends React.Component {
+	
 	render() {
+		const { changeEmail,changePassword,LoginEmail,handleBack } = this.props;
 		return (
 			<div className = "loginEmail ">   
-				<Input placeholder = "请输入邮箱"  style/>
-				<Input type = 'password' placeholder = "请输入密码" />
+				<Input placeholder = "请输入邮箱"  onChange = {(e)=> {changeEmail(e.target.value);}}   />
+				<Input type = 'password' placeholder = "请输入密码" onChange = {(e)=> {changePassword(e.target.value);}} />
 				<div className = "middleBar" > 
 					<p>自动登录</p>
 					<NavLink to = "/" >
 						{ "无法登录？" }
 					</NavLink>
 				</div>
-				<Button type = "blue" url="/" content = "登录" />
-				<LoginBar content="<< 选择登录方式" />
+				<Button type = "blue" url="/" content = "登录" onClick = {()=> { LoginEmail(this.props.login) }}/>
+				<LoginBar content="<< 选择登录方式" onClick = { ()=> {handleBack();}  } />
 			</div>
 		);
-
 	}
 }
-export default LoginEmail;
+const mapDispatchToProps = ( dispatch )=> ({
+	changeEmail( value ) {
+		dispatch({
+			type: "login/changeInfo",
+			payload: {
+				userEmail: value
+			}
+		});
+	},
+	changePassword( value ) {
+		dispatch({
+			type: "login/changeInfo",
+			payload:{
+				userPassword: value
+			}
+		});
+	},
+	handleEmail( value ) {
+		const data = {
+			phone: value.userName,
+			password: value.userPassword 
+		};
+		dispatch({
+			type:"login/LoginPhone",
+			payload: data
+		});
+	},
+	handleBack() {
+		dispatch({
+			type:"login/changeStatus",
+			payload:{
+				type:"loginDefault"
+			}	
+		});
+		dispatch({
+			type:"login/clear"
+		});
+	}
+
+
+})
+
+
+export default connect(({login})=>({login}),mapDispatchToProps)(LoginEmail);

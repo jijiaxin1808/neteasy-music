@@ -2,9 +2,11 @@ import { Link } from "react-router-dom";
 import { Data } from "../../../assets/TopData";
 import React from "react";
 import "./index.less";
+import { connect } from "dva";
 
 class TopBar extends React.Component {
 	render() {
+		const { handleEmail,handlePhone } = this.props;
 		return (
 			<div className="topBar">
 				{
@@ -30,13 +32,41 @@ class TopBar extends React.Component {
 				</div>	
 				<div className = "topBar_login">
 					<span > { "登录" } </span>
-					<div> </div>
+					<div>
+						<span onClick={()=> {handlePhone()}} > 
+							手机号登录
+						</span>
+						<span onClick={()=> {handleEmail()}}>
+							邮箱登录 
+						</span>
+					</div>
 				</div> 	
-				
-
-
 			</div>
 		);
 	}
 }
-export default TopBar;
+const mapToDispatchToProps = (dispatch)=> ({
+	handlePhone() {
+		dispatch({
+			type: "login/changeStatus",
+			payload: {
+				type: "loginPhone"
+			}
+		});
+	},
+	handleEmail() {
+		dispatch({
+			type: "login/changeStatus",
+			payload: {
+				type: "loginEmail"
+			}
+		});
+	}
+
+
+});
+
+
+
+
+export default connect(({login})=> ({login}),mapToDispatchToProps)(TopBar);

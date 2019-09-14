@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "dva/router";
 import Button from "../../../components/Button";
-import Input from "../../../components/Input";
+import { connect } from 'dva';
 
 const Data = [{
 	imgUrl:"url('../../assets/logo.png') -150px -670px no-repeat",
@@ -23,13 +23,14 @@ const Data = [{
 
 class DefaultLogin extends React.Component {
 	render() {
+		const { handlePhone,handleRegister,handleBack }  = this.props;
 		return (
 			<div className="loginMainContain">
 				<div className="loginLeftContain">
 					<div className="loginLeftContainImg ">
 					</div >
-					<Button   type = "blue" url = "/" content = "手机号登录"  />
-					<Button type = "white" url = "/" content = "注册" />
+					<Button   type = "blue"  content = "手机号登录"  onClick = {()=>{handlePhone();}}  />
+					<Button type = "white" content = "注册" onClick = {()=>{handleRegister();}}  />
 				</div>
 				<div className="loginRightContain">
 					{
@@ -50,4 +51,33 @@ class DefaultLogin extends React.Component {
 	}
 }
 
-export default DefaultLogin;
+const mapDispatchToProps = ( dispatch )=> ({
+	handlePhone() {
+		dispatch({
+			type:"login/changeStatus",
+			payload: {
+				type:"loginPhone"
+			}
+		});
+	},
+	handleRegister() {
+		dispatch({
+			type:"login/changeStatus",
+			payload: {
+				type:"register"
+			}
+		});
+	},
+	handleBack() {
+		dispatch({
+			type:"login/changeStatus",
+			payload:{
+				type:"loginDefault"
+			}	
+		});
+	}
+})
+
+
+
+export default connect(({login})=>({login}),mapDispatchToProps)( DefaultLogin );
