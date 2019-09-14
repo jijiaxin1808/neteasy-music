@@ -1,0 +1,86 @@
+.footer-wrap {
+  border-top: 1px solid #d3d3d3;
+  background-color: #f2f2f2;
+  .footer-inner {
+    width: 980px;
+    height: 148px;
+    margin: 0 auto;
+    padding-top: 20px;
+    &:before,
+    &:after {
+      content: '';
+      display: table;
+    }
+    &:after {
+      clear: both;
+    }
+  }
+}
+
+
+.copy-right {
+  float: left;
+  p {
+    line-height: 20px;
+    padding-top: 5px;
+    color: #666;
+    span {
+      margin-right: 5px;
+    }
+    a {
+      cursor: pointer;
+    }
+  }
+}
+
+.footer-service-l {
+  @color: #999;
+  @margin: 8px;
+
+  a {
+    color: @color;
+    cursor: pointer;
+  }
+  .line {
+    display: inline-block;
+    width: 1px;
+    height: 10px;
+    background-color: #999;
+    margin: 0 @margin;
+    color: @color;
+  }
+}
+
+.footer-service-r {
+  @size: 49px;
+
+  float: right;
+  padding-right: 10px;
+  .unit {
+    display: inline-block;
+    font-size: 6px;
+    text-align: center;
+    color: #666;
+    margin-left: 34px;
+    a {
+      width: @size;
+      height: @size;
+
+      display: block;
+      background: transparent url("../../assets/foot_enter_new.png") no-repeat;
+      background-size: 110px 450px;
+    }
+    .logo-auth {
+      background-position: -63px -101px;
+    }
+    .logo-musician {
+      background-position: 3px 0px;
+    }
+    .logo-tip {
+      background-position: -63px -50px;
+    }
+    .logo-reward {
+      background-position: 1px -101px;
+    }
+  }
+}

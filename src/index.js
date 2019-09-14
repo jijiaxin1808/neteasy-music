@@ -5,9 +5,16 @@ import "./index.css";
 // 1. Initialize
 // 1. Initialize
 const app = dva({
-	history: createHistory(),
-	onError (error, dispatch) {
-		console.log(error);
+	initialState: {
+	  SongList: {
+			totalPage: 38,
+			groupCount: 7,
+			curPage: 1,
+			startPage: 6,
+			categories: [],
+			sub: [[]],
+			showTagList: false,
+	  },
 	}
 });
 

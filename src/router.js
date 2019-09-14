@@ -1,14 +1,22 @@
+import Footer from "./routes/footer";
+import SongList from "./routes/songlist";
 import React from "react";
 import { Router, Route, Switch } from "dva/router";
-import Header from "./routes/header/header";
+import Header from "./routes/header";
 
 function RouterConfig({ history }) {
 	return (
+
 		<Router history={history}>
-			<Switch>
-				<Route path="/" exact component={Header} />
-			</Switch>
+			<div className="body">
+				<Switch>
+					<Route path="/discover/playlist" component={SongList} />
+				</Switch>
+				<Header />
+				<Footer />
+			</div>
 		</Router>
+
 	);
 }
 
