@@ -39,7 +39,7 @@ const SongListInner = ({
 					<li className="songlists-item">
 						<NavLink to="/">
 							<img src="http://p2.music.126.net/2ojDK0IWAPEtV_oI_xRpUg==/109951164358567415.jpg?param=140y140" />
-							<div className="mask"></div>
+							<div className="login-mask"></div>
 							<div className="bottom">
 								<i className="ico-listen"></i>
 								<span className="num-listen">16844</span>

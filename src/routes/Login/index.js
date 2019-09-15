@@ -6,7 +6,7 @@ import DefaultLoginHeader from "./Main";
 import LoginEmail from "./Main/loginEmail/index";
 import LoginPhone from "./../Login/Main/loginPhone";
 import Register from "./../Login/Main/register";
-import { isInterfaceDeclaration } from "typescript";
+import VerifyCode from "./Main/register/verifyCode";
 
 
 class Login extends React.Component {
@@ -16,65 +16,71 @@ class Login extends React.Component {
 		const X1 = (clientWidth - 530)/2 + "px";
 		const Y1 = ( clientHeight - 300 )/2 + "px";
 		this.props.initPosition(X1,Y1);
+		document.onmousedown = (e) =>{
+			this.props.mouseDown(e,this.props.login);
+		};
+		document.onmouseup = (e) => {
+			this.props.mouseUp();
+		};
+		document.onmousemove = (e) => {
+			this.props.mouseMove(e,this.props.login.isMouseDown,this.props.login);
+		}; 
 	}
 	render() {
-		const { login,mouseMove,mouseDown,mouseUp,mouseLeave } = this.props;
-		// const clientWidth = document.documentElement.clientWidth || document.body.clientWidth;
-		// const clientHeight = document.documentElement.clientHeight || document.body.clientHeight;
-		// const X1 = (clientWidth - 530)/2 + "px";
-		// const Y1 = ( clientHeight - 300 )/2 + "px";
-		// initPosition(X1,Y1);
+		const { login } = this.props;
 
 
 		const func = ()=> {
-			// initPosition(X1,Y1);
 			switch ( login.type ) {
 
 			case "loginDefault" : {
 				return (
-					<div >
-
-						<div className="mask"></div>
+					<div className = "login_background" 						
+					>
+						<div className="login-mask">  </div>
 						<div className="login" 				style={{top:`${ this.props.login.loginTop }`,left:`${ this.props.login.loginLeft }`} } >
 							<LoginHeader  title = "登录"
-								onMouseMove = {(e)=>{mouseMove(e,login.isMouseDown,login);}}
-								onMouseDown = {(e)=>{mouseDown(e,login);}}
-								onMouseUp = {(e)=>{mouseUp(e);}}
-								onMouseLeave = {(e)=>{mouseLeave();}}
+
 							 />
 							<DefaultLoginHeader />
+							
 						</div>
 					</div>
 				);
 			}
-
 			case "loginEmail" : {
 				return (
 					<div>
-						<div className="mask"></div>
+						<div className="login-mask"></div>
 						<div className="login" style={{top:`${ this.props.login.loginTop }`,left:`${ this.props.login.loginLeft }`} }>
 							<LoginHeader title = "网易邮箱登录" 
-								onMouseMove = {(e)=>{mouseMove(e,login.isMouseDown,login);}}
-								onMouseDown = {(e)=>{mouseDown(e,login);}}
-								onMouseUp = {(e)=>{mouseUp(e);}}
-								onMouseLeave = {(e)=>{mouseLeave();}}
 							/>
 							<LoginEmail/>
 						</div>
 					</div>
 				);
 			}
+			case "verifyCode" : {
+				return (
+					<div>
+						<div className="login-mask"></div>
+						<div className="login" style={{top:`${ this.props.login.loginTop }`,left:`${ this.props.login.loginLeft }`} }>
+							<LoginHeader title = "输入验证码" 
+							/>
+							{/* <LoginEmail/> */}
+							<VerifyCode />
+						</div>
+					</div>
+				);
+			}
+
 
 			case "loginPhone" : {
 				return (
 					<div>
-						<div className="mask"></div>
+						<div className="login-mask"></div>
 						<div className="login" style={{top:`${ this.props.login.loginTop }`,left:`${ this.props.login.loginLeft }`} }>
 							<LoginHeader  title = "手机登录"
-								onMouseMove = {(e)=>{mouseMove(e,login.isMouseDown,login);}}
-								onMouseDown = {(e)=>{mouseDown(e,login);}}
-								onMouseUp = {(e)=>{mouseUp(e);}}
-								onMouseLeave = {(e)=>{mouseLeave();}}
 					 />
 							<LoginPhone />
 						</div>
@@ -84,13 +90,9 @@ class Login extends React.Component {
 			case "register" : {
 				return (
 					<div>
-						<div className="mask"></div>
+						<div className="login-mask"></div>
 						<div className="login" style={{top:`${ this.props.login.loginTop }`,left:`${ this.props.login.loginLeft }`} } >
 							<LoginHeader  title = "注册"
-								onMouseMove = {(e)=>{mouseMove(e,login.isMouseDown,login);}}
-								onMouseDown = {(e)=>{mouseDown(e,login);}}
-								onMouseUp = {(e)=>{mouseUp(e);}}
-								onMouseLeave = {(e)=>{mouseLeave();}}
 							/>
 							<Register />
 						</div>
@@ -111,12 +113,11 @@ class Login extends React.Component {
 					<div className="login" style={{top:`${ this.props.login.loginTop }`,left:`${ this.props.login.loginLeft }`} } >
 						<Register />
 					</div>
-				)
-				;
+				);
+				
 			}
 			}
 		};
-
 		return ( 
 			<div>
 				{ func()}       
@@ -127,13 +128,13 @@ class Login extends React.Component {
 
 const mapDispatchToProps = (dispatch) => ({
 	mouseMove(e,isMouseDown,login) {
-		console.log(isMouseDown);
+		// console.log(isMouseDown);
 		if( isMouseDown ) {
-			console.log("move了");
+			// console.log("move了");
 			var clientX1 = e.clientX;
 			var clientY1 = e.clientY;
 			// 盒子的偏移量 = 当前鼠标的位置 - 鼠标按下时相对盒子的位置
-			console.log(login.moveX,"movex");
+			// console.log(login.moveX,"movex");
 			if(login.moveX) {
 				let loginX = clientX1 - Number(login.moveX.replace(/px$/,""))+"px";
 				let loginY = clientY1 - Number(login.moveY.replace(/px$/,""))+"px";
@@ -148,24 +149,29 @@ const mapDispatchToProps = (dispatch) => ({
 			}
 		}
 		else {
-			console.log("不在绘制状态");
+			// console.log("不在绘制状态");
 		}
 	},
 	mouseDown(e,login) {
-		console.log(login.loginTop);
-		console.log( Number(login.loginLeft.replace(/px$/,"")) ,"5555");
-		let moveX = e.clientX -  Number(login.loginLeft.replace(/px$/,""))+"px";
-		let moveY = e.clientY -  Number(login.loginTop.replace(/px$/,""))+"px";
-		// let moveX = e.clientX - e.target.offectLeft+"px";
-		// let moveY = e.clientY - e.target.offectTop+"px";
-		console.log("move11",moveX,e.offectLeft);
-		dispatch({
-			type:"login/mouseDown",
-			payload:{
-				moveX:moveX,
-				moveY:moveY
-			}
-		});
+		const X = e.clientX;
+		const Y = e.clientY;
+		const offsetX = Number(login.loginLeft.replace(/px$/,""));
+		const offsetY = Number(login.loginTop.replace(/px$/,""))
+
+		if ((X >= offsetX ) && ( X <= offsetX+530 ) && ( Y >= offsetY ) && ( Y <= offsetY+38 )   ) {
+
+			let moveX = X -  offsetX+"px";
+			let moveY = Y -  offsetY+"px";
+
+			console.log("move11",moveX,e.offectLeft);
+			dispatch({
+				type:"login/mouseDown",
+				payload:{
+					moveX:moveX,
+					moveY:moveY
+				}
+			});
+		}
 	},
 	mouseUp(e) {
 		dispatch({
@@ -186,8 +192,6 @@ const mapDispatchToProps = (dispatch) => ({
 			type:"login/mouseUp",
 		});
 	},
-
-
 
 });
 

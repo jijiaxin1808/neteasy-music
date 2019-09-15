@@ -49,27 +49,11 @@ const mapDispatchToProps = ( dispatch )=> ({
 		});
 	},
 	handleEmail( value ) {
-		const data = {
-			email: value.userEmail,
-			password: value.userPassword 
-		}
-		const data1 = qs.stringify(data);
-		// dispatch({
-		// 	type:"login/LoginPhone",
-		// 	payload: data
-		// });
-		axios.post("http://localhost:3000/login",data1).then((res)=> {
-			if(res.data.code === 200) {
-				message.success("登录成功");
-				dispatch({
-					type:"login/changeStatus",
-					payload: {
-						type:""
-					}
-				});
-			}
-			else {
-				message.error(res.data.message);
+		dispatch({
+			type:"login/loginEmail",
+			payload: {
+				email: value.userEmail,
+				password: value.userPassword 
 			}
 		});
 	},
@@ -84,9 +68,7 @@ const mapDispatchToProps = ( dispatch )=> ({
 			type:"login/clear"
 		});
 	}
-
-
-})
+});
 
 
 export default connect(({login})=>({login}),mapDispatchToProps)(LoginEmail);

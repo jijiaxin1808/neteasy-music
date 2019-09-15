@@ -8,7 +8,7 @@ import Axios from "axios";
 
 class Register extends React.Component {
 	render() {
-		const { handleBack,changeName,changePassword } = this.props;
+		const { handleBack,changeName,changePassword,handleRegister,login } = this.props;
 		return (
 			<div className = "register">   
 				<p>手机号：</p>
@@ -16,7 +16,7 @@ class Register extends React.Component {
 				<p>密码：</p>
 				<Input type = 'password' placeholder = "设置密码,不少于6位"  onChange = {(e)=> {changePassword(e.target.value);}}/>
 
-				<Button type = "blue" url="/" content = "下一步" handel />
+				<Button type = "blue" url="/" content = "下一步" onClick = {()=>{ handleRegister(login); }}  />
 				<LoginBar content="<< 选择登录方式" onClick={()=>{handleBack();}}/>
 			</div>
 		);
@@ -51,11 +51,14 @@ const mapDispatchToProps = ( dispatch )=> ({
 			type:"login/clear"
 		});
 	},
-	handleRegister() {
-		Axios.post("http://localhost:3000/login/captcha",)
-	}
-
-
+	handleRegister( value ) {
+		dispatch({
+			type:"login/sendVerifyCode",
+			payload: {
+				phone: value.RegName
+			}
+		});
+	}	
 })
 
 

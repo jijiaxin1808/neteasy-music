@@ -12,18 +12,17 @@ class LoginHeader extends React.Component {
 				onMouseDown = {this.props.onMouseDown}
 				onMouseMove = {this.props.onMouseMove}
 				onMouseUp = {this.props.onMouseUp}
-				// onMouseLeave = {this.props.onMouseLeave}
-				
-
+				onMouseLeave = {this.props.onMouseLeave}
 			>
 				<p>{ title }</p>
-				<span onClick={()=> { handleCancel();}}
-					onSelectstart={()=>{return false;}}
+				<span 
+					onClick={()=> { handleCancel();}}
 				>X</span>
 			</div>    
 		);
 	}
 }
+
 
 const mapDispatchToProps = ( dispatch )=> ({
 
@@ -36,8 +35,5 @@ const mapDispatchToProps = ( dispatch )=> ({
 		});
 	}
 });
-
-
-
 
 export default connect(({login})=>({login}),mapDispatchToProps)(LoginHeader);

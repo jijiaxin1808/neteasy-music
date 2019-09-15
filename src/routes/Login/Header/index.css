@@ -13,10 +13,12 @@
   color: #fdfdfd;
   font-size: 12px;
   font-weight: bold;
+  user-select: none;
 }
 .loginName span {
   color: #888;
   cursor: pointer;
   width: 10px;
   font-size: 12px;
+  user-select: none;
 }
