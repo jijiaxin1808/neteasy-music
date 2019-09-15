@@ -1,0 +1,84 @@
+.songlists {
+  @spacing: 28px;
+  margin-left: -48px;//important
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: @spacing;
+  .songlists-item {
+    margin-bottom: @spacing;
+    width: 140px;
+    margin-left: 46px;//important
+    & > a {
+      display: inline-block;
+      position: relative;
+    }
+    .mask {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: url("../../assets/coverall.png") 0px 0px;
+    }
+    .bottom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 27px;
+      line-height: 27px;
+      background: url("../../assets/coverall.png") no-repeat 0px -538px;
+      .ico-listen {
+        float: left;
+        width: 16px;
+        height: 16px;
+        background: url("../../assets/iconall.png") no-repeat 0px -22px;
+        margin: 6px 2px 5px 8px;
+      }
+      .num-listen {
+        float: left;
+        color: #ccc;
+        font-size: 12px;
+      }
+      .ico-play {
+        float: right;
+        width: 16px;
+        height: 16px;
+        margin: 5px 8px 0 0;
+        background: url("../../assets/iconall.png") 0px 0px;
+      }
+    }
+    #ellipsis() {
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      word-wrap: normal;
+    }
+    .dec {
+      #ellipsis();
+      color: #000;
+      padding-top: 6px;
+      padding-bottom: 3px;
+      font-size: 14px;
+      a {
+        display: inline-block;
+      }
+    }
+    p:last-child {
+      color: #999;
+      #ellipsis();
+      a {
+        color: #999;
+        padding: 0 4px;
+      }
+      .ico-v {
+        display: inline-block;
+        width: 13px;
+        height: 15px;
+        background: url("../../assets/icon.png") no-repeat 0px 3px;
+      }
+    }
+  }
+}

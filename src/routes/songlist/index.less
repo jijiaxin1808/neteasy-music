@@ -1,8 +1,64 @@
 .wrap {
   width: 980px;
-  height: 2000px;
   padding: 40px;
   margin: 0 auto;
   border: 1px solid #d3d3d3;
   border-width: 0 1px;
+}
+.songlist-title {
+  height: 40px;
+  border-bottom: 2px solid rgb(194, 12, 12);
+  &:before,
+  &:after {
+    content: '';
+    display: table;
+  }
+  .flag {
+    font-size: 24px;
+    float: left;
+    font-weight: normal;
+    .flag-select {
+      display: inline-block;
+      position: relative;
+      padding: 0px 5px 0px 0px;
+      margin: 0px 0px -3px 12px;
+      color: rgb(12, 115, 194);
+      text-decoration: none;
+      cursor: pointer;
+      background: url("../../assets/button2.png") -159px -182px no-repeat;
+      & > i {
+        display: inline-block;
+        height: 31px;
+        line-height: 31px;
+        padding: 0px 10px 0px 15px;
+        vertical-align: top;
+        text-align: center;
+        white-space: nowrap;
+        font-style: normal;
+        font-size: 12px;
+        overflow: hidden;
+        background: url("../../assets/button2.png") 1px -59px no-repeat;
+        &:hover {
+          background-position: 1px -141px;
+        }
+        .ico {
+          margin-left: 5px;
+          display: inline-block;
+          width: 8px;
+          height: 5px;
+          background: transparent url("../../assets/icon.png") -70px -543px;
+        }
+      }
+    }
+  }
+  .songlist-hot {
+    float: right;
+    width: 46px;
+    height: 29px;
+    line-height: 29px;
+    text-align: center;
+  }
+  &:after {
+    clear: both;
+  }
 }

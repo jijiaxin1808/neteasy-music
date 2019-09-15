@@ -6,28 +6,28 @@ export default {
 
 	},
 	reducers: {
-		"orientate-cur-page"(state, { curPage }) {
+		"orientate-cur-page"(state, { payload }) {
 			return {
 				...state,
-				curPage,
+				curPage: payload.curPage,
 			};
 		},
-		"next-page"(state, { curPage }) {
+		"next-page"(state, { payload }) {
 			return {
 				...state,
-				curPage,
+				curPage: payload.curPage,
 			};
 		},
-		"prev-page"(state, { curPage }) {
+		"prev-page"(state, { payload }) {
 			return {
 				...state,
-				curPage,
+				curPage: payload.curPage,
 			};
 		},
-		"change-start-page"(state, { startPage }) {
+		"change-start-page"(state, { payload }) {
 			return {
 				...state,
-				startPage,
+				startPage: payload.startPage,
 			};
 		},
 		"add-tags-list"(state, { payload }) {
@@ -58,21 +58,49 @@ export default {
 				...state,
 				showTagList: !state.showTagList
 			};
+		},
+		"add-play-list"(state, { payload }) {
+		  console.log(payload);
+		  return {
+		    ...state,
+				playlists: payload.playlists,
+			};
+		},
+		"change-cur-tag"(state, { payload }) {
+		  return {
+		    ...state,
+				curTag: payload.tag,
+			};
 		}
 	},
 	effects: {
 		*getTags(action, { call, put }) {
+
 			const temp = yield call(songListService.getTagList, {});
-			// console.log('temp.data', temp.data);
-			if(temp.data.code === 200) {
-				console.log(temp.data.categories);
+
+			if(temp.code === 200) {
 
 				yield put({
 					type: "add-tags-list",
 					payload: {
-						categories: temp.data.categories,
-						sub: temp.data.sub,
-					}
+						categories: temp.categories,
+						sub: temp.sub,
+					},
+				});
+			}
+		},
+
+		*getSongs({ payload }, { call, put }) {
+
+			const temp = yield call(songListService.getSongList, payload.tag, payload.curPage);
+
+			if(temp.code === 200) {
+				console.log(temp);
+				yield put({
+					type: "add-play-list",
+					payload: {
+						playlists: temp.playlists,
+					},
 				});
 			}
 		}
