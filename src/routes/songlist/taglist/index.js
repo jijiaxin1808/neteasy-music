@@ -3,10 +3,24 @@
 * */
 import React from "react";
 import { connect } from "dva";
-import { Link } from "dva/router";
+import { NavLink } from "dva/router";
 import "./index.less";
 
 class TagList extends React.Component {
+
+	constructor(props) {
+		super(props);
+		this.state = {
+
+		};
+		this.handleTagClick = this.handleTagClick.bind(this);
+	}
+
+	handleTagClick() {
+
+		setTimeout(() => {window.location.reload()}, 1);
+
+	}
 
 	render() {
 
@@ -15,27 +29,31 @@ class TagList extends React.Component {
 		return (
 			<div className="song-taglist">
 				<div className="hd">
-					<i className="hd-arrow"></i>
+					<i className="hd-arrow" />
 				</div>
 				<div className="bd">
 					<h3 className="song-taglist-all">
-						<Link to="/discover/playlist">全部风格</Link>
+						<NavLink to="/discover/playlist">全部风格</NavLink>
 					</h3>
 					{
 
 						categories.map((item, index) => (
 							<dl key={item}>
 								<dt>
-									<i className={`icon-${index + 1}`}></i>
+									<i className={`icon-${index + 1}`} />
 									<span>{item}</span>
 								</dt>
 								<dd>
 									{
 										sub[index].map(item => (
 											<React.Fragment>
-												<Link to={"/discover/playlist?" + item.name}>
+												<NavLink
+													to={"/discover/playlist?" + item.name}
+													activeClassName="tag-active"
+													onClick={() => {this.handleTagClick()}}
+												>
 													{item.name}
-												</Link>
+												</NavLink>
 												<span>|</span>
 											</React.Fragment>
 										))
@@ -46,9 +64,7 @@ class TagList extends React.Component {
 
 					}
 				</div>
-				<div className="fd">
-
-				</div>
+				<div className="fd" />
 			</div>
 		);
 	}
@@ -58,5 +74,5 @@ const mapState = ({ SongList }) => ({
 	categories: SongList.categories,
 	sub: SongList.sub,
 });
-
-export default connect(mapState)(TagList);
+const mapDispatch = (dispatch) => ({});
+export default connect(mapState, mapDispatch)(TagList);

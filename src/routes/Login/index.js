@@ -120,7 +120,7 @@ class Login extends React.Component {
 		};
 		return ( 
 			<div>
-				{ func()}       
+				{ func()}
 			</div>
 		);
 	}
@@ -128,13 +128,10 @@ class Login extends React.Component {
 
 const mapDispatchToProps = (dispatch) => ({
 	mouseMove(e,isMouseDown,login) {
-		// console.log(isMouseDown);
 		if( isMouseDown ) {
-			// console.log("move了");
 			var clientX1 = e.clientX;
 			var clientY1 = e.clientY;
 			// 盒子的偏移量 = 当前鼠标的位置 - 鼠标按下时相对盒子的位置
-			// console.log(login.moveX,"movex");
 			if(login.moveX) {
 				let loginX = clientX1 - Number(login.moveX.replace(/px$/,""))+"px";
 				let loginY = clientY1 - Number(login.moveY.replace(/px$/,""))+"px";

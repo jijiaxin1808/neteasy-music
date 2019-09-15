@@ -14,6 +14,8 @@ const app = dva({
 			categories: [],
 			sub: [[]],
 			showTagList: false,
+			playlists: [],
+			curTag: "全部",
 	  },
 	}
 });

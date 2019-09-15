@@ -9,10 +9,10 @@ function RouterConfig({ history }) {
 
 		<Router history={history}>
 			<div className="body">
+				<Header />
 				<Switch>
 					<Route path="/discover/playlist" component={SongList} />
 				</Switch>
-				<Header />
 				<Footer />
 			</div>
 		</Router>
