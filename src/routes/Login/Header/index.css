@@ -1,0 +1,22 @@
+.loginName {
+  width: 530px;
+  height: 38px;
+  background-color: #2d2d2d;
+  line-height: 38px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: move;
+}
+.loginName p {
+  color: #fdfdfd;
+  font-size: 12px;
+  font-weight: bold;
+}
+.loginName span {
+  color: #888;
+  cursor: pointer;
+  width: 10px;
+  font-size: 12px;
+}

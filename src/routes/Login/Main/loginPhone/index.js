@@ -7,7 +7,8 @@ import "./index.less";
 import { connect } from "dva";
 import  { loginPhone as login } from "../../../../services/login";
 import axios from "axios";
-import qs from 'qs';
+import qs from "qs";
+import { message } from 'antd';
 
 class LoginPhone extends React.Component {
 	render() {
@@ -37,7 +38,6 @@ const mapDispatchToProps = (dispatch)=> ({
 				userName: value
 			}
 		});
-		
 	},
 	changePassword( value ) {
 		dispatch({
@@ -48,25 +48,34 @@ const mapDispatchToProps = (dispatch)=> ({
 		});
 	},
 	loginPhone( value ) {
-		// const data = {
-		// 	phone: value.userName,
-		// 	password: value.userPassword 
-		// }
+		const data = {
+			phone: value.userName,
+			password: value.userPassword 
+		}
+		const data1 = qs.stringify(data);
 		// dispatch({
 		// 	type:"login/LoginPhone",
 		// 	payload: data
 		// });
-		const data = {
-			name: "13043130139",
-			password: "123iloveyouso"
-		};  
+		axios.post("http://localhost:3000/login/cellphone",data1).then((res)=> {
+			console.log(res);
+			if(res.data.code === 200) {
+				message.success("登录成功");
+				dispatch({
+					type:"login/changeStatus",
+					payload: {
+						type:""
+					}
+				});
+			}
+			else {
+				message.error(res.data.message);
+			}
 
-		const data1 = qs.stringify(data);
-		// const data1 = JSON.stringify(data);
-		const res = axios.post("http://192.168.1.23:3000/login/cellphone",{data:data1});
-		// const Res = login();
 
-
+		})
+		
+		
 	},
 	handleBack() {
 		dispatch({

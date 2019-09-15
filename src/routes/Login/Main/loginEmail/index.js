@@ -5,10 +5,16 @@ import LoginBar from "../../../../components/loginBar";
 import "./index.less";
 import { NavLink } from "dva/router";
 import { connect } from "dva";
+import qs from 'qs';
+import axios from 'axios';
+import { message } from 'antd';
+
+
+
 class LoginEmail extends React.Component {
 	
 	render() {
-		const { changeEmail,changePassword,LoginEmail,handleBack } = this.props;
+		const { changeEmail,changePassword,handleEmail,handleBack } = this.props;
 		return (
 			<div className = "loginEmail ">   
 				<Input placeholder = "请输入邮箱"  onChange = {(e)=> {changeEmail(e.target.value);}}   />
@@ -19,7 +25,7 @@ class LoginEmail extends React.Component {
 						{ "无法登录？" }
 					</NavLink>
 				</div>
-				<Button type = "blue" url="/" content = "登录" onClick = {()=> { LoginEmail(this.props.login) }}/>
+				<Button type = "blue" url="/" content = "登录" onClick = {()=> { handleEmail(this.props.login) }}/>
 				<LoginBar content="<< 选择登录方式" onClick = { ()=> {handleBack();}  } />
 			</div>
 		);
@@ -44,12 +50,27 @@ const mapDispatchToProps = ( dispatch )=> ({
 	},
 	handleEmail( value ) {
 		const data = {
-			phone: value.userName,
+			email: value.userEmail,
 			password: value.userPassword 
-		};
-		dispatch({
-			type:"login/LoginPhone",
-			payload: data
+		}
+		const data1 = qs.stringify(data);
+		// dispatch({
+		// 	type:"login/LoginPhone",
+		// 	payload: data
+		// });
+		axios.post("http://localhost:3000/login",data1).then((res)=> {
+			if(res.data.code === 200) {
+				message.success("登录成功");
+				dispatch({
+					type:"login/changeStatus",
+					payload: {
+						type:""
+					}
+				});
+			}
+			else {
+				message.error(res.data.message);
+			}
 		});
 	},
 	handleBack() {

@@ -5,11 +5,13 @@ export default {
 		name: "登录",
 		type: "loginDefault",
 		isMouseDown: "false",
-		loginTop: "300px",
-		loginLeft: "700px",
+		loginTop: "",
+		loginLeft: "",
 		userName: "",
 		userEmail: "",
-		userPassword: ""
+		userPassword: "",
+		RegPassword:"",
+		RegName:""
 	},
 	reducers: {
 		loginPhone( state,action ) {
@@ -18,8 +20,8 @@ export default {
 		loginEmail( state,action ) {
 			return { ...state,...action.payload };
 		},
-		mouseDown( state ) {
-			return { ...state,isMouseDown:true };
+		mouseDown( state,action ) {
+			return { ...state,isMouseDown:true,...action.payload };
 		},
 		mouseUp( state ) {
 			return { ...state,isMouseDown:false };
@@ -35,9 +37,18 @@ export default {
 		} ,
 		changeInfo ( state,action ) {
 			return { ...state,...action.payload };
+		},
+		width ( state,action ) {
+			return { ...state,...action.payload }
+		},
+		initPosition (state,action) {
+			return { ...state,...action.payload }
 		}
 
 	},
 	effects: {
+		
+
+
 	}
 };

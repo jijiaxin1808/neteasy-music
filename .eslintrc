@@ -17,8 +17,7 @@
       "tab"
   ],
   "linebreak-style": [
-      "warn",
-      "unix"
+    "off", "windows"
   ],
   "quotes": [
       "warn",

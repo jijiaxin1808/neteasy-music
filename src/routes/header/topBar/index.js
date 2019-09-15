@@ -50,7 +50,7 @@ const mapToDispatchToProps = (dispatch)=> ({
 		dispatch({
 			type: "login/changeStatus",
 			payload: {
-				type: "loginPhone"
+				type: "loginDefault"
 			}
 		});
 	},
