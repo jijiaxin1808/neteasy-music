@@ -18,7 +18,7 @@ class TagList extends React.Component {
 
 	handleTagClick() {
 
-		setTimeout(() => {window.location.reload()}, 100);
+		setTimeout(() => {window.location.reload()}, 1);
 
 	}
 
@@ -50,7 +50,7 @@ class TagList extends React.Component {
 												<NavLink
 													to={"/discover/playlist?" + item.name}
 													activeClassName="tag-active"
-													onClick={this.handleTagClick}
+													onClick={() => {this.handleTagClick()}}
 												>
 													{item.name}
 												</NavLink>
@@ -74,5 +74,5 @@ const mapState = ({ SongList }) => ({
 	categories: SongList.categories,
 	sub: SongList.sub,
 });
-
-export default connect(mapState)(TagList);
+const mapDispatch = (dispatch) => ({});
+export default connect(mapState, mapDispatch)(TagList);

@@ -60,13 +60,14 @@ export default {
 			};
 		},
 		"add-play-list"(state, { payload }) {
-		  console.log(payload);
+
 		  return {
 		    ...state,
 				playlists: payload.playlists,
 			};
 		},
 		"change-cur-tag"(state, { payload }) {
+
 		  return {
 		    ...state,
 				curTag: payload.tag,
@@ -95,7 +96,7 @@ export default {
 			const temp = yield call(songListService.getSongList, payload.tag, payload.curPage);
 
 			if(temp.code === 200) {
-				console.log(temp);
+
 				yield put({
 					type: "add-play-list",
 					payload: {

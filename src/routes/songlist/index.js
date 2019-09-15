@@ -8,6 +8,12 @@ import "./index.less";
 
 class SongList extends React.Component {
 
+	constructor(props) {
+		super(props);
+		this.state = {
+			tag: "全部",
+		};
+	}
 	render() {
 
 		let tag = (decodeURI(this.props.location.search)).split("?")[1];
@@ -18,11 +24,9 @@ class SongList extends React.Component {
 		} =this.props;
 
 		const {
-			ChangeTagState,
 			handleSelectClick,
 		} = this.props;
 
-		ChangeTagState(tag);//
 
 		return (
 			<div className="wrap">
@@ -53,15 +57,18 @@ class SongList extends React.Component {
 	}
 	componentDidMount() {
 
+		let tag = (decodeURI(this.props.location.search)).split("?")[1];
+
 		const {
 			getTagList,
 			getSongList,
-			curTag,
 			curPage,
+			ChangeTagState,
 		} = this.props;
 
+		ChangeTagState(tag);
 		getTagList();
-		getSongList(curTag, curPage);
+		getSongList(tag, curPage);
 	}
 }
 

@@ -53,7 +53,7 @@ class Login extends React.Component {
 					<div>
 						<div className="mask"></div>
 						<div className="login" style={{top:`${ this.props.login.loginTop }`,left:`${ this.props.login.loginLeft }`} }>
-							<LoginHeader title = "网易邮箱登录" 
+							<LoginHeader title = "网易邮箱登录"
 								onMouseMove = {(e)=>{mouseMove(e,login.isMouseDown,login);}}
 								onMouseDown = {(e)=>{mouseDown(e,login);}}
 								onMouseUp = {(e)=>{mouseUp(e);}}
@@ -117,9 +117,9 @@ class Login extends React.Component {
 			}
 		};
 
-		return ( 
+		return (
 			<div>
-				{ func()}       
+				{ func()}
 			</div>
 		);
 	}
@@ -127,13 +127,10 @@ class Login extends React.Component {
 
 const mapDispatchToProps = (dispatch) => ({
 	mouseMove(e,isMouseDown,login) {
-		console.log(isMouseDown);
 		if( isMouseDown ) {
-			console.log("move了");
 			var clientX1 = e.clientX;
 			var clientY1 = e.clientY;
 			// 盒子的偏移量 = 当前鼠标的位置 - 鼠标按下时相对盒子的位置
-			console.log(login.moveX,"movex");
 			if(login.moveX) {
 				let loginX = clientX1 - Number(login.moveX.replace(/px$/,""))+"px";
 				let loginY = clientY1 - Number(login.moveY.replace(/px$/,""))+"px";
@@ -148,17 +145,15 @@ const mapDispatchToProps = (dispatch) => ({
 			}
 		}
 		else {
-			console.log("不在绘制状态");
+
 		}
 	},
 	mouseDown(e,login) {
-		console.log(login.loginTop);
-		console.log( Number(login.loginLeft.replace(/px$/,"")) ,"5555");
+
 		let moveX = e.clientX -  Number(login.loginLeft.replace(/px$/,""))+"px";
 		let moveY = e.clientY -  Number(login.loginTop.replace(/px$/,""))+"px";
 		// let moveX = e.clientX - e.target.offectLeft+"px";
 		// let moveY = e.clientY - e.target.offectTop+"px";
-		console.log("move11",moveX,e.offectLeft);
 		dispatch({
 			type:"login/mouseDown",
 			payload:{
