@@ -16,10 +16,11 @@ class SongList extends React.Component {
 	}
 	render() {
 
-		let tag = (decodeURI(this.props.location.search)).split("?")[1];
+		let tag = (decodeURI(this.props.location.search)).split("?")[1] || "全部";
 
 		const {
 			showTagList,
+			playlists,
 			hot = true,
 		} =this.props;
 
@@ -29,7 +30,7 @@ class SongList extends React.Component {
 
 
 		return (
-			<div className="wrap">
+			<div className="songlists-wrap">
 				<div>
 					<div className="songlist-inner">
 						<div className="songlist-title">
@@ -48,27 +49,30 @@ class SongList extends React.Component {
 							</h3>
 							{ hot && <a className="songlist-hot">热门</a> }
 						</div>
-						<SongListInner />
+						<SongListInner
+							playlists={playlists}
+						/>
 					</div>
 				</div>
-				<Pagination />
+				<Pagination limit={35}/>
+				{/*	limit */}
 			</div>
 		);
 	}
 	componentDidMount() {
 
-		let tag = (decodeURI(this.props.location.search)).split("?")[1];
+		let tag = (decodeURI(this.props.location.search)).split("?")[1] || "全部";
 
 		const {
+			curPage,
 			getTagList,
 			getSongList,
-			curPage,
 			ChangeTagState,
 		} = this.props;
 
 		ChangeTagState(tag);
 		getTagList();
-		getSongList(tag, curPage);
+		getSongList(tag, curPage, 35);
 	}
 }
 
@@ -85,13 +89,14 @@ const mapDispatch = (dispatch) => ({
 			type: "SongList/getTags",
 		});
 	},
-	getSongList(tag, curPage) {
+	getSongList(tag, curPage, limit) {
 
 		dispatch({
 			type: "SongList/getSongs",
 			payload: {
 				tag,
 				curPage,
+				limit,
 			},
 		});
 	},

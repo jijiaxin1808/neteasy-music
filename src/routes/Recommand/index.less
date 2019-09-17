@@ -1,0 +1,311 @@
+@img-wid: 730px;
+@img-hei: 336px;
+@wid: 980px;
+@shadow-pos: -20px;
+@arrow-pos: -70px;
+
+.rec-banner {
+  background-color: #666;
+  .rec-wrap {
+    width: @wid + 2px;
+    height: @img-hei;
+    margin: 0 auto;
+    img {
+      width: @img-wid;
+      height: @img-hei;
+    }
+  }
+}
+
+.rec-banner-inner {
+  position: relative;
+  .arrow {
+    display: block;
+    position: absolute;
+    top: 50%;
+    margin-top: -31px;
+    width: 37px;
+    height: 63px;
+    background: url("../../assets/banner.png") no-repeat;
+    &.arrow-l {
+      background-position: 0 -360px;
+      left: @arrow-pos;
+    }
+    &.arrow-r {
+      background-position: 0 -508px;
+      right: @arrow-pos;
+    }
+    &.arrow-l:hover {
+      background-position: 0 -430px;
+    }
+    &.arrow-r:hover {
+      background-position: 0 -578px;
+    }
+  }
+  & > a{
+    display: block;
+  }
+  .download {
+    position: absolute;
+    top: 0;
+    left: @img-wid;
+    height: @img-hei;
+    width: calc(~"100% - @{img-wid}");
+    background: url("../../assets/download.png") no-repeat 0 0;
+    span {
+      position: absolute;
+      height: @img-hei;
+      width: 20px;
+      top: 0;
+      background: url("../../assets/banner.png") no-repeat 0 0;
+      &.shadow-l {
+        left: @shadow-pos;
+      }
+      &.shadow-r {
+        right: @shadow-pos;
+      }
+    }
+    & > a {
+      z-index: 20;
+      display: inline-block;
+      width: 215px;
+      height: 56px;
+      margin: 212px 19px 0 19px;
+      background: url("../../assets/download.png") no-repeat 0 99999px;
+      &:hover {
+        background-position: 0 -340px;
+      }
+    }
+    & > p {
+      font-size: 12px;
+      color: rgb(141, 141, 141);
+      text-align: center;
+      margin-top: 5px;
+    }
+  }
+}
+
+.rec-ban-dots {
+  @scale: 8px;
+  position: absolute;
+  z-index: 30;
+  bottom: 10px;
+  left: 50%;
+  margin-left: -174px;
+  .recClickFlag {
+    display: inline-block;
+    width: @scale;
+    height: @scale;
+    margin: 0 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    background: url("../../assets/banner.png") no-repeat -3px -349px;
+    &.active {
+      background: url("../../assets/banner.png") no-repeat -22px -349px;
+    }
+  }
+}
+
+.rec-module {
+  width: 980px;
+  background: url("../../assets/wrap1.png") repeat-y 100% 100%;
+  margin: 0 auto;
+  .rec-module-l {
+    width: 734px;
+    padding: 19px;
+  }
+  /*共用模块样式*/
+  .rec-module-title {
+    border-bottom: 2px solid #C10D0C;
+    padding: 0 10px;
+    &:before,
+    &:after {
+      content: "";
+      display: block;
+    }
+    &:after {
+      clear: both;
+    }
+    & > a {
+      float: left;
+      font-size: 20px;
+      font-weight: normal;
+      line-height: 28px;
+      color: #333;
+      .ico-rec {
+        display: inline-block;
+        width: 18px;
+        height: 17px;
+        background: url("../../assets/index.png") no-repeat -234px -161px;
+        margin-right: 5px;
+      }
+    }
+    .more {
+      float: right;
+      padding-top: 9px;
+      .icon-more {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+
+        margin-left: 5px;
+        background: url("../../assets/index.png") no-repeat 0px -241px;
+      }
+    }
+  }
+  /*共用模块样式*/
+}
+
+.rec-songlists-title {
+  .tab{
+    float: left;
+    padding: 9px 14px 8px 14px;
+    & > a {
+      display: inline-block;
+      color: #666;
+      font-size: 12px;
+    }
+    & > span {
+      margin: 0 10px;
+      font-size: 12px;
+      color: #d8d8d8;
+    }
+  }
+}
+
+#rec() {
+  background: rgb(245, 245, 245);
+  border-width: 1px;
+  border-style: solid;
+  border-image: initial;
+  border-color: rgb(211, 211, 211);
+
+}
+.rec-new-inner {
+  #rec();
+  padding: 27px;
+  position: relative;
+  height: 186px;
+  overflow: hidden;
+  margin: 20px 0px 37px;
+  ul {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    left: 35px;
+    &.aniActive {
+      transition: left 1s ease-out 0s;
+    }
+  }
+  .arrow {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: url("../../assets/index.png") no-repeat;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    &.arrow-l {
+      left: 5px;
+      background-position: -263px -78px;
+    }
+    &.arrow-r {
+      right: 5px;
+      background-position: -304px -78px;
+    }
+    &.arrow-l:hover {
+      background-position: -283px -78px;
+    }
+    &.arrow-r:hover {
+      background-position: -324px -78px;
+    }
+
+  }
+}
+
+/*新碟上架模块*/
+.recNewList {
+  li {
+    display: inline-block;
+    height: 150px;
+    width: 118px;
+    margin-right: 10px;
+    background: url("../../assets/index.png") -260px 100px;
+    p {
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      line-height: 17px;
+      &.tit {
+        color: #666;
+      }
+    }
+  }
+}
+/*新碟上架模块*/
+/*榜单模块*/
+.rec-toplists-inner {
+  #rec();
+  height: 472px;
+  margin-top: 20px;
+  background: url("../../assets/index_bill.png") no-repeat 3px 0px;
+  dl {
+    display: inline-block;
+    width: 230px;
+  }
+  dt {
+    padding: 20px 0 0 23px;
+  }
+  .rec-toplist-cover {
+    display: inline-block;
+    margin-right: 12px;
+  }
+  .rec-toplist-tit {
+    @ic-wid: 23px;
+    @ic-hei: 24px;
+    display: inline-block;
+    a > h3{
+      color: #333;
+      font-weight: bold;
+    }
+    .btn > a {
+      font-size: 0;
+      display: inline-block;
+      text-decoration: none;
+      width: @ic-wid;
+      height: @ic-hei;
+      background: url("../../assets/index.png") no-repeat 0 1314520px;
+    }
+    @ico-pos-y: -205px;
+    .btn > .icon-play {
+      background-position: -267px @ico-pos-y;
+      margin-right: 7px;
+      &:hover {
+        background-position: -267px @ico-pos-y - 30;
+      }
+    }
+    .btn > .icon-collect {
+      background-position: -300px -205px;
+      &:hover {
+        background-position: -300px @ico-pos-y - 30;
+      }
+    }
+  }
+}
+/*榜单模块*/
+
+
+
+
+.u-cover-alb1 {
+  position: relative;
+  margin-bottom: 10px;
+  .mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../../assets/coverall.png") no-repeat 0 -570px;
+  }
+}

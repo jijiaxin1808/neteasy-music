@@ -122,9 +122,9 @@ class Pagination extends React.Component {
 	componentDidUpdate() {
 		// console.log(this.props);
 		const { curPage, curTag } = this.props.SongList;
-		const { getMoreSongs, }= this.props;
+		const { getMoreSongs, limit, }= this.props;
 
-		getMoreSongs(curPage, curTag);
+		getMoreSongs(curPage, curTag, limit);//
 	}
 
 }
@@ -182,12 +182,13 @@ const mapDispatch = (dispatch) => ({
 			},
 		});
 	},
-	getMoreSongs(curPage, tag) {
+	getMoreSongs(curPage, tag, limit) {
 		dispatch({
 			type: "SongList/getSongs",
 			payload: {
 				curPage,
 				tag,
+        limit,
 			},
 		});
 	},
