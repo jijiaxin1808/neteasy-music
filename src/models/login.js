@@ -6,7 +6,7 @@ export default {
 	namespace: "login",
 	state: {
 		name: "登录",
-		type: "verifyCode",
+		type: "",
 		isMouseDown: "false",
 		loginTop: "",
 		loginLeft: "",
