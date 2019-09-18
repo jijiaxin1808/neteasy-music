@@ -15,6 +15,8 @@ function RouterConfig({ history }) {
 				<Switch>
 					<Route exact path="/discover/playlist" component={SongList} />
 					<Route exact path="/" component={Recommand} />
+					<Route exact path="/discover/toplist" component={TopList} />
+
 				</Switch>
 				<Footer />
 			</div>

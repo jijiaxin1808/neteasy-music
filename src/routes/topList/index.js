@@ -4,6 +4,7 @@ import TopListBar from "../../components/topListBar";
 import SongListRank from "../../components/songListRank";
 import { connect } from "dva";
 import HandleMusic from "../../components/handleMusic"; 
+import Comment from "../../components/comment";
 
 class TopList extends React.Component {
 	componentDidMount() {
@@ -28,6 +29,7 @@ class TopList extends React.Component {
 				<div className = "topList-rightBar">
 					<HandleMusic data = { toplist.listInfo } />
 					<SongListRank data = { toplist.tracks } Info = { toplist.listInfo } />
+					<Comment data1 = { toplist.comment } />
 				</div>
 
 				
@@ -42,6 +44,9 @@ const mapDispatchToProps = ( dispatch )=> ({
 		});
 		dispatch({
 			type:"toplist/getToplist"
+		});
+		dispatch({
+			type:"toplist/getToplistComment"
 		});
 	}
 });

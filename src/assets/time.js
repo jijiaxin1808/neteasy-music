@@ -18,10 +18,10 @@ function   getDate( time ) {
 		return `${mouth}月${day}日`;
 	}
 	else if( nowDate.getHours !== hour  ) {
-		return `${hour}:${min}`;
+		return `${nowDate.getMinutes - min}分钟前`;
 	}
-	else if( nowDate.getMinutes !== min  ) {
-		return `${nowDate.getSeconds()-sec}`;
+	else if( nowDate.getMinutes !== min ) {
+		return `${nowDate.getSeconds()-sec}秒前`;
 	}
 }
 

@@ -9,7 +9,7 @@ class HandleMusic extends React.Component {
 			<div className= "handle-music">
 				<div style ={{position:"relative"}}>
 					<img src = { data.coverImgUrl } alt= { data.coverImgUrl } />
-					<span class="msk"></span>
+					<span className="msk"></span>
 				</div>
 				<div className = "handle-music-btn" >
 					<p>{ data.name }</p>
