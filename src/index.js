@@ -17,6 +17,11 @@ const app = dva({
 			playlists: [],
 			curTag: "全部",
 	  },
+		Recommand: {
+			recplaylists: [],
+			recalbums: [],
+			rectoplists: [],
+		},
 	}
 });
 

@@ -1,6 +1,7 @@
 import * as songListService from "../services/songlist";
 
 export default {
+
 	namespace: "SongList",
 	state: {
 
@@ -94,7 +95,7 @@ export default {
 
 		*getSongs({ payload }, { call, put }) {
 
-			const temp = yield call(songListService.getSongList, payload.tag, payload.curPage);
+			const temp = yield call(songListService.getSongList, payload.tag, payload.curPage, payload.limit);
 
 			if(temp.code === 200) {
 

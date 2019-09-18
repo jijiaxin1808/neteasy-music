@@ -47,13 +47,10 @@ class SongListInner extends React.Component {
 
 		);
 	}
-
 }
 
 SongListInner.PropTypes = {
 	playlists: PropTypes.array.isRequired,
 };
 
-export default connect(({ SongList, loading, }) => ({
-	playlists: SongList.playlists,
-}))(SongListInner);
+export default SongListInner;

@@ -33,7 +33,7 @@ class TagList extends React.Component {
 				</div>
 				<div className="bd">
 					<h3 className="song-taglist-all">
-						<NavLink to="/discover/playlist">全部风格</NavLink>
+						<NavLink to="/discover/playlist?全部" onClick={this.handleTagClick}>全部风格</NavLink>
 					</h3>
 					{
 
@@ -46,7 +46,7 @@ class TagList extends React.Component {
 								<dd>
 									{
 										sub[index].map(item => (
-											<React.Fragment>
+											<React.Fragment key={item}>
 												<NavLink
 													to={"/discover/playlist?" + item.name}
 													activeClassName="tag-active"

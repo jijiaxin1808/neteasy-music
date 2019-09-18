@@ -1,5 +1,5 @@
-import baseUrl from "../assets/baseUrl";
 import request from "../utils/request";
+import baseUrl from "../assets/baseUrl";
 
 export function getTagList() {
 	return request(`${ baseUrl }playlist/catlist`);
