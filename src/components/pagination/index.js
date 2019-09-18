@@ -64,7 +64,7 @@ class Pagination extends React.Component {
 								}else {
 									return index + startPage;
 								}
-
+ 
 							}).map(
 								(item, index) =>
 									(item < totalPage) && <a

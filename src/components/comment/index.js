@@ -5,11 +5,11 @@ import getTime from "../../assets/time";
 
 class Comment extends React.Component {
 	render() {
-		const { data1 } = this.props;
+		const { data1,className } = this.props;
 		const func = ()=> {
 			if( data1 ) {
 				return (
-					<div className = "comment">
+					<div className = {className}>
 						<div className = "comment-header">最新评论</div>
 						{	
 							data1.map(( item,index )=>{
@@ -45,7 +45,7 @@ class Comment extends React.Component {
 												}
 												<span>
 													<i className = { item.liked?"comment-item-like":"comment-item-unlike" } ></i>
-													<span >回复</span>
+													<span style = {{ marginRight:"5px",display:"inline-block" }} >回复</span>
 												</span>
 											</div>
 										</div>

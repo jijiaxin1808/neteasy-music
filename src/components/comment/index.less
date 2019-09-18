@@ -9,13 +9,16 @@
     color: #333;
 }
 .comment-item {
+    
     img {
         height: 50px;
         width: 50px;
+        flex: 0 0 auto;
     }
     padding: 15px 0;
     border-Bottom: 1px dotted #ccc;
     display: flex;
+
 }
 .comment-beReplied {
     img {
@@ -53,14 +56,14 @@
     align-self: flex-start;
     a {
         display: inline;
-        
     }
     p {
         word-break: break-word;
+        display: inline-block;
     }
 }
 .comment-content-footer {
-    margin-top: 5px;
+    margin-top: 20px;
     display: flex;
     justify-content: space-between;
     width: 610px;
@@ -113,7 +116,6 @@
     font-size: inherit;
     line-height: 14px;
     word-break: break-word;
-
 }
 .comment-beReplied {
     margin-top: 5px;

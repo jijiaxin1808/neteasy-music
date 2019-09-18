@@ -22,29 +22,31 @@ class SongListRank extends React.Component {
 							<li style = {{ width: "91px" }} className = "topList-rightBar-list-li">
                         时长
 							</li>
-							<li style = {{ width: "173px" }} className = "topList-rightBar-list-li">
+							<li style = {{ width: "172px" }} className = "topList-rightBar-list-li">
                         歌手
 							</li>
 						</ul>
 					</div>
 				</div>
+				<div className = "songListRank-items">
             					{
-					data.map(( item,index )=>{
+						data.map(( item,index )=>{
             
-						if(index<3) {
-							if ( (index+1)%2===0 ) {
-								return <TopListItem data = { item }  index = { index+1 } haveImg = { true } isWhite={ true } />;
+							if(index<3) {
+								if ( (index+1)%2===0 ) {
+									return <TopListItem data = { item }  index = { index+1 } haveImg = { true } isWhite={ true } />;
+								}
+								else return <TopListItem data = { item }  index = { index+1 } haveImg = { true } isWhite={ false } />;
 							}
-							else return <TopListItem data = { item }  index = { index+1 } haveImg = { true } isWhite={ false } />;
-						}
-						else {
-							if ( (index+1)%2===0 ) {
-								return <TopListItem data = { item }  index = { index+1 } haveImg = { false } isWhite={ true } />;
+							else {
+								if ( (index+1)%2===0 ) {
+									return <TopListItem data = { item }  index = { index+1 } haveImg = { false } isWhite={ true } />;
+								}
+								else return <TopListItem data = { item }  index = { index+1 } haveImg = { false } isWhite={ false } />;
 							}
-							else return <TopListItem data = { item }  index = { index+1 } haveImg = { false } isWhite={ false } />;
-						}
-					})
-				}
+						})
+					}
+				</div>
 			</div>
 		);
 	}
