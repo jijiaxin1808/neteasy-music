@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "dva";
 import PropTypes from "prop-types";
 import { NavLink } from "dva/router";
 import "./index.less";

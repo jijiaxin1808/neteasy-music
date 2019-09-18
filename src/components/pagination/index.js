@@ -187,7 +187,7 @@ const mapDispatch = (dispatch) => ({
 			payload: {
 				curPage,
 				tag,
-        limit,
+				limit,
 			},
 		});
 	},

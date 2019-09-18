@@ -1,4 +1,4 @@
-import * as topListService from "../services/topList";
+import * as topListService from "../services/toplist";
 import { message } from "antd";
 
 export default {
