@@ -45,6 +45,7 @@ export default {
 					name: item.name,
 					hot: item.hot,
 				});
+				return null;
 			});
 
 			return {

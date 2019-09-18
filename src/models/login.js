@@ -63,7 +63,7 @@ export default {
 						payload:{
 							type:""
 						}
-					})
+					});
 				} 
 			}
 		},
@@ -80,7 +80,7 @@ export default {
 						payload:{
 							type:""
 						}
-					})
+					});
 				} 
 			}
 		},
@@ -97,7 +97,7 @@ export default {
 						payload:{
 							type:""
 						}
-					})
+					});
 				} 
 			}
 		}

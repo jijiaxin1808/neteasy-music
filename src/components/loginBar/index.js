@@ -4,7 +4,7 @@ import "./index.less";
 
 class LoginBar extends React.Component {
 	render() {
-		const { content,handle } = this.props;
+		const { content} = this.props;
 		return (
 			<div className='loginBar' onClick = { this.props.onClick }>
 				<NavLink to="/" >

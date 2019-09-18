@@ -3,7 +3,7 @@ import SongList from "./routes/songlist";
 import React from "react";
 import { Router, Route, Switch } from "dva/router";
 import Header from "./routes/header";
-import TopList from './routes/topList';
+import TopList from "./routes/topList";
 
 function RouterConfig({ history }) {
 	return (

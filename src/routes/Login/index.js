@@ -153,7 +153,7 @@ const mapDispatchToProps = (dispatch) => ({
 		const X = e.clientX;
 		const Y = e.clientY;
 		const offsetX = Number(login.loginLeft.replace(/px$/,""));
-		const offsetY = Number(login.loginTop.replace(/px$/,""))
+		const offsetY = Number(login.loginTop.replace(/px$/,""));
 
 		if ((X >= offsetX ) && ( X <= offsetX+530 ) && ( Y >= offsetY ) && ( Y <= offsetY+38 )   ) {
 

@@ -36,7 +36,7 @@ class TopListItem extends React.Component {
 							);
 						}
 						else return (
-							<ul className = { isWhite?"topList-item-ul-noImage topList-item-ul-white":"topList-item-ul-noImage"  }  >
+							<ul className = { isWhite?"topList-item-ul-noImage  topList-item-ul-white":"topList-item-ul-noImage"  }  >
 								<li style = {{ width: "77px" }} className = "topList-item-li space-around">
 									<p> { index }</p> <span className = "u-icn-75"></span>
 								</li >

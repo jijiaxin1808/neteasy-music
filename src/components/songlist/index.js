@@ -23,7 +23,7 @@ class SongListInner extends React.Component {
 							return(
 								<li className="songlists-item">
 									<NavLink to="/">
-										<img src={`${item.coverImgUrl}` + "?param=140y140"} />
+										<img src={`${item.coverImgUrl}?param=140y140` } alt = { item.coverImgUrl } />
 										<div className="mask" />
 										<div className="bottom">
 											<i className="ico-listen" />
