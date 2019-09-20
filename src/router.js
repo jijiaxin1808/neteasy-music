@@ -5,6 +5,7 @@ import TopList from "./routes/topList";
 import Footer from "./routes/footer";
 import SongList from "./routes/songlist";
 import Recommand from "./routes/Recommand";
+import Artist from "./routes/artist";
 
 function RouterConfig({ history }) {
 	return (
@@ -16,7 +17,7 @@ function RouterConfig({ history }) {
 					<Route exact path="/discover/playlist" component={SongList} />
 					<Route exact path="/" component={Recommand} />
 					<Route exact path="/discover/toplist" component={TopList} />
-
+					<Route exact path="/discover/artist" component={Artist} />
 				</Switch>
 				<Footer />
 			</div>

@@ -18,7 +18,6 @@ export default {
 	effects:{
 		* getToplistDetail( action , { call,put } ) {
 			const res = yield call(topListService.getToplistDetail);
-			console.log("9999");
 			if (res.code ===200 ) {
 				yield put({
 					type:"init",
@@ -33,7 +32,6 @@ export default {
 		},
 		* getToplist( { payload } , { call,put } ) {
 			const res = yield call(topListService.getTopList,payload);
-			console.log(res);
 			if (res.code ===200 ) {
 				yield put({
 					type:"init",
@@ -62,7 +60,6 @@ export default {
 		},
 		* getToplistComment( action , { call,put } ) {
 			const res = yield call(topListService.getToplistComment);
-			console.log(res,"comment");
 			if (res.code ===200 ) {
 				yield put({
 					type:"init",
@@ -74,8 +71,6 @@ export default {
 			else {
 				message.error(res.message);
 			}
-			console.log("77777");
-
 		},
 
 

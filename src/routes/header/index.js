@@ -5,12 +5,12 @@ import TopBar from "./topBar";
 import Login from "../Login";
 import "./icon.less";
 import SubBar from "./subBar";
+import ToTop from "../../components/toTop";
 
 class Header extends React.Component {
 	
 	render() {
-		const url = window.location.hash;
-		console.log( url,"aaa" );
+		// const url = window.location.hash;
 		return (
 			<div>
 
@@ -19,6 +19,7 @@ class Header extends React.Component {
 						<Logo />
 						<TopBar /> 
 						<Login  />
+						<ToTop />
 					</div>
 				</div>
 				<SubBar />
