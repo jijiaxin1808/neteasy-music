@@ -3,8 +3,7 @@ import Button from "../../../../components/Button";
 import Input from "../../../../components/Input";
 import LoginBar from "../../../../components/loginBar";
 import "./index.less";
-import { connect } from 'dva';
-import Axios from "axios";
+import { connect } from "dva";
 
 class Register extends React.Component {
 	render() {
@@ -59,7 +58,7 @@ const mapDispatchToProps = ( dispatch )=> ({
 			}
 		});
 	}	
-})
+});
 
 
 

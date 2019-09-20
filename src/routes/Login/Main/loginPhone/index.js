@@ -5,10 +5,6 @@ import LoginBar from "../../../../components/loginBar";
 import { NavLink } from "dva/router";
 import "./index.less";
 import { connect } from "dva";
-import  { loginPhone as login } from "../../../../services/login";
-import axios from "axios";
-import qs from "qs";
-import { message } from 'antd';
 
 class LoginPhone extends React.Component {
 	render() {
@@ -48,11 +44,7 @@ const mapDispatchToProps = (dispatch)=> ({
 		});
 	},
 	loginPhone( value ) {
-		const data = {
-			phone: value.userName,
-			password: value.userPassword 
-		}
-		// const data1 = qs.stringify(data);
+
 		dispatch({
 			type:"login/loginPhone",
 			payload: {
@@ -60,26 +52,7 @@ const mapDispatchToProps = (dispatch)=> ({
 				password: value.userPassword 
 			}
 		});
-		// axios.post("http://localhost:3000/login/cellphone",data1).then((res)=> {
-		// 	console.log(res);
-		// 	if(res.data.code === 200) {
-		// 		message.success("登录成功");
-		// 		dispatch({
-		// 			type:"login/changeStatus",
-		// 			payload: {
-		// 				type:""
-		// 			}
-		// 		});
-		// 	}
-		// 	else {
-		// 		message.error(res.data.message);
-		// 	}
-
-
-		// })
-		// const res = login( data );
-		
-		
+	
 	},
 	handleBack() {
 		dispatch({

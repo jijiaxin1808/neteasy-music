@@ -33,10 +33,10 @@ class TopBar extends React.Component {
 				<div className = "topBar_login">
 					<span > { "登录" } </span>
 					<div>
-						<span onClick={()=> {handlePhone()}} > 
+						<span onClick={()=> {handlePhone(); } } > 
 							手机号登录
 						</span>
-						<span onClick={()=> {handleEmail()}}>
+						<span onClick={()=> {handleEmail(); }}>
 							邮箱登录 
 						</span>
 					</div>

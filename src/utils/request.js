@@ -1,7 +1,7 @@
 import fetch from "dva/fetch";
 import { notification } from "antd";
-import { routerRedux } from "dva/router";
-import store from "..";
+// import { routerRedux } from "dva/router";
+// import store from "..";
 
 const codeMessage = {
 	200: "服务器成功返回请求的数据。",
@@ -103,8 +103,8 @@ export default function request(url, options, tag) {
 			.then(checkCode)
 			.catch(e => {
 				console.log(e);
-				const { dispatch } = store;
-				const status = e.name;
+				// const { dispatch } = store;
+				// const status = e.name;
 				// if (status === 401) {
 				// 	dispatch({
 				// 		type: "login/logout"

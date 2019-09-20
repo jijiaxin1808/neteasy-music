@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "dva";
 import PropTypes from "prop-types";
 import { NavLink } from "dva/router";
 import "./index.less";
@@ -23,7 +22,7 @@ class SongListInner extends React.Component {
 							return(
 								<li className="songlists-item">
 									<NavLink to="/">
-										<img src={`${item.coverImgUrl}` + "?param=140y140"} />
+										<img src={`${item.coverImgUrl}?param=140y140` } alt = { item.coverImgUrl } />
 										<div className="mask" />
 										<div className="bottom">
 											<i className="ico-listen" />

@@ -153,14 +153,11 @@ const mapDispatchToProps = (dispatch) => ({
 		const X = e.clientX;
 		const Y = e.clientY;
 		const offsetX = Number(login.loginLeft.replace(/px$/,""));
-		const offsetY = Number(login.loginTop.replace(/px$/,""))
-
+		const offsetY = Number(login.loginTop.replace(/px$/,""));
 		if ((X >= offsetX ) && ( X <= offsetX+530 ) && ( Y >= offsetY ) && ( Y <= offsetY+38 )   ) {
 
 			let moveX = X -  offsetX+"px";
 			let moveY = Y -  offsetY+"px";
-
-			console.log("move11",moveX,e.offectLeft);
 			dispatch({
 				type:"login/mouseDown",
 				payload:{
