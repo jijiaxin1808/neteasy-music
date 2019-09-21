@@ -37,13 +37,12 @@ class TopList extends React.Component {
 }
 const mapDispatchToProps = ( dispatch )=> ({
 	init() {
-		const func = ()=> {
-			if(window.location.hash.split("/toplist?id=")[1])  {
-				return Number(window.location.hash.split("?id=")[1]);
-			}
-			return 0;
-		};
-		const data = func();
+		// const func = ()=> {
+		// 	if(window.location.hash.split("/toplist?id=")[1])  {
+		// 		return Number(window.location.hash.split("?id=")[1]);
+		// 	}
+		// 	return 0;
+		// };
 		dispatch({
 			type:"toplist/getToplistDetail"
 		});

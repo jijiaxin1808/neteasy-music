@@ -34,6 +34,7 @@ class TopListBar extends React.Component {
 										</li>
 									);
 								}
+								else return null;
 							}
 							else {
 								if ( !item.ToplistType ) {
@@ -50,7 +51,8 @@ class TopListBar extends React.Component {
 										</li>
 									);
 								}
-							};
+								else return null;
+							}
 						})
 					}
 				</ul>

@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable jsx-a11y/anchor-has-content */
 import React from "react";
 import { connect } from "dva";
 import { NavLink } from "dva/router";
@@ -18,7 +20,7 @@ class Recommand extends React.Component {
 	}
 	render() {
 
-		const { hanldleDotClick, recplaylists, recalbums, } = this.props;
+		const { hanldleDotClick, recplaylists, recalbums } = this.props;
 		const { left, ani } = this.state;
 
 		return (
@@ -93,7 +95,7 @@ class Recommand extends React.Component {
 									onClick={hanldleDotClick}
 								/>
 							</ul>
-							<a className="arrow arrow-l" />
+							<a className="arrow arrow-l"  />
 							<a className="arrow arrow-r" />
 						</div>
 					</div>
