@@ -20,7 +20,8 @@ class Recommand extends React.Component {
 	}
 	render() {
 
-		const { hanldleDotClick, recplaylists, recalbums } = this.props;
+
+		const { hanldleDotClick, recplaylists, recalbums, rectoplists } = this.props;
 		const { left, ani } = this.state;
 
 		return (
@@ -268,16 +269,27 @@ class Recommand extends React.Component {
 							</div>
 							<div className="rec-toplists-inner">
 								{
-									["云音乐飙升榜", "云音乐新歌榜", "网易原创歌曲榜"].map((item) => (
+									[{
+										name: "云音乐飙升榜",
+										imgSrc: "http://p2.music.126.net/DrRIg6CrgDfVLEph9SNh7w==/18696095720518497.jpg",
+									},
+									{
+										name: "云音乐新歌榜",
+										imgSrc: "http://p2.music.126.net/N2HO5xfYEqyQ8q6oxCw8IQ==/18713687906568048.jpg",
+									},
+									{
+										name: "网易原创歌曲榜",
+										imgSrc: "http://p2.music.126.net/sBzD11nforcuh1jdLSgX7g==/18740076185638788.jpg",
+									}].map((item, index) => (
 
 										<dl>
 											<dt>
 												<div className="rec-toplist-cover">
-													{/*<img src={`${}?param=80y80`}/>*/}
+													<img src={`${item.imgSrc}?param=80y80`}/>
 													<a className="mask"></a>
 												</div>
 												<div className="rec-toplist-tit">
-													<a><h3>{item}</h3></a>
+													<a><h3>{item.name}</h3></a>
 													<div className="btn">
 														<a className="icon-play">播放</a>
 														<a className="icon-collect">收藏</a>
@@ -285,7 +297,27 @@ class Recommand extends React.Component {
 												</div>
 											</dt>
 											<dd>
-
+												{/*{*/}
+												{/*	rectoplists[index].map((item, index) => {*/}
+												{/*	  if(index < 3) {*/}
+												{/*			return(*/}
+												{/*				<div className="rec-top-list">*/}
+												{/*					<div className="tit">*/}
+												{/*						<span className="top">{index+1}</span>*/}
+												{/*						<span className="name">{item}</span>*/}
+												{/*					</div>*/}
+												{/*					<div className="ico-box">*/}
+												{/*						<a className="icon-play-sm"></a>*/}
+												{/*						<a className="icon-add-sm"></a>*/}
+												{/*						<a className="icon-collect-sm"></a>*/}
+												{/*					</div>*/}
+												{/*				</div>*/}
+												{/*			);*/}
+												{/*		}else {*/}
+												{/*	    // return()*/}
+												{/*		}*/}
+												{/*	})*/}
+												{/*}*/}
 											</dd>
 										</dl>
 									))
