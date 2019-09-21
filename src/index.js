@@ -21,6 +21,7 @@ const app = dva({
 			recplaylists: [],
 			recalbums: [],
 			rectoplists: [],
+			topartists: [],
 		},
 	}
 });

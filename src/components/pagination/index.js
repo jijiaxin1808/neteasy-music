@@ -2,10 +2,8 @@ import React from "react";
 import { connect } from "dva";
 import { withRouter } from "dva/router";
 import classnames from "classnames";
-import qs from "qs";
 import "./index.less";
 
-//es7修饰器@connect() - connect的语法糖，可以不用在connect里写dispatch。eject配置
 class Pagination extends React.Component {
 
 	constructor(props) {
@@ -40,7 +38,7 @@ class Pagination extends React.Component {
 							})}
 							onClick={() => {handlePrevClick(this.props.SongList);}}
 						>
-              上一页
+                            上一页
 						</a>
 						<a
 							className={classnames({
@@ -49,14 +47,14 @@ class Pagination extends React.Component {
 							})}
 							onClick={(e) => handlePageClick(e)}
 						>
-              1
+                            1
 						</a>
 						<span
 							className={classnames({
 								zdot: curPage < 6 && totalPage >= 9,
 							})}
 						>
-              ...
+                            ...
 						</span>
 						{
 							Array.from({length: groupCount}).map((item, index) => {
@@ -68,15 +66,16 @@ class Pagination extends React.Component {
 
 							}).map(
 								(item, index) =>
-									(item < totalPage) && <a
-										className={classnames({
-											"zpgi": true,
-											"js-selected": item === curPage
-										})}
-										onClick={(e) => handlePageClick(e)}
-									>
-										{item}
-									</a>
+									(item < totalPage) &&
+                                    <a
+                                    	className={classnames({
+                                    		"zpgi": true,
+                                    		"js-selected": item === curPage
+                                    	})}
+                                    	onClick={(e) => handlePageClick(e)}
+                                    >
+                                    	{item}
+                                    </a>
 							)
 						}
 						<span
@@ -84,7 +83,7 @@ class Pagination extends React.Component {
 								zdot: curPage > totalPage - groupCount && totalPage >= 9,
 							})}
 						>
-              ...
+                            ...
 						</span>
 						<a
 							className={classnames({
@@ -103,7 +102,7 @@ class Pagination extends React.Component {
 							})}
 							onClick={() => {handleNextClick(this.props.SongList);}}
 						>
-              下一页
+                            下一页
 						</a>
 					</ul>
 				</div>
@@ -188,7 +187,7 @@ const mapDispatch = (dispatch) => ({
 			payload: {
 				curPage,
 				tag,
-        limit,
+				limit,
 			},
 		});
 	},
