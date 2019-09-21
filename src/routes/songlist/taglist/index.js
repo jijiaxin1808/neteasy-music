@@ -18,7 +18,7 @@ class TagList extends React.Component {
 
 	handleTagClick() {
 
-		setTimeout(() => {window.location.reload()}, 1);
+		setTimeout(() => {window.location.reload(); }, 1);
 
 	}
 
@@ -50,7 +50,7 @@ class TagList extends React.Component {
 												<NavLink
 													to={"/discover/playlist?" + item.name}
 													activeClassName="tag-active"
-													onClick={() => {this.handleTagClick()}}
+													onClick={() => {this.handleTagClick(); }}
 												>
 													{item.name}
 												</NavLink>

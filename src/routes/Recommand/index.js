@@ -4,7 +4,6 @@ import { NavLink } from "dva/router";
 import classnames from "classnames";
 import SongListInner from "../../components/songlist";
 import "./index.less";
-import {getTopArtists} from "../../services/topartists";
 
 class Recommand extends React.Component {
 	constructor(props) {
@@ -21,6 +20,7 @@ class Recommand extends React.Component {
 		this.handleMouseover = this.handleMouseover.bind(this);
 	}
 	render() {
+
 		const {
 			recplaylists,
 			recalbums,
@@ -29,6 +29,7 @@ class Recommand extends React.Component {
 			hanldleDotClick,
 		} = this.props;
 		const { left, ani, showOper, operIndex, operTopname, } = this.state;
+
 
 		return (
 			<div>
@@ -104,6 +105,7 @@ class Recommand extends React.Component {
 							</ul>
 							<a className="arrow arrow-l">&lt</a>
 							<a className="arrow arrow-r">&gt</a>
+
 						</div>
 					</div>
 				</div>
@@ -491,7 +493,7 @@ const mapDispatch = dispatch => ({
 			}
 		});
 	},
-	getRecAlbum(offset, limit, scale) {
+	getRecAlbum(offset, limit) {
 		dispatch({
 			type: "Recommand/getAlbum",
 			payload: {

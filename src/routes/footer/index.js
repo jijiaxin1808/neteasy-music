@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/anchor-has-content */
+// eslint-disable-next-line jsx-a11y/anchor-has-content
 import React from "react";
 import "./index.less";
 
@@ -21,7 +23,8 @@ const Footer = (props) => (
 			</div>
 			<div className="footer-service-r">
 				<ul className="footer-service-r-list">
-					<li className="unit"><a className="logo logo-auth"></a>用户认证</li>
+
+					<li className="unit"><a  className="logo logo-auth" href = "wwwww"  ></a>用户认证</li>
 					<li className="unit"><a className="logo logo-musician"></a>独立音乐人</li>
 					<li className="unit"><a className="logo logo-tip"></a>赞赏</li>
 					<li className="unit"><a className="logo logo-reward"></a>视频奖励</li>

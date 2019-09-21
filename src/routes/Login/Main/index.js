@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "dva/router";
 import Button from "../../../components/Button";
-import { connect } from 'dva';
+import { connect } from "dva";
 
 const Data = [{
 	imgUrl:"url('../../assets/logo.png') -150px -670px no-repeat",
@@ -23,7 +23,7 @@ const Data = [{
 
 class DefaultLogin extends React.Component {
 	render() {
-		const { handlePhone,handleRegister,handleBack }  = this.props;
+		const { handlePhone,handleRegister}  = this.props;
 		return (
 			<div className="loginMainContain">
 				<div className="loginLeftContain">
@@ -76,7 +76,7 @@ const mapDispatchToProps = ( dispatch )=> ({
 			}	
 		});
 	}
-})
+});
 
 
 

@@ -5,9 +5,6 @@ import LoginBar from "../../../../components/loginBar";
 import "./index.less";
 import { NavLink } from "dva/router";
 import { connect } from "dva";
-import qs from 'qs';
-import axios from 'axios';
-import { message } from 'antd';
 
 
 
@@ -25,7 +22,7 @@ class LoginEmail extends React.Component {
 						{ "无法登录？" }
 					</NavLink>
 				</div>
-				<Button type = "blue" url="/" content = "登录" onClick = {()=> { handleEmail(this.props.login) }}/>
+				<Button type = "blue" url="/" content = "登录" onClick = {()=> { handleEmail(this.props.login); }}/>
 				<LoginBar content="<< 选择登录方式" onClick = { ()=> {handleBack();}  } />
 			</div>
 		);
