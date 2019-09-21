@@ -1,6 +1,3 @@
-/*
-* songlist页面的tag弹出框
-* */
 import React from "react";
 import { connect } from "dva";
 import { NavLink } from "dva/router";
