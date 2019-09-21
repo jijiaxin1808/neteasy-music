@@ -1,7 +1,6 @@
 import React,{ Fragment } from "react";
 import classnames from "classnames";
 import "./index.less";
-import { is } from "immutable";
 
 class ToTop extends React.Component {
 	constructor() {
@@ -18,12 +17,12 @@ class ToTop extends React.Component {
 		document.body.onscroll = ()=>{
 			console.log(document.documentElement.scrollTop);
 			if( document.documentElement.scrollTop>400) {
-				this.setState({isshow:true})
+				this.setState({isshow:true});
 			}
 			else {
-				this.setState({isshow:false})
+				this.setState({isshow:false});
 			}
-		}
+		};
 		let scrollTop = document.documentElement.scrollTop;
 		return (
 			<Fragment>
