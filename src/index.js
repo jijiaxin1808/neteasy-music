@@ -23,6 +23,9 @@ const app = dva({
 			rectoplists: [],
 			topartists: [],
 		},
+		Artist: {
+	      artistlists: [],
+		}
 	}
 });
 

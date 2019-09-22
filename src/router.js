@@ -1,5 +1,5 @@
 import React from "react";
-import { Router, Route, Switch } from "dva/router";
+import { Router, Route, Switch, Redirect } from "react-router-dom";
 import Header from "./routes/header";
 import TopList from "./routes/topList";
 import Footer from "./routes/footer";
@@ -16,7 +16,7 @@ function RouterConfig({ history }) {
 				<Header />
 				<Switch>
 					<Route exact path="/discover/playlist" component={SongList} />
-					<Route exact path="/" component={Recommand} />
+					<Route exact path="/discover/recommand" component={Recommand} />
 					<Route exact path="/discover/toplist" component={TopList} />
 					<Route exact path="/discover/artist" component={Artist} />
 					<Route exact path="/discover/djradio" component={Djradio} />
