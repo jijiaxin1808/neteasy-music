@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { NavLink } from "dva/router";
+import { NavLink } from "react-router-dom";
 import "./index.less";
 
 class SongListInner extends React.Component {

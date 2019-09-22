@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import "./index.less";
-import { NavLink } from "dva/router";
+import { NavLink } from "react-router-dom";
 
 
 

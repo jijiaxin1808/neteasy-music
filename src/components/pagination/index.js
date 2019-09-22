@@ -192,6 +192,6 @@ const mapDispatch = (dispatch) => ({
 	},
 });
 
-export default withRouter(connect(({ SongList }) => ({
+export default connect(({ SongList }) => ({
 	SongList,
-}), mapDispatch)(Pagination));
+}), mapDispatch)(Pagination);

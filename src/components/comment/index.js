@@ -1,6 +1,6 @@
 import React from "react";
 import "./index.less";
-import { NavLink } from "dva/router";
+import { NavLink } from "react-router-dom";
 import getTime from "../../assets/time";
 
 class Comment extends React.Component {
@@ -12,7 +12,7 @@ class Comment extends React.Component {
 					<div className = {className}>
 						<div className = "comment-header">最新评论</div>
 						{	
-							data1.map(( item,index )=>{
+							data1.map(( item )=>{
 								return (
 									<div className = "comment-item">
 										<img src = { item.user.avatarUrl }  alt = { item.user.avatarUrl }/>

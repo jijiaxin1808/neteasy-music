@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "dva";
-import { NavLink } from "dva/router";
+import { NavLink } from "react-router-dom";
 import "./index.less";
 
 class TagList extends React.Component {
@@ -71,5 +71,5 @@ const mapState = ({ SongList }) => ({
 	categories: SongList.categories,
 	sub: SongList.sub,
 });
-const mapDispatch = (dispatch) => ({});
-export default connect(mapState, mapDispatch)(TagList);
+
+export default connect(mapState)(TagList);

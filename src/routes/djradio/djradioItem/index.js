@@ -26,10 +26,10 @@ class DjradioItem extends React.Component {
 							"picUrl": "http://p1.music.126.net/6y-UleORITEDbvrOLV0Q8A==/5639395138885805.jpg",
 							"img1v1Url": "http://p1.music.126.net/6y-UleORITEDbvrOLV0Q8A==/5639395138885805.jpg",
 							"albumSize": 0,
-							"alias": [],
-							"trans": "",
-							"musicSize": 0
-						}
+							"ali, withRouter as": [],
+							"tra, withRouter ns": "",
+							"mus, withRouter icSize": 0
+						},
 					],
 					"album": {
 						"name": null,
@@ -179,7 +179,7 @@ class DjradioItem extends React.Component {
 					"subCount": 3061,
 					"picId": 109951163681276370,
 					"categoryId": 11,
-					"lastProgramCreateTime": 1568952089129,
+					"lastPro, withRouter gramCreateTime": 1568952089129,
 					"radioFeeType": 0,
 					"desc": "我是孤山，一个带着吉他在海外流浪的街头艺人。\n我希望，像吟游诗人那样，用音乐讲述古老的故事。",
 					"name": "艺术世界漫游指南",

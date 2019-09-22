@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "dva";
-import { NavLink } from "dva/router";
+import { NavLink } from "react-router-dom";
 import classnames from "classnames";
 import SongListInner from "../../components/songlist";
 import "./index.less";
