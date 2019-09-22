@@ -2,7 +2,7 @@ import request from "../utils/request";
 import baseUrl from "../assets/baseUrl";
 
 let artiCode = {
-	"入驻歌手": 500,
+	"入驻歌手": 5001,
 	"华语男歌手": 1001,
 	"华语女歌手": 1002,
 	"华语组合/乐队": 1003,
@@ -19,7 +19,12 @@ let artiCode = {
 	"其他女歌手": 4002,
 	"其他组合/乐队": 4003,
 };
-export function getArtistList({ limit, tag, curPage }) {
+export function getArtistList({ limit, tag, offset, initial }) {
 	let tagId = artiCode[tag];
-	return request(`${ baseUrl }artist/list?limit=${limit}&cat=${tagId}&offset=${curPage * limit}`);
+	if(tagId === 5001) {
+	    return request(`${ baseUrl }artist/list?&cat=${tagId}&offset=${offset}`);
+	} else {
+		let initail = (initial && initial !== "其它") ? `&initial=${initial}` : "";
+		return request(`${ baseUrl }artist/list?limit=${limit}&cat=${tagId}&offset=${offset}${initail}`);
+	}
 }

@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import "./index.less";
-import { Link } from "dva/router";
+import { NavLink } from "dva/router";
 
 
 
@@ -23,7 +23,7 @@ class TopListItem extends React.Component {
 										<img src = { data.al.picUrl } alt = { data.name } className = "topList-item-li-img " />
 
 										<span className = "m-table .ply "></span>
-										<Link to = "/" >{ data.name }</Link>
+										<NavLink to = "/" >{ data.name }</NavLink>
 									</li>
 									<li style = {{ width: "91px" }} className ="topList-item-li">
 										{ "时长" }
@@ -44,7 +44,7 @@ class TopListItem extends React.Component {
 
 
 									<span className = "m-table .ply "></span>
-									<Link to = "/" >{ data.name }</Link>
+									<NavLink to = "/" >{ data.name }</NavLink>
 								</li>
 								<li style = {{ width: "91px" }} className ="topList-item-li">
 									{ "时长" }

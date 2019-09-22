@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import "./index.less";
-import { Link } from "dva/router";
+import { NavLink } from "dva/router";
 
 class DjradioItem extends React.Component {
 	render() {
@@ -918,8 +918,8 @@ class DjradioItem extends React.Component {
 		return (
 			<Fragment>
 				<div className = "djradio-item-header">
-					<Link to = "" className = "djradio-item-header-1">{ "balabala ~ 电台" }</Link>
-					<Link to = "" >更多></Link>
+					<NavLink to = "" className = "djradio-item-header-1">{ "balabala ~ 电台" }</NavLink>
+					<NavLink to = "" >更多></NavLink>
 				</div>
 				<ul>
 					{

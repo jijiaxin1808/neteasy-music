@@ -24,7 +24,10 @@ const app = dva({
 			topartists: [],
 		},
 		Artist: {
-	      artistlists: [],
+	        artists: [],
+			letterBarFlag: "热门",
+			showLetterBar: true,
+			shoArtistList: true,
 		}
 	}
 });

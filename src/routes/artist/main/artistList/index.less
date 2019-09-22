@@ -1,0 +1,33 @@
+@bg-icon: url("../../../../assets/icon.png") no-repeat;
+
+.artists-sml {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  border-top: 1px dashed rgb(153, 153, 153);
+  padding-top: 14px;
+  margin-top: 10px;
+}
+.artists-sml-item {
+  height: 30px;
+  width: 130px;
+  flex: 0 0 auto;
+  margin-bottom: 2px;
+  .artist-sml-name {
+    float: left;
+    max-width: 105px;
+    margin-right: 3px;
+    color: #000;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .icon-perPage {
+    font-size: 0;
+    color: #000;
+    float: left;
+    width: 17px;
+    height: 18px;
+    background: @bg-icon 0 -740px;
+  }
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import "./index.less";
-import { Link } from "dva/router";
+import { NavLink } from "dva/router";
 import getTime from "../../assets/time";
 
 class Comment extends React.Component {
@@ -18,7 +18,7 @@ class Comment extends React.Component {
 										<img src = { item.user.avatarUrl }  alt = { item.user.avatarUrl }/>
 										<div  className = "comment-content">
 											<div className = "comment-content-main">
-												<Link to = "/" className = "comment-user-name" >{ item.user.nickname }:</Link>
+												<NavLink to = "/" className = "comment-user-name" >{ item.user.nickname }:</NavLink>
 												<p>{ item.content }</p>
 												{
 													()=>{
@@ -30,7 +30,7 @@ class Comment extends React.Component {
 																		<i className="bg">◆</i>
 																	</span>
 																	<div className = "comment-content-main">
-																		<Link to = "/" className = "comment-user-name" >{ item.beReplied[0].user.nickname  }:</Link>
+																		<NavLink to = "/" className = "comment-user-name" >{ item.beReplied[0].user.nickname  }:</NavLink>
 																		<p>{ item.beReplied[0].content }</p>
 																	</div>
 																</div>

@@ -17,7 +17,7 @@ class Header extends React.Component {
 				<div className="header"> 
 					<div>
 						<Logo />
-						<TopBar /> 
+						<TopBar />
 						<Login  />
 						<ToTop />
 					</div>
@@ -26,8 +26,5 @@ class Header extends React.Component {
 			</div>
 		);
 	}
-
-
-
 }
 export default Header;

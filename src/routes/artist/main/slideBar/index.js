@@ -1,6 +1,7 @@
 import React from "react";
-import { NavLink, withRouter, } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 import classnames from "classnames";
+import PropTypes from "prop-types";
 import "./index.less";
 
 class SlideBar extends React.Component {
@@ -18,13 +19,23 @@ class SlideBar extends React.Component {
 	}
 	render() {
 	    const { tag } = this.state;
+		const { getArtists } = this.props;
 	    let cat = (decodeURI(this.props.location.search)).split("?")[1];
 		return (
 			<div className="artist-slide">
 				<h3 className="tit">推荐</h3>
 				<ul className="artist-slide-nav">
-					<li className="flag"><NavLink to="/discover/artist?推荐歌手" className={classnames({active: cat === "推荐歌手"})}>推荐歌手</NavLink></li>
-					<li className="flag"><NavLink to="/discover/artist?入驻歌手" className={classnames({active: cat === "入驻歌手"})}>入驻歌手</NavLink></li>
+					<li
+						className="flag"
+					>
+						<NavLink to="/discover/artist?推荐歌手" className={classnames({active: cat === "推荐歌手"})}>推荐歌手</NavLink>
+					</li>
+					<li
+						className="flag"
+						onClick={() => getArtists(100, "入驻歌手", 0)}
+					>
+						<NavLink to="/discover/artist?入驻歌手" className={classnames({active: cat === "入驻歌手"})}>入驻歌手</NavLink>
+					</li>
 				</ul>
 				{
 					Object.keys(tag).map(item => {
@@ -35,7 +46,9 @@ class SlideBar extends React.Component {
 									{
 										tag[item].map(item => {
 											return (
-												<li className="flag"><NavLink to={`/discover/artist?${item}`} className={classnames({active: cat === item})}>{item}</NavLink></li>
+												<li className="flag" onClick={() => getArtists(100, item, 0, "a")}>
+													<NavLink to={`/discover/artist?${item}`} className={classnames({active: cat === item})}>{item}</NavLink>
+												</li>
 											);
 										})
 									}
@@ -50,5 +63,8 @@ class SlideBar extends React.Component {
 	}
 }
 
+SlideBar.propTypes = {
+	getArtists: PropTypes.func,
+};
 
 export default withRouter(SlideBar);
