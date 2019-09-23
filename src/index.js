@@ -28,7 +28,11 @@ const app = dva({
 			letterBarFlag: "热门",
 			showLetterBar: true,
 			shoArtistList: true,
-		}
+		},
+		Album: {
+	        hotAlbum: [],
+			allAlbum: [],
+		},
 	}
 });
 

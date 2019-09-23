@@ -1,0 +1,102 @@
+@bg-coverall: url("../../../../assets/coverall.png") no-repeat;
+@bg-iconall: url("../../../../assets/iconall.png") no-repeat;
+@bg-icon: url("../../../../assets/icon.png") no-repeat;
+@margin-left: 31px;
+#ellipsis() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+
+.hot-album-list {
+  @spacing: 28px;
+  margin-left: -@margin-left; //important
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: @spacing;
+
+  .hot-album-item {
+    width: 151px;
+    margin-left: @margin-left; //important
+    margin-bottom: 21px;
+
+    & > a {
+      display: inline-block;
+      position: relative;
+    }
+    .hot-album-name {
+      width: 100%;
+      &:hover .icon-play {
+        display: block;
+      }
+      .icon-play {
+        position: absolute;
+        display: none;
+        height: 28px;
+        width: 28px;
+        left: 94px;
+        bottom: 4px;
+        background: @bg-iconall no-repeat 0 -140px;
+        &:hover {
+          background-position: 0 -170px;
+        }
+      }
+    }
+    .mask {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: @bg-coverall 0 -844px;
+    }
+  }
+  .dec > a {
+    display: block;
+    #ellipsis();
+  }
+}
+.album-name {
+  font-size: 14px;
+  color: #000;
+  padding: 5px 0;
+  &:hover {
+    color: #000;
+  }
+}
+.album-artist {
+  color: #666;
+  &:hover {
+    color: #666;
+  }
+}
+
+.all-album {
+  .tit {
+    &:before,
+    &:after {
+      content: "";
+      display: table;
+    }
+    &:after {
+      clear: both;
+    }
+  }
+  .tab {
+    float: left;
+    padding: 0 14px 0 21px;
+    & > a {
+      display: inline-block;
+      color: #666;
+      font-size: 12px;
+    }
+    & > span {
+      margin: 0 10px;
+      font-size: 12px;
+      color: #d8d8d8;
+    }
+  }
+}

@@ -80,13 +80,13 @@ class Artist extends React.Component {
 			window.onscroll = () => {
 			    let sT = document.documentElement.scrollTop;
 				console.log(sT);
-			    if(sT >= 1600) {
+			    if(sT >= 2300) {
 			        console.log("adfas");
-			        document.documentElement.scrollTop = 1000;
+			        // document.documentElement.scrollTop = 1000;
 				}
 			};
 		}
-		getHotArtists(100, 0);
+		// getHotArtists(100, 0);
 	}
 	componentWillUnmount() {
 	    window.onscroll = null;

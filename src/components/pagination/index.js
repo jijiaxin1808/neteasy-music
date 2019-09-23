@@ -1,16 +1,10 @@
 import React from "react";
 import { connect } from "dva";
-import { withRouter } from "dva/router";
 import classnames from "classnames";
 import "./index.less";
 
 class Pagination extends React.Component {
 
-	constructor(props) {
-		super(props);
-		this.state = {
-		};
-	}
 	render() {
 		const {
 			totalPage,
@@ -40,19 +34,12 @@ class Pagination extends React.Component {
                             上一页
 						</a>
 						<a
-							className={classnames({
-								"zpgi": true,
-								"js-selected": curPage === 1
-							})}
+							className={classnames({"zpgi": true, "js-selected": curPage === 1})}
 							onClick={(e) => handlePageClick(e)}
 						>
                             1
 						</a>
-						<span
-							className={classnames({
-								zdot: curPage < 6 && totalPage >= 9,
-							})}
-						>
+						<span className={classnames({zdot: curPage < 6 && totalPage >= 9,})}>
                             ...
 						</span>
 						{
@@ -63,14 +50,10 @@ class Pagination extends React.Component {
 									return index + startPage;
 								}
  
-							}).map(
-								(item, index) =>
-									(item < totalPage) &&
+							}).map((item, index) =>
+								(item < totalPage) &&
                                     <a
-                                    	className={classnames({
-                                    		"zpgi": true,
-                                    		"js-selected": item === curPage
-                                    	})}
+                                    	className={classnames({"zpgi": true, "js-selected": item === curPage})}
                                     	onClick={(e) => handlePageClick(e)}
                                     >
                                     	{item}
@@ -78,17 +61,12 @@ class Pagination extends React.Component {
 							)
 						}
 						<span
-							className={classnames({
-								zdot: curPage > totalPage - groupCount && totalPage >= 9,
-							})}
+							className={classnames({zdot: curPage > totalPage - groupCount && totalPage >= 9})}
 						>
                             ...
 						</span>
 						<a
-							className={classnames({
-								"zpgi": true,
-								"js-selected": curPage === totalPage
-							})}
+							className={classnames({"zpgi": true, "js-selected": curPage === totalPage})}
 							onClick={(e) => handlePageClick(e)}
 						>
 							{totalPage}

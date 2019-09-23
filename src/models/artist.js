@@ -38,7 +38,7 @@ export default {
 			        return call(topArtistService.getTopArtists, payload);
 				}
 			})();
-			// console.log(temp);
+			console.log(temp);
 			let artists = [];
 			if(temp.code === 200) {
 				temp.artists.forEach((item, index) => {

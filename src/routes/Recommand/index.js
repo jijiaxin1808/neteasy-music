@@ -175,7 +175,7 @@ class Recommand extends React.Component {
 										return (
 											<li>
 												<div className="u-cover u-cover-alb1">
-													<img src={item.picUrl + "?param=100y100"} alt />
+													<img src={item.picUrl + "?param=100y100"} alt={item.picUrl} />
 													<a className="mask">mask</a>
 													<i className="icon-play" />
 												</div>
@@ -202,7 +202,7 @@ class Recommand extends React.Component {
 										return (
 											<li>
 												<div className="u-cover u-cover-alb1">
-													<img src={item.picUrl + "?param=100y100"} alt />
+													<img src={item.picUrl + "?param=100y100"} alt={item.picUrl} />
 													<a className="mask">mask</a>
 													<i className="icon-play" />
 												</div>
