@@ -2,7 +2,12 @@ import React from "react";
 import "./index.less";
 import { Link } from "dva/router";
 
-class DjradioItem extends React.Component {
+
+
+
+
+
+class DjradioRecommend extends React.Component {
 	render() {
 		const data = [
 			{
@@ -915,33 +920,47 @@ class DjradioItem extends React.Component {
 				"likedCount": 25,
 				"commentCount": 7
 			}];
+		const { title } = this.props;
 		return (
-			<div className = "djradio-item">
-				<div className = "djradio-item-header">
-					<Link to = "" className = "djradio-item-header-1">{ "balabala ~ 电台" }</Link>
-					<Link to = "" >更多></Link>
+			<div className = "djradioRecommend">
+				<div className = "djradioRecommend-header">
+					<Link to = "/" style = {{fontSize:"24px"}}>{ title }</Link>
+					<Link to = "/">更多></Link>
 				</div>
-				<ul className = "djradio-item-ul">
-					{
-						data.map( (item,index)=> {
-							return (
-								<li className = "djradio-item-li" >
-									<img src = {`${item.coverUrl}?120y120`}  alt = { item.mainSong.album.picUrl } width ="120px" height = "120px"/>
-									<div>
-										<p className = "djradio-item-li-p1">{ item.mainSong.name }  </p>
-										<p className = "djradio-item-li-p2">{ item.reason }</p>
-										
-									</div>
-								</li>
-							);
-
-						} )
-					}
-				</ul>
+        		<div>
+					<ul>
+						{
+							data.map(( item,index )=> {
+								if ((index+1)%2 !== 0){
+									return (
+										<li className = "djradioRecommend-li" >
+											<img src = { item.coverUrl } alt = { item.mainSong.picUrl } width = "40px" height = "40px"  />
+											<div>										
+												<p style = {{color:"#333333"}} >{ item.mainSong.name }</p>
+												<p style = {{color:"#999999"}} >{ item.radio.name }</p>
+											</div>
+											<span className = "djradioRecommend-type" >{ item.radio.category }</span>
+										</li>
+									);
+								}
+								else {
+									return (
+										<li className = "djradioRecommend-li-grey" >
+											<img src = { item.coverUrl } alt = { item.mainSong.picUrl } width = "40px" height = "40px"  />
+											<div>										
+												<p style = {{color:"#333333"}} >{ item.mainSong.name }</p>
+												<p style = {{color:"#999999"}} >{ item.radio.name }</p>
+											</div>
+											<span className = "djradioRecommend-type" >{ item.radio.category }</span>
+										</li>
+									);
+								}
+							})
+						}
+					</ul>
+				</div>
 			</div>
 		);
 	}
-
-
 }
-export default DjradioItem;
+export default DjradioRecommend;
