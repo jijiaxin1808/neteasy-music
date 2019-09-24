@@ -8,6 +8,7 @@ import Recommand from "./routes/Recommand";
 import Artist from "./routes/artist";
 import Djradio from "./routes/djradio";
 import Album from "./routes/album";
+import PlayBar from "./routes/playBar";
 
 function RouterConfig({ history }) {
 	return (
@@ -23,6 +24,7 @@ function RouterConfig({ history }) {
 					<Route exact path="/discover/djradio" component={Djradio} />
 					<Route exact path="/discover/album" component={Album} />
 				</Switch>
+				<PlayBar />
 				<Footer />
 			</div>
 		</Router>
