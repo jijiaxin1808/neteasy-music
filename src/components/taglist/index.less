@@ -1,0 +1,103 @@
+.song-taglist {
+  position: absolute;
+  top: 25px;
+  left: -85px;
+  z-index: 5;
+  width: 720px;
+  .hd {
+    height: 32px;
+    position: relative;
+    background: transparent url("../../assets/sltlyr.png") no-repeat 0 6px;
+    .hd-arrow {
+      position: absolute;
+      width: 26px;
+      height: 11px;
+      top: 8px;
+      left: 115px;
+      background: url("../../assets/iconall.png") no-repeat -46px 0px;
+    }
+  }
+  .bd {
+    padding: 0 10px;
+    background: transparent url("../../assets/sltlyr.png") repeat-y -720px 0;
+    .song-taglist-all {
+      padding: 0 0 8px 22px;
+      border-bottom: 1px solid #e6e6e6;
+      & > a {
+        display: inline-block;
+        font-weight: normal;
+        font-size: 13px;
+        padding: 4px 12px;
+        background: url("../../assets/button.png") no-repeat 1px -64px;
+      }
+    }
+
+    dl {
+      &:before,
+      &:after {
+        content: '';
+        display: table;
+      }
+
+      padding: 0 0 0 23px;
+
+      &:after {
+        clear: both;
+      }
+    }
+    dl dt {
+      float: left;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      color: #000;
+      font-size: 14px;
+      width: 70px;
+      padding-top: 13px;
+      & > i {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        background: url("../../assets/icon.png") no-repeat;
+      }
+      & > span {
+        padding-left: 5px;
+      }
+      .icon-1 {
+        background-position: -20px -735px;
+      }
+      .icon-2 {
+        background-position: 0px -60px;
+      }
+      .icon-3 {
+        background-position: 0px -90px;
+      }
+      .icon-4 {
+        background-position: 0px -117px;
+      }
+      .icon-5 {
+        background-position: 0px -141px;
+      }
+    }
+    dl dd {
+      margin-left: 71px;
+      padding: 9px 14px 8px 14px;
+      border-left: 1px solid #e6e6e6;
+      & > a {
+        display: inline-block;
+        color: #333;
+        font-size: 12px;
+      }
+      & > span {
+        margin: 0 10px;
+        font-size: 12px;
+        color: #d8d8d8;
+      }
+    }
+  }
+  .fd {
+    height: 20px;
+    background: transparent url("../../assets/sltlyr.png") no-repeat;
+    background-position: -1440px -12px;
+  }
+}

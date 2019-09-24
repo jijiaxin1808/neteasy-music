@@ -21,7 +21,7 @@ class Recommand extends React.Component {
 	render() {
 
 
-		const { hanldleDotClick, recplaylists, recalbums, rectoplists } = this.props;
+		const { hanldleDotClick, recplaylists, recalbums } = this.props;
 		const { left, ani } = this.state;
 
 		return (
