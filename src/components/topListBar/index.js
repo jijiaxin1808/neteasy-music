@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "dva/router";
+import { NavLink } from "react-router-dom";
 import "./index.less";
  
 class TopListBar extends React.Component {
@@ -23,13 +23,13 @@ class TopListBar extends React.Component {
 								if ( item.ToplistType ) {
 									return (
 										<li className = {	data === item.id?"topList-bar-clicked":"Listbar-item"   } key = { index }>
-											<Link to = { `/discover/toplist?id=${ item.id }` }>
+											<NavLink to = { `/discover/toplist?id=${ item.id }` }>
 												<img src = { item.coverImgUrl } alt = { item.coverImgUrl }  className = "Listbar-item-left"/>
 												<div className = "Listbar-item-right">
 													<p >{ item.name }</p>
 													<p className = "Listbar-item-title">{ item.updateFrequency }</p>
 												</div>
-											</Link> 
+											</NavLink>
 
 										</li>
 									);
@@ -40,13 +40,13 @@ class TopListBar extends React.Component {
 								if ( !item.ToplistType ) {
 									return (
 										<li className = {	data === item.id?"topList-bar-clicked":"Listbar-item"   } key = { index }>
-											<Link to = { `/discover/toplist?id=${ item.id }` }>
+											<NavLink to = { `/discover/toplist?id=${ item.id }` }>
 												<img src = { item.coverImgUrl } alt = { item.coverImgUrl }  className = "Listbar-item-left"/>
 												<div className = "Listbar-item-right">
 													<p >{ item.name }</p>
 													<p className = "Listbar-item-title">{ item.updateFrequency }</p>
 												</div>
-											</Link> 
+											</NavLink>
 
 										</li>
 									);
