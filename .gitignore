@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/src/assets/HSAng_setup_3.1.1.56114.exe
 # production
 /dist
 # misc

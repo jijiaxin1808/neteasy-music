@@ -1,22 +1,23 @@
 .handle-music {
-  width: 670;
-  // margin: 0 auto;
-  display: flex;
-  flex-wrap: nowrap;
-  img {
-    width: 149px;
-    height: 150px;
-  }
-  padding: 40px;
+
+    width: 670px;
+    // margin: 0 auto;
+    display: flex;
+    flex-wrap: nowrap;
+    img {
+        width:140px;
+        height:140px;
+    }
+    padding: 40px;
 }
 .msk {
-  width: 150px;
-  height: 150px;
-  background-position: -230px -380px;
-  top: 3px;
-  left: 3px;
-  position: absolute;
-  background: url("../../assets/coverall.png");
+    width: 140px;
+    height: 140px;
+    background-position: -230px -380px;
+    top: 0px;
+    left: 0px;
+    position: absolute;
+    background: url("../../assets/coverall.png");
 }
 
 .handle-music-btn {
@@ -41,45 +42,63 @@
       padding-right: 2px;
       padding-left: 28px;
     }
-    .handle-music-btn-1 {
-      background-position: 0 -387px;
-      height: 30px;
-      &:hover {
-        background-position: 0 -469px;
-      }
-      // span {
-      //     background-position: -40px -1588px;
-      //     background: url("../../assets/button2.png") no-repeat 0 9999px;
-      //     height: 30px;
-      // }
+
+    ul {
+        display: flex;
+        flex-wrap: nowrap;
+        li {
+            cursor: pointer;
+            margin-right: 5px;
+            background: url("../../assets/button2.png") no-repeat 0 9999px;
+            text-align: center;
+            line-height: 30px;
+            height: 30px;
+            padding-right: 5px;
+            padding-left: 28px;
+        }
+        .handle-music-btn-1 {
+            background-position: 0 -387px;
+            height: 30px;
+            &:hover {
+                background-position: 0 -469px;
+            }
+            // span {
+            //     background-position: -40px -1588px;
+            //     background: url("../../assets/button2.png") no-repeat 0 9999px;
+            //     height: 30px;
+            // }
+        }
+        .handle-music-btn-2 {
+            height: 30px;
+            background-position: 0 -977px;
+            &:hover {
+                background-position: 0 -1063px;
+            }
+            i {
+                background: url("../../assets/button2.png") no-repeat 0 9999px;
+                background-position: 0 -1063px;
+            }
+        }
+        .handle-music-btn-3 {
+            background-position: 0 -1225px;
+            height: 30px;
+            &:hover {
+                background-position: 0 -1268px;
+            }
+        }
+        .handle-music-btn-4 {
+            height: 30px;
+            background-position: 0 -2761px;
+            &:hover {
+                background-position: 0 -2805px;
+            }
+        }
+        .handle-music-btn-5 {
+            height: 30px;
+            background-position: 0 -1465px;
+            &:hover {
+                background-position: 0 -1508px;
+            }
+        }
     }
-    .handle-music-btn-2 {
-      height: 30px;
-      background-position: 0 -977px;
-      &:hover {
-        background-position: 0 -1063px;
-      }
-    }
-    .handle-music-btn-3 {
-      background-position: 0 -1225px;
-      height: 30px;
-      &:hover {
-        background-position: 0 -1268px;
-      }
-    }
-    .handle-music-btn-4 {
-      height: 30px;
-      background-position: 0 -2761px;
-      &:hover {
-        background-position: 0 -2805px;
-      }
-    }
-    .handle-music-btn-5 {
-      height: 30px;
-      background-position: 0 -1465px;
-      &:hover {
-        background-position: 0 -1508px;
-      }
-    }
-  }
 }

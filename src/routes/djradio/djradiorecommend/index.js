@@ -1,8 +1,13 @@
 import React from "react";
 import "./index.less";
-import { NavLink } from "dva/router";
+import { Link } from "dva/router";
 
-class DjradioItem extends React.Component {
+
+
+
+
+
+class DjradioRecommend extends React.Component {
 	render() {
 		const data = [
 			{
@@ -26,10 +31,10 @@ class DjradioItem extends React.Component {
 							"picUrl": "http://p1.music.126.net/6y-UleORITEDbvrOLV0Q8A==/5639395138885805.jpg",
 							"img1v1Url": "http://p1.music.126.net/6y-UleORITEDbvrOLV0Q8A==/5639395138885805.jpg",
 							"albumSize": 0,
-							"ali, withRouter as": [],
-							"tra, withRouter ns": "",
-							"mus, withRouter icSize": 0
-						},
+							"alias": [],
+							"trans": "",
+							"musicSize": 0
+						}
 					],
 					"album": {
 						"name": null,
@@ -179,7 +184,7 @@ class DjradioItem extends React.Component {
 					"subCount": 3061,
 					"picId": 109951163681276370,
 					"categoryId": 11,
-					"lastPro, withRouter gramCreateTime": 1568952089129,
+					"lastProgramCreateTime": 1568952089129,
 					"radioFeeType": 0,
 					"desc": "我是孤山，一个带着吉他在海外流浪的街头艺人。\n我希望，像吟游诗人那样，用音乐讲述古老的故事。",
 					"name": "艺术世界漫游指南",
@@ -915,33 +920,47 @@ class DjradioItem extends React.Component {
 				"likedCount": 25,
 				"commentCount": 7
 			}];
+		const { title } = this.props;
 		return (
-			<div className = "djradio-item">
-				<div className = "djradio-item-header">
-					<NavLink to = "" className = "djradio-item-header-1">{ "balabala ~ 电台" }</NavLink>
-					<NavLink to = "" >更多></NavLink>
+			<div className = "djradioRecommend">
+				<div className = "djradioRecommend-header">
+					<Link to = "/" style = {{fontSize:"24px"}}>{ title }</Link>
+					<Link to = "/">更多></Link>
 				</div>
-				<ul className = "djradio-item-ul">
-					{
-						data.map( (item,index)=> {
-							return (
-								<li className = "djradio-item-li" >
-									<img src = {`${item.coverUrl}?120y120`}  alt = { item.mainSong.album.picUrl } width ="120px" height = "120px"/>
-									<div>
-										<p className = "djradio-item-li-p1">{ item.mainSong.name }  </p>
-										<p className = "djradio-item-li-p2">{ item.reason }</p>
-										
-									</div>
-								</li>
-							);
-
-						} )
-					}
-				</ul>
+        		<div>
+					<ul>
+						{
+							data.map(( item,index )=> {
+								if ((index+1)%2 !== 0){
+									return (
+										<li className = "djradioRecommend-li" >
+											<img src = { item.coverUrl } alt = { item.mainSong.picUrl } width = "40px" height = "40px"  />
+											<div>										
+												<p style = {{color:"#333333"}} >{ item.mainSong.name }</p>
+												<p style = {{color:"#999999"}} >{ item.radio.name }</p>
+											</div>
+											<span className = "djradioRecommend-type" >{ item.radio.category }</span>
+										</li>
+									);
+								}
+								else {
+									return (
+										<li className = "djradioRecommend-li-grey" >
+											<img src = { item.coverUrl } alt = { item.mainSong.picUrl } width = "40px" height = "40px"  />
+											<div>										
+												<p style = {{color:"#333333"}} >{ item.mainSong.name }</p>
+												<p style = {{color:"#999999"}} >{ item.radio.name }</p>
+											</div>
+											<span className = "djradioRecommend-type" >{ item.radio.category }</span>
+										</li>
+									);
+								}
+							})
+						}
+					</ul>
+				</div>
 			</div>
 		);
 	}
-
-
 }
-export default DjradioItem;
+export default DjradioRecommend;
