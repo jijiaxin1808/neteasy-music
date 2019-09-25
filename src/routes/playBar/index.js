@@ -3,6 +3,7 @@ import { connect } from "dva";
 import classnames from "classnames";
 import  Audio from "./audio";
 import * as timeUtils from "../../utils/time";
+import * as utils from "../../utils/utils";
 import "./index.less";
 import PlayQueue from "./playQueue";
 
@@ -19,7 +20,11 @@ class PlayBar extends React.Component {
 			duration: 0,
 			preloadTime: 0,
 			startX: 0,
+			startY: 0,
+			currentVolume: 0,
+			showVolumeBtn: false,
 			mouseIsDown: false,
+			volBtnIsDown: false,
 			playState: "paused",
 		};
 		this.lectureAudio = React.createRef();
@@ -30,8 +35,11 @@ class PlayBar extends React.Component {
 		this.handleProBtnMouseDown = this.handleProBtnMouseDown.bind(this);
 		this.handleProBtnMouseMove = this.handleProBtnMouseMove.bind(this);
 		this.handleProBtnMouseUp = this.handleProBtnMouseUp.bind(this);
-		this.hanldePlaybarLeave = this.hanldePlaybarLeave.bind(this);
-		this.handleVolDrump = this.handleVolDrump.bind(this);
+		this.handleVolClick = this.handleVolClick.bind(this);
+		this.handleVolDump = this.handleVolDump.bind(this);
+		this.handleVolBtnDown = this.handleVolBtnDown.bind(this);
+		this.handleVolMove = this.handleVolMove.bind(this);
+		this.handleVolUp = this.handleVolUp.bind(this);
 	}
 	render() {
 		return (
@@ -76,7 +84,7 @@ class PlayBar extends React.Component {
 									 onMouseDown={this.handlePlaybarClick}
 									onMouseMove={this.handleProBtnMouseMove}
 									onMouseUp={this.handleProBtnMouseUp}
-									onMouseLeave={this.hanldePlaybarLeave}
+									onMouseLeave={this.handleProBtnMouseUp}
 								>
 									<div
 										className="preload-bar"
@@ -97,7 +105,7 @@ class PlayBar extends React.Component {
 									</div>
 								</div>
 								<span className="time">
-									<em>{timeUtils.unitTime(this.state.currentTime)} </em>
+									<em>{timeUtils.unitTime(this.state.currentTime)}</em>
 									/ {this.state.duration}
 								</span>
 							</div>
@@ -108,15 +116,29 @@ class PlayBar extends React.Component {
 						</div>
 						<div className="controls">
 							<a className="vol">
-								<i className="icon-vol" title="音量" onClick={this.handleVolClick}>
-								音量
+								<i
+									className={classnames({
+										iconVol: true,
+										iconMute: this.state.currentVolume === 0,
+									})}
+									title={`音量${(Number(this.state.currentVolume).toFixed(1))}`}
+									onClick={this.handleVolClick}
+								>
+									音量
 								</i>
-								<div className="volbg">
-									<div className="vol-bar-road" onMouseDown={this.handleVolDrump}>
-										<div className="vol-bar" style={{height: "20%"}}>
-											<span className="vol-btn">
-
-											</span>
+								<div className={classnames({
+									volbg: true,
+									showVolumeBtn: this.state.showVolumeBtn,
+								})}>
+									<div
+										className="vol-bar-road"
+										onMouseDown={this.handleVolDump}
+										onMouseMove={this.handleVolMove}
+										onMouseUp={this.handleVolUp}
+										onMouseLeave={this.handleVolUp}
+									>
+										<div className="vol-bar" style={{height: `${utils.toPercent(this.state.currentVolume)}`}}>
+											<span className="vol-btn" onMouseDown={this.handleVolBtnDown} />
 										</div>
 									</div>
 								</div>
@@ -134,9 +156,7 @@ class PlayBar extends React.Component {
 			</div>
 		);
 	}
-	componentDidMount() {
 
-	}
 	handleTimeUpdate() {
 		let audio = this.lectureAudio.current,
 			currentTime = audio.currentTime,
@@ -176,10 +196,13 @@ class PlayBar extends React.Component {
 		}
 	}
 	handleCanPlay() {
-		const audio = this.lectureAudio.current;
+		const audio = this.lectureAudio.current,
+			  currentVolume = audio.volume;
+
 		this.setState((state, props) => {
 			return {
 				duration: timeUtils.unitTime(audio.duration),
+				currentVolume,
 			};
 		});
 	}
@@ -232,14 +255,56 @@ class PlayBar extends React.Component {
 			mouseIsDown: false,
 		});
 	}
-	hanldePlaybarLeave(e) {
+	handleVolDump(e) {
+		e.preventDefault();
+		let height = e.currentTarget.offsetHeight,
+			y = e.currentTarget.getBoundingClientRect().bottom - e.clientY,
+			audio = this.lectureAudio.current,
+			currentVolume = y / height;
+		if(currentVolume <=0) currentVolume = 0;
+		if(currentVolume >=1) currentVolume = 1;
+		this.setState({
+			currentVolume,
+		}, () => {
+			audio.volume = currentVolume;
+		});
+
+	}
+	handleVolClick(e) {
 		e.preventDefault();
 		this.setState({
-			mouseIsDown: false,
+			showVolumeBtn: !this.state.showVolumeBtn,
 		});
 	}
-	handleVolDrump() {
-
+	handleVolBtnDown(e) {
+		e.preventDefault();
+		let startY = e.clientY;
+		this.setState({
+			startY,
+			volBtnIsDown: true,
+		});
+	}
+	handleVolMove(e) {
+		e.preventDefault();
+		if(this.state.volBtnIsDown) {
+			let audio = this.lectureAudio.current,
+				height = e.currentTarget.offsetHeight,
+				y = e.currentTarget.getBoundingClientRect().bottom - e.clientY,
+			    currentVolume = y / height;
+			if(currentVolume <=0) currentVolume = 0;
+			if(currentVolume >=1) currentVolume = 1;
+			this.setState({
+				currentVolume,
+			}, () => {
+				audio.volume = currentVolume;
+			});
+		}
+	}
+	handleVolUp(e) {
+		e.preventDefault();
+		this.setState({
+			volBtnIsDown: false,
+		});
 	}
 }
 
