@@ -95,13 +95,11 @@ export default {
 					yield put({
 						type:"changeStatus",
 						payload:{
-							type:""
+							type:"verifyCode"
 						}
 					});
 				} 
 			}
 		}
-
-
 	}
 };

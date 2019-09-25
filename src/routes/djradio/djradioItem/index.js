@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import "./index.less";
 import { NavLink } from "dva/router";
 
@@ -916,24 +916,29 @@ class DjradioItem extends React.Component {
 				"commentCount": 7
 			}];
 		return (
-			<Fragment>
+			<div className = "djradio-item">
 				<div className = "djradio-item-header">
 					<NavLink to = "" className = "djradio-item-header-1">{ "balabala ~ 电台" }</NavLink>
 					<NavLink to = "" >更多></NavLink>
 				</div>
-				<ul>
+				<ul className = "djradio-item-ul">
 					{
 						data.map( (item,index)=> {
 							return (
-								<li>
-									<img src = {`${item.album.picUrl}?200y200`}  alt = { item.album.picUrl }/>
+								<li className = "djradio-item-li" >
+									<img src = {`${item.coverUrl}?120y120`}  alt = { item.mainSong.album.picUrl } width ="120px" height = "120px"/>
+									<div>
+										<p className = "djradio-item-li-p1">{ item.mainSong.name }  </p>
+										<p className = "djradio-item-li-p2">{ item.reason }</p>
+										
+									</div>
 								</li>
 							);
 
 						} )
 					}
 				</ul>
-			</Fragment>
+			</div>
 		);
 	}
 

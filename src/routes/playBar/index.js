@@ -5,6 +5,11 @@ import  Audio from "./audio";
 import * as timeUtils from "../../utils/time";
 import * as utils from "../../utils/utils";
 import "./index.less";
+import playQueue from "./playQueue";
+import PlayQueue from "./playQueue";
+
+
+
 
 class PlayBar extends React.Component {
 
@@ -48,6 +53,7 @@ class PlayBar extends React.Component {
 						unlock: this.state.playbarState === "unlock",
 					})}
 				>
+				<PlayQueue currentTime = { this.state.currentTime } />
 					<div className="bg" />
 					<div className="hand" title="展开播放条" />
 					<div className="up-btn">
@@ -133,7 +139,7 @@ class PlayBar extends React.Component {
 									})}
 									title={`音量${(Number(this.state.currentVolume).toFixed(1))}`}
 									onClick={this.handleVolClick}
-								>
+								><<<<<<< dev-zsy
 									音量
 								</i>
 								<div className={classnames({
@@ -278,7 +284,6 @@ class PlayBar extends React.Component {
 		}, () => {
 			audio.volume = currentVolume;
 		});
-
 	}
 	handleVolClick(e) {
 		e.preventDefault();
