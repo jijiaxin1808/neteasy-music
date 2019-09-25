@@ -3,6 +3,11 @@ import { connect } from "dva";
 import classnames from "classnames";
 import  Audio from "./audio";
 import "./index.less";
+import PlayQueue from "./playQueue";
+
+
+
+
 
 class PlayBar extends React.Component {
 
@@ -13,6 +18,7 @@ class PlayBar extends React.Component {
 	render() {
 		return (
 		    <div className="g-btmbar">
+				<PlayQueue />
 				<div className="play-bar">
 					<div className="bg" />
 					<div className="hand" title="展开播放条" />

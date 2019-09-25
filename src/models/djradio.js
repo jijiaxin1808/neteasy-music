@@ -1,7 +1,7 @@
 export default {
 	namespace: "djradio",
 	state:{
-		isShow:[true,false],
+		isShow:[true,false]
 	},
 	reducers:{
 		handlePrev( state ) {

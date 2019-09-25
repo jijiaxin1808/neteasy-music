@@ -8,7 +8,7 @@ class TopArtistList extends React.Component {
 
 		const { artists, cat } = this.props;
 		let index = (cat !== "推荐歌手" && cat !== "入驻歌手") ? 10 : artists.length;
-		console.log(index)
+		console.log(index);
 		return (
 			<ul className="artists-top">
 				{
