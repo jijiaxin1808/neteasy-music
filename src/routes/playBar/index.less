@@ -240,11 +240,17 @@
     }
     & a > i:extend(.play-bar-wrap .oper a > i) {
     }
-    .icon-vol {
+    .iconVol {
       background-position: -2px -248px;
     }
-    .icon-vol:hover {
+    .iconVol:hover {
       background-position: -31px -248px;
+    }
+    .iconMute {
+      background-position: -104px -69px;
+    }
+    .iconMute:hover {
+      background-position: -125px -69px;
     }
     .icon-mode {
       background-position: -66px -344px;
@@ -280,22 +286,28 @@
   width: 32px;
   height: 113px;
   padding: 0 14px;
+  visibility: hidden;
   background: @bg-playbar no-repeat 0 -503px;
+  &.showVolumeBtn {
+    visibility: visible;
+  }
   .vol-bar-road {
-    height: 103px;
-    position: relative;
+    height: 86px;
+    position: absolute;
+    left: 50%;
+    top: 17px;
+    transform: translateX(-50%);
+    display: flex;
   }
   .vol-bar {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
     width: 4px;
     background: @bg-playbar no-repeat -40px bottom;
+    align-self: flex-end;
+    position: relative;
   }
   .vol-btn {
     position: absolute;
-    top: -11px;
+    top: -10px;
     left: 50%;
     transform: translateX(-50%);
     width: 16px;
