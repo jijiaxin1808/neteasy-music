@@ -23,48 +23,33 @@ class PlayQueue extends React.Component {
 							</div>
 						</div>
 						<div className ="playqueue-playlist-content" >
-							<p>111</p>
-							<p>111</p>
-							<div className = "playqueue-playlist-list-playing">
-								<div>
-									<span className = "playqueue-playlist-playing"></span>
-									<span className = "playqueue-playlist-songname">name</span>
+							{
+								cr.map(()=>{
+									return (
+										<div className = "playqueue-playlist-list">
+											<div>
+												<span className = "playqueue-playlist-playing"></span>
+												<span className = "playqueue-playlist-songname">name</span>
 
-								</div>
+											</div>
 							
-								<div>
-									<span className = "playqueue-playlist-singer">singer</span>
-									<span className = "playqueue-playlist-sonngtime">time</span>
-									<span className = "playqueue-playlist-">link</span>
-								</div>
-							</div>
-							<p>111</p>
-							<p>111</p>
-							<p>111</p>
-							<p>111</p>
-							<p>111</p>
-							<p>111</p>
-							<p>111</p>
-							<p>111</p>
-							<p>111</p>
-							<p>111</p>
-							<p>111</p>
-							<p>111</p>
-							<p>111</p>
-							<p>111</p>
-							<p>111</p>
-							<p>111</p>
-							<p>111</p>
-							<p>111</p>
-							<p>111</p>
-							<p>111</p>
-							<p>111</p>
-							<p>111</p>
-							<p>111</p>
-							<p>111</p>
-							<p>111</p>
-							<p>111</p>
-							<p>111</p>
+											<div className = "playqueue-playlist-list-right">
+												<div className = "playqueue-playlist-icons" >
+													<i className = "playqueue-playlist-icon1" ></i>
+													<i className = "playqueue-playlist-icon2"></i>
+													<i className = "playqueue-playlist-icon3"></i>
+													<i className = "playqueue-playlist-icon4"></i>
+												</div>
+												<span className = "playqueue-playlist-singer">singer</span>
+												<span className = "playqueue-playlist-sonngtime">time</span>
+												<span className = "playqueue-playlist-">link</span>
+											</div>
+										</div>
+									);
+								})
+							}
+							
+							
 						</div>
 
 					</div>
@@ -73,7 +58,13 @@ class PlayQueue extends React.Component {
 							<span>name</span>
 							<span className = "playqueue-lrc-cancel">X</span>
 						</div>
-                right
+						<div className = "playqueue-lrc-content">
+							{ cr.map((item, index)=>{
+								return (
+									<p>{item}</p>
+								);
+							}) }
+						</div>
 					</div>
 				</div>
 			);
