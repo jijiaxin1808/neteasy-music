@@ -13,7 +13,6 @@ class Header extends React.Component {
 					<Logo />
 					<TopBar /> 
 					<Login />
-					<PlayQueue />
 				</div>
 			</div>
 		);

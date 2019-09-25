@@ -24,7 +24,6 @@ class Header extends React.Component {
 					</div>
 				</div>
 				<SubBar />
-				<PlayQueue />
 			</div>
 		);
 	}

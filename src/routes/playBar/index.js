@@ -5,8 +5,8 @@ import  Audio from "./audio";
 import * as timeUtils from "../../utils/time";
 import * as utils from "../../utils/utils";
 import "./index.less";
+import playQueue from "./playQueue";
 import PlayQueue from "./playQueue";
-
 
 
 
@@ -44,7 +44,7 @@ class PlayBar extends React.Component {
 	render() {
 		return (
 		    <div className="g-btmbar">
-				<PlayQueue />
+				<PlayQueue currentTime = { this.state.currentTime } />
 				<div className="play-bar">
 					<div className="bg" />
 					<div className="hand" title="展开播放条" />
@@ -268,7 +268,6 @@ class PlayBar extends React.Component {
 		}, () => {
 			audio.volume = currentVolume;
 		});
-
 	}
 	handleVolClick(e) {
 		e.preventDefault();
