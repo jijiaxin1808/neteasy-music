@@ -43,6 +43,7 @@ class Artist extends React.Component {
 										this.getLetter().map(item => {
 											return (
 												<li
+													key={item}
 													className={classnames({
 														active: letterBarFlag === `${item.toLocaleLowerCase()}`,
 													})}

@@ -14,7 +14,7 @@ class TopArtistList extends React.Component {
 				{
 					artists.slice(0, index).map( item => {
 						return(
-							<li className="artists-top-item">
+							<li className="artists-top-item" key={item}>
 								<NavLink to="/" className="artist-top-name">
 									<img src={`${item.img1v1Url}?param=130y130` } alt = { item.coverImgUrl } />
 									<div className="mask" />
