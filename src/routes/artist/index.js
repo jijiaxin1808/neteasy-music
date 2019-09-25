@@ -77,14 +77,14 @@ class Artist extends React.Component {
 		const { getHotArtists, getMoreArtists, artists } = this.props;
 		let cat = (decodeURI(this.props.location.search)).split("?")[1];
 		if(cat === "入驻歌手" || cat === "推荐歌手") {
-			window.onscroll = () => {
-			    let sT = document.documentElement.scrollTop;
-				console.log(sT);
-			    if(sT >= 2300) {
-			        console.log("adfas");
-			        // document.documentElement.scrollTop = 1000;
-				}
-			};
+			// window.onscroll = () => {
+			//     let sT = document.documentElement.scrollTop;
+			// 	console.log(sT);
+			//     if(sT >= 2300) {
+			//         console.log("adfas");
+			//         // document.documentElement.scrollTop = 1000;
+			// 	}
+			// };
 		}
 		// getHotArtists(100, 0);
 	}
