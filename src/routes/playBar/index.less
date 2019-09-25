@@ -95,6 +95,12 @@
       margin-top: 0;
       background-position: 0 -204px;
     }
+    &.paused:extend(.play-bar-wrap .btns a.ply) {
+      background-position: 0 -165px;
+    }
+    &.paused:hover {
+      background-position: -40px -165px;
+    }
     &.ply:hover {
       background-position: -40px -204px;
     }
@@ -219,7 +225,7 @@
     & a {
       float: left;
     }
-    & a i {
+    & a > i {
       float: left;
       width: 25px;
       height: 25px;
@@ -232,7 +238,7 @@
     background: @bg-playbar no-repeat -141px -243px;
     & a:extend(.play-bar-wrap .oper a) {
     }
-    & a i:extend(.play-bar-wrap .oper a i) {
+    & a > i:extend(.play-bar-wrap .oper a > i) {
     }
     .icon-vol {
       background-position: -2px -248px;
@@ -260,5 +266,44 @@
     .icon-add:hover {
       background-position: -42px -98px;
     }
+  }
+}
+.vol {
+  position: relative;
+}
+.volbg {
+  cursor: default;
+  position: absolute;
+  top: -124px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32px;
+  height: 113px;
+  padding: 0 14px;
+  background: @bg-playbar no-repeat 0 -503px;
+  .vol-bar-road {
+    height: 103px;
+    position: relative;
+  }
+  .vol-bar {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    background: @bg-playbar no-repeat -40px bottom;
+  }
+  .vol-btn {
+    position: absolute;
+    top: -11px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 18px;
+    background: @bg-iconall no-repeat -41px -250px;
+    cursor: pointer;
+  }
+  .vol-btn:hover {
+    background-position: -41px -280px;
   }
 }
