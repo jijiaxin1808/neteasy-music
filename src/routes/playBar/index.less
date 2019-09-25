@@ -13,14 +13,18 @@
   height: 0;
   width: 100%;
   z-index: 1002;
-  .play-bar {
+  .playBar {
     position: absolute;
+    transition: top 0.5s ease 0.5s;
     zoom: 1;
     top: -53px;
     left: 0;
     width: 100%;
     height: 53px;
     margin: 0 auto;
+    &.unlock {
+      top: -10px;
+    }
     & > .bg {
       margin-right: 67px;
       background-image: @bg-playbar;
@@ -40,7 +44,7 @@
       bottom: 0;
       background: @bg-playbar 0 -380px;
     }
-    .lock-icon {
+    .lockIcon {
       position: absolute;
       width: 15px;
       height: 15px;
@@ -49,8 +53,14 @@
       font-size: 0;
       background: @bg-playbar -100px -380px;
     }
-    .lock-icon:hover {
+    .lockIcon:hover {
       background-position: -100px -400px;
+    }
+    .unlockIcon:extend(.g-btmbar .playBar .lockIcon) {
+      background-position: -80px -380px;
+    }
+    .unlockIcon:hover {
+      background-position: -80px -400px;
     }
     .hand {
       position: absolute;

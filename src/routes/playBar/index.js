@@ -20,7 +20,9 @@ class PlayBar extends React.Component {
 			showVolumeBtn: false,
 			mouseIsDown: false,
 			volBtnIsDown: false,
+			mouseIsLeaveLock: false,
 			playState: "paused",
+			playbarState: "lock",
 		};
 		this.lectureAudio = React.createRef();
 		this.handleTimeUpdate = this.handleTimeUpdate.bind(this);
@@ -35,16 +37,30 @@ class PlayBar extends React.Component {
 		this.handleVolBtnDown = this.handleVolBtnDown.bind(this);
 		this.handleVolMove = this.handleVolMove.bind(this);
 		this.handleVolUp = this.handleVolUp.bind(this);
+		this.handleLockClick = this.handleLockClick.bind(this);
 	}
 	render() {
 		return (
 		    <div className="g-btmbar">
-				<div className="play-bar">
+				<div
+					className={classnames({
+						playBar: true,
+						unlock: this.state.playbarState === "unlock",
+					})}
+				>
 					<div className="bg" />
 					<div className="hand" title="展开播放条" />
 					<div className="up-btn">
 						<div className="lock">
-							<a className="lock-icon">lock</a>
+							<a
+								className={classnames({
+									lockIcon: this.state.playbarState === "lock",
+									unlockIcon: this.state.playbarState === "unlock",
+								})}
+							   onClick={this.handleLockClick}
+							>
+								lock
+							</a>
 						</div>
 					</div>
 					<div className="play-bar-wrap">
@@ -298,6 +314,14 @@ class PlayBar extends React.Component {
 		e.preventDefault();
 		this.setState({
 			volBtnIsDown: false,
+		});
+	}
+	handleLockClick(e) {
+		e.preventDefault();
+		this.setState((state) => {
+			return {
+				playbarState: state.playbarState === "lock" ? "unlock" : "lock",
+			};
 		});
 	}
 }

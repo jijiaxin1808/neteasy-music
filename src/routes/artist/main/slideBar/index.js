@@ -40,7 +40,7 @@ class SlideBar extends React.Component {
 				{
 					Object.keys(tag).map(item => {
 						return (
-							<div className="blk">
+							<div className="blk" key={item}>
 								<h3 className="tit">{item}</h3>
 								<ul className="artist-slide-nav">
 									{
