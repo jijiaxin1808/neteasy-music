@@ -26,7 +26,8 @@ class TopList extends React.Component {
 				<div className = "topList-rightBar">
 					<HandleMusic data = { toplist.listInfo } />
 					<SongListRank data = { toplist.tracks } Info = { toplist.listInfo } />
-					<Comment data1 = { toplist.comment }  className = "comment toplist-comment" />
+					{/* <Comment data1 = { toplist.comment }  className = "comment toplist-comment" /> */}
+					<Comment type = "music" id = {1394169337} />
 					<ToTop  />
 				</div>
 
