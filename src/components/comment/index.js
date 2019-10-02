@@ -2,6 +2,7 @@ import React from "react";
 import "./index.less";
 import { NavLink } from "react-router-dom";
 import getTime from "../../assets/time";
+import CommentInput from "./comment-input";
 
 class Comment extends React.Component {
 	render() {
@@ -10,6 +11,7 @@ class Comment extends React.Component {
 			if( data1 ) {
 				return (
 					<div className = {className}>
+						<CommentInput />
 						<div className = "comment-header">最新评论</div>
 						{	
 							data1.map(( item )=>{

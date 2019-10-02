@@ -9,7 +9,7 @@ class Recommand extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			left: ["-643px", "35px", "713px", "713px"],
+			left: ["-643px", "35px", "713px", "713px"],       
 			ani: [false, true, false, false],
 			showOper: false,
 			operIndex: 0,
