@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import "./index.less";
-import { Link } from "dva/router";
+import { Link } from "react-router-dom";
+import Comment from "../../components/comment";
  
 class Mv extends React.Component {
 	render() {
@@ -162,6 +163,7 @@ class Mv extends React.Component {
 		return (
 			<div className = "mv">
 				<div className = "mv-contet" >
+					<Comment type = "mv" id = { 10894053 } />
 				</div>
 				<div className = "mv-sidebar">
 					<div className = "mv-detail" >
@@ -175,10 +177,12 @@ class Mv extends React.Component {
 							recommenddata.map((item, index)=>{
 								return (
 									  <Fragment> 
-										  {/* <Link to = { `video?id=${ item.vid }` }>
-											<img src = { `${ item.coverUrl }` } alt = { item.title }  />
-											<span></span>
-										</Link> */}
+										  <Link to = { `video?id=${ item.vid }` }>
+											  <Fragment>
+												 <img src = { `${ item.coverUrl }` } alt = { item.title } width = "96px" height = "54px" style = {{display:"block"}}/>
+											 <span>{item.title}</span> 
+											 </Fragment> 
+										</Link>
 									</Fragment>
 								  );
 							 })
