@@ -12,7 +12,6 @@ class TopListBar extends React.Component {
 			return 0;
 		};
 		const data = func();
-		console.log(data,"aaa0");
  		return (
 			<div className = "topList-bar">
 				<p className = "topList-bar-title" >{ title }</p>
@@ -26,11 +25,10 @@ class TopListBar extends React.Component {
 											<NavLink to = { `/discover/toplist?id=${ item.id }` }>
 												<img src = { item.coverImgUrl } alt = { item.coverImgUrl }  className = "Listbar-item-left"/>
 												<div className = "Listbar-item-right">
-													<p >{ item.name }</p>
+													<p>{ item.name }</p>
 													<p className = "Listbar-item-title">{ item.updateFrequency }</p>
 												</div>
 											</NavLink>
-
 										</li>
 									);
 								}

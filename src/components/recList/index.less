@@ -1,0 +1,52 @@
+.rec-song-list {
+  & li {
+    margin-bottom: 12px;
+  }
+  & li:before,
+  & li:after {
+    content: "";
+    display: table;
+  }
+  & li:after {
+    clear: both;
+  }
+  .u-cover {
+    float: left;
+    margin-right: -60px;
+  }
+  .info {
+    margin-left: 60px;
+    .s-name {
+      width: 140px;
+      margin-bottom: 10px;
+    }
+    .s-name > a {
+      font-size: 14px;
+      color: #000;
+    }
+    .c-name span {
+      color: #999;
+      float: left;
+      line-height: 22px;
+    }
+    .c-name > a {
+      float: left;
+      color: #666;
+      line-height: 22px;
+      margin: 0 2px 0 4px;
+    }
+    .icon-84 {
+      display: inline-block;
+      width: 12px;
+      height: 13px;
+      background: url("../../assets/icon.png") no-repeat -65px -840px;
+    }
+  }
+}
+
+.f-thide {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}

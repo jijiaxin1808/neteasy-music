@@ -1,6 +1,6 @@
 import React from "react";
 import "./index.less";
-import { NavLink } from "dva/router";
+import { NavLink } from "react-router-dom";
 
 class DjradioItem extends React.Component {
 	render() {

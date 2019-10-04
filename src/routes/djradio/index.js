@@ -1,9 +1,9 @@
 import React from "react";
 import  DjradioItem from "./djradioItem";
 import DjradioRecommend from "./djradiorecommend";
-import "./index.less";
 import { connect } from "dva";
 import DjradioSort from "./djradiosort";
+import "./index.less";
 
 class Djradio extends React.Component {
 	render() {

@@ -33,6 +33,12 @@ const app = dva({
 	        hotAlbum: [],
 			allAlbum: [],
 		},
+		SongListDetail: {
+	  		songs: [],
+			subscribers: [],
+			recSongList: [],
+			details: {},
+		}
 	}
 });
 

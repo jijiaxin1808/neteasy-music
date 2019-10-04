@@ -5,6 +5,10 @@ import Pagination from "../../components/pagination";
 import AlbumList from "./main/albumList";
 import "./index.less";
 
+export const AlbumContext = React.createContext({
+	album: []
+});
+
 class Album extends React.Component {
 
 	render() {
@@ -18,7 +22,9 @@ class Album extends React.Component {
 						<div className="tit">
 							<span>热门新碟</span>
 						</div>
-						<AlbumList hotAlbum={hotAlbum} />
+						<AlbumContext.Provider value={hotAlbum}>
+							<AlbumList/>
+						</AlbumContext.Provider>
 					</div>
 					<div className="all-album">
 						<div className="tit">
@@ -40,7 +46,9 @@ class Album extends React.Component {
 								}
 							</div>
 						</div>
-						<AlbumList allAlbum={allAlbum} />
+						<AlbumContext.Provider value={allAlbum}>
+							<AlbumList/>
+						</AlbumContext.Provider>
 					</div>
 					<Pagination />
 				</div>
