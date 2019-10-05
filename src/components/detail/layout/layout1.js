@@ -19,6 +19,7 @@ function LayoutOne(props) {
 							<div className="cnt">
 								{props.children.renderInfo()}
 							</div>
+							{props.children.renderShowList()}
 						</div>
 					</div>
 				</div>

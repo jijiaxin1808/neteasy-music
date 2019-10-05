@@ -3,6 +3,7 @@ import { connect } from "dva";
 import LayoutOne from "../../components/detail/layout/layout1";
 import PicList from "../../components/picList";
 import RecList from "../../components/recList";
+import SongList from "../../components/songlist2";
 import Info from "./Info";
 import "./index.less";
 
@@ -19,7 +20,7 @@ function SongListDetail(props) {
 		getSongListDetail(2875784937);
 		getSubecriber(544215255, 8);
 		getRecList(324231);
-	}, []);
+	}, []); 
 
 	return (
 		<LayoutOne renderImg={renderSongListImg}>
@@ -48,12 +49,42 @@ function SongListDetail(props) {
 								<Info details={details} />
 							);
 						}
+					},
+					renderShowList: () => {
+						if(arrAll) {
+							return (
+								<SongList list={details.playlist.tracks} listData={listData}/>
+							);
+						}
 					}
 				}
 			}
 		</LayoutOne>
 	);
 }
+
+const listData = [
+	{
+		width: "74px",
+		title: "",		
+	},
+	{
+		width: "auto",
+		title: "歌曲标题",
+	},
+	{
+		width: "111px",
+		title: "时长",
+	},
+	{
+		width: "14%",
+		title: "歌手",
+	},
+	{
+		width: "20%",
+		title: "专辑",
+	}
+];
 
 const mapDispatch = (dispatch) => ({
 	/*喜欢这个歌单的人*/
