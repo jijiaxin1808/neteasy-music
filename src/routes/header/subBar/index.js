@@ -8,18 +8,19 @@ class SubBar extends React.Component {
 
 	render() {
 		const url = window.location.hash.split("/")[2]?window.location.hash.split("/")[2]:"";
-
+		console.log("当前路由为",url);
+		const	playlistreg = /playlist\w*/ig;
 		return (
 			<div className = "subBar">
 				<ul className = "subBar-ul">
 					<li className = "subbar-link">
-						<NavLink to = "/discover/recommand"  ><span className = { url==="recommand"?"subBar-hover":"" }>推荐</span></NavLink>
+						<NavLink to = "/discover/recommand"  ><span className = { url==="recommand" || url===""  ?"subBar-hover":"" }>推荐</span></NavLink>
 					</li>
 					<li className = "subbar-link">
 						<NavLink to = "/discover/toplist"  ><span className = { url==="toplist"?"subBar-hover":"" }>排行榜</span></NavLink>
 					</li>
 					<li className = "subbar-link">
-						<NavLink to = "/discover/playlist"   ><span className = { url==="playlist"?"subBar-hover":"" }>歌单</span></NavLink>
+						<NavLink to = "/discover/playlist"   ><span className = { playlistreg.test(url)?"subBar-hover":"" }>歌单</span></NavLink>
 					</li>
 					<li className = "subbar-link">
 						<NavLink to = "/discover/djradio"  ><span className = { url==="djradio"?"subBar-hover":"" }>主播电台</span></NavLink>

@@ -29,7 +29,6 @@ class Album extends React.Component {
 										<React.Fragment key={item}>
 											<NavLink
 												to={"/discover/album?" + item.name}
-												activeClassName="tag-active"
 												onClick={() => this.handleTabClick()}
 											>
 												{item}

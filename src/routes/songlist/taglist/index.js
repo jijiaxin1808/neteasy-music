@@ -46,7 +46,6 @@ class TagList extends React.Component {
 											<React.Fragment key={item}>
 												<NavLink
 													to={"/discover/playlist?" + item.name}
-													activeClassName="tag-active"
 													onClick={() => {this.handleTagClick(); }}
 												>
 													{item.name}

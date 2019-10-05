@@ -1,6 +1,6 @@
 import React from "react";
 import "./index.less";
-import { NavLink } from "dva/router";
+import { Link } from "react-router-dom";
 
 class DjradioItem extends React.Component {
 	render() {
@@ -918,8 +918,8 @@ class DjradioItem extends React.Component {
 		return (
 			<div className = "djradio-item">
 				<div className = "djradio-item-header">
-					<NavLink to = "" className = "djradio-item-header-1">{ "balabala ~ 电台" }</NavLink>
-					<NavLink to = "" >更多></NavLink>
+					<Link to = "" className = "djradio-item-header-1">{ "balabala ~ 电台" }</Link>
+					<Link to = "" >更多></Link>
 				</div>
 				<ul className = "djradio-item-ul">
 					{

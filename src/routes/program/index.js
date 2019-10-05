@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import "./index.less";
 import Comment from "../../components/comment";
 import { Link } from "react-router-dom";

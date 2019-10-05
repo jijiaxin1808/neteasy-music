@@ -1,6 +1,6 @@
 import React from "react";
 import "./index.less";
-import { Link } from "dva/router";
+import { Link } from "react-router-dom";
 
 
 

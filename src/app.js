@@ -56,56 +56,61 @@ const program = Loadable({
 });
 
 
-export default [
-	{
-		name: "歌单",
-		icon: "songlist",
-		path: "/discover/songlist",
-		component: songlist,
-		key: 0
-	},{
-		name:"推荐",
-		icon: "recommand",
-		path: "/discover/recommand",
-		component: recommand,
-		key: 1
-	},{
-		name:"排行榜",
-		icon: "toplist",
-		path: "/discover/toplist",
-		component: toplist,
-		key: 1
-	},{
-		name:"歌手",
-		icon: "artist",
-		path: "/discover/artist",
-		component: artist,
-		key: 1
-	},{
-		name:"主播电台",
-		icon: "djradio",
-		path: "/discover/djradio",
-		component: djradio,
-		key: 1
-	},{
-		name:"新碟上架",
-		icon: "album",
-		path: "/discover/album",
-		component: album,
-		key: 1
-	},{
-		name:"MV",
-		icon: "/mv",
-		path: "/mv",
-		component: mv,
-		key: 1
-	},{
-		name:"program",
-		icon: "/program",
-		path: "/program",
-		component: program,
-		key: 1
-	}
+export default [{
+	name:"推荐",
+	icon: "recommand",
+	path: "/",
+	component: recommand,
+	key: 0
+},{
+	name: "歌单",
+	icon: "songlist",
+	path: "/discover/playlist",
+	component: songlist,
+	key: 1
+},{
+	name:"推荐",
+	icon: "recommand",
+	path: "/discover/recommand",
+	component: recommand,
+	key: 2
+},{
+	name:"排行榜",
+	icon: "toplist",
+	path: "/discover/toplist",
+	component: toplist,
+	key: 3
+},{
+	name:"歌手",
+	icon: "artist",
+	path: "/discover/artist",
+	component: artist,
+	key: 4
+},{
+	name:"主播电台",
+	icon: "djradio",
+	path: "/discover/djradio",
+	component: djradio,
+	key: 5
+},{
+	name:"新碟上架",
+	icon: "album",
+	path: "/discover/album",
+	component: album,
+	key: 6
+},{
+	name:"MV",
+	icon: "/mv",
+	path: "/mv",
+	component: mv,
+	key: 7
+},{
+	name:"program",
+	icon: "/program",
+	path: "/program",
+	component: program,
+	key: 9
+}
 ];
 
 

@@ -38,11 +38,4 @@ const mapDispatchToProps = (dispatch)=> ({
 
 });
 
-
-
-
-
-
-
-
 export default connect(({djradio})=>({djradio}),mapDispatchToProps)(Djradio);
