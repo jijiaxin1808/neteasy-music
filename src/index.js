@@ -21,6 +21,17 @@ const app = dva({
 			recplaylists: [],
 			recalbums: [],
 			rectoplists: [],
+			topartists: [],
+		},
+		Artist: {
+	        artists: [],
+			letterBarFlag: "热门",
+			showLetterBar: true,
+			shoArtistList: true,
+		},
+		Album: {
+	        hotAlbum: [],
+			allAlbum: [],
 		},
 	}
 });

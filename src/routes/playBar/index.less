@@ -1,0 +1,331 @@
+@bg-playbar: url("../../assets/playbar.png");
+@bg-starbar: url("../../assets/statbar.png");
+@bg-iconall: url("../../assets/iconall.png");
+@bg-icon: url("../../assets/icon.png");
+
+.g-btmbar {
+  position: fixed;
+  _position: absolute;
+  zoom: 1;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+  width: 100%;
+  z-index: 1002;
+  .playBar {
+    position: absolute;
+    transition: top 0.5s ease 0.5s;
+    zoom: 1;
+    top: -53px;
+    left: 0;
+    width: 100%;
+    height: 53px;
+    margin: 0 auto;
+    &.unlock {
+      top: -10px;
+    }
+    & > .bg {
+      margin-right: 67px;
+      background-image: @bg-playbar;
+      background-position: 0 0;
+      background-repeat: repeat-x;
+      height: 53px;
+    }
+    .up-btn {
+      position: relative;
+      z-index: 11;
+    }
+    .up-btn .lock {
+      position: absolute;
+      right: 0;
+      height: 67px;
+      width: 67px;
+      bottom: 0;
+      background: @bg-playbar 0 -380px;
+    }
+    .lockIcon {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      left: 18px;
+      top: 7px;
+      font-size: 0;
+      background: @bg-playbar -100px -380px;
+    }
+    .lockIcon:hover {
+      background-position: -100px -400px;
+    }
+    .unlockIcon:extend(.g-btmbar .playBar .lockIcon) {
+      background-position: -80px -380px;
+    }
+    .unlockIcon:hover {
+      background-position: -80px -400px;
+    }
+    .hand {
+      position: absolute;
+      height: 20px;
+      width: 100%;
+      top: -10px;
+      cursor: pointer;
+    }
+  }
+}
+
+.play-bar-wrap {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 980px;
+  margin: 0 auto;
+  height: 47px;
+  padding-top: 6px;
+  .btns {
+    float: left;
+    margin-right: 20px;
+  }
+  .btns a {
+    float: left;
+    width: 28px;
+    height: 28px;
+    margin-right: 8px;
+    margin-top: 5px;
+    text-indent: -9999px;
+    background: @bg-playbar no-repeat 0 9999px;
+    &.prev {
+      background-position: 0 -130px;
+    }
+    &.prev:hover {
+      background-position: -30px -130px;
+    }
+    &.ply {
+      width: 36px;
+      height: 36px;
+      margin-top: 0;
+      background-position: 0 -204px;
+    }
+    &.paused:extend(.play-bar-wrap .btns a.ply) {
+      background-position: 0 -165px;
+    }
+    &.paused:hover {
+      background-position: -40px -165px;
+    }
+    &.ply:hover {
+      background-position: -40px -204px;
+    }
+    &.next {
+      background-position: -80px -130px;
+    }
+    &.next:hover {
+      background-position: -110px -130px;
+    }
+  }
+  .play {
+    float: left;
+    margin-right: 45px;
+    width: 608px;
+    .head {
+      position: relative;
+      width: 34px;
+      height: 34px;
+      float: left;
+    }
+    .head .mask {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 34px;
+      height: 34px;
+      background: @bg-playbar 0 -80px;
+      font-size: 0;
+    }
+    .words {
+      margin-left: 50px;
+      overflow: hidden;
+      height: 20px;
+      a {
+        color: #e8e8e8;
+        float: left;
+        text-shadow: 0 1px 0 #171717;
+        margin-right: 15px;
+        margin-top: 2px;
+      }
+      .icon-link {
+        float: left;
+        width: 14px;
+        height: 15px;
+        font-size: 0;
+        background: @bg-playbar no-repeat -110px -103px;
+      }
+      .by {
+        float: left;
+        margin-right: 15px;
+        margin-top: -1px;
+        color: #9b9b9b;
+      }
+    }
+  }
+}
+
+.p-bar {
+  @pbar-height: 9px;
+  margin-left: 50px;
+  width: 493px;
+  position: relative;
+  .barbg {
+    height: @pbar-height;
+    background: @bg-starbar no-repeat right 0;
+  }
+  .preload-bar {
+    height: @pbar-height;
+    width: 30%;
+    background: @bg-starbar no-repeat 0 -30px;
+  }
+  .process-bar {
+    position: absolute;
+    left: 0;
+    top: -1px;
+    height: @pbar-height;
+    width: 20%;
+    background: @bg-starbar no-repeat 0 -65px;
+  }
+  .process-btn {
+    position: absolute;
+    top: -7px;
+    right: -13px;
+    width: 22px;
+    height: 22px;
+    background: @bg-iconall no-repeat 0 -250px;
+    &:hover {
+      background-position: 0 -280px;
+    }
+  }
+  .time {
+    position: absolute;
+    right: -80px;
+    top: -2px;
+    color: #797979;
+    text-shadow: 0 1px 0 #121212;
+    white-space: pre;
+    em {
+      color: #a1a1a1;
+    }
+  }
+}
+
+.play-bar-wrap {
+  .oper {
+    float: left;
+    height: 30px;
+    padding-top: 5px;
+    .icon-collect {
+      background-position: -88px -163px;
+    }
+    .icon-collect:hover {
+      background-position: -88px -189px;
+    }
+    .icon-forward {
+      background-position: -114px -163px;
+    }
+    .icon-forward:hover {
+      background-position: -114px -189px;
+    }
+    & a {
+      float: left;
+    }
+    & a > i {
+      float: left;
+      width: 25px;
+      height: 25px;
+      font-size: 0;
+      background: @bg-playbar no-repeat 0 9999px;
+    }
+  }
+  .controls:extend(.play-bar-wrap .oper) {
+    padding-left: 20px;
+    background: @bg-playbar no-repeat -141px -243px;
+    & a:extend(.play-bar-wrap .oper a) {
+    }
+    & a > i:extend(.play-bar-wrap .oper a > i) {
+    }
+    .iconVol {
+      background-position: -2px -248px;
+    }
+    .iconVol:hover {
+      background-position: -31px -248px;
+    }
+    .iconMute {
+      background-position: -104px -69px;
+    }
+    .iconMute:hover {
+      background-position: -125px -69px;
+    }
+    .icon-mode {
+      background-position: -66px -344px;
+    }
+    .icon-mode:hover {
+      background-position: -93px -344px;
+    }
+    .icon-add {
+      width: 58px;
+      background-position: -42px -68px;
+      font-size: 12px;
+      padding-left: 19px;
+      padding-top: 7px;
+      color: #666;
+      text-shadow: 0 1px 0 #080707;
+      text-decoration: none;
+      text-align: center;
+    }
+    .icon-add:hover {
+      background-position: -42px -98px;
+    }
+  }
+}
+.vol {
+  position: relative;
+}
+.volbg {
+  cursor: default;
+  position: absolute;
+  top: -124px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32px;
+  height: 113px;
+  padding: 0 14px;
+  visibility: hidden;
+  background: @bg-playbar no-repeat 0 -503px;
+  &.showVolumeBtn {
+    visibility: visible;
+  }
+  .vol-bar-road {
+    height: 86px;
+    position: absolute;
+    left: 50%;
+    top: 17px;
+    transform: translateX(-50%);
+    display: flex;
+  }
+  .vol-bar {
+    width: 4px;
+    background: @bg-playbar no-repeat -40px bottom;
+    align-self: flex-end;
+    position: relative;
+  }
+  .vol-btn {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 18px;
+    background: @bg-iconall no-repeat -41px -250px;
+    cursor: pointer;
+  }
+  .vol-btn:hover {
+    background-position: -41px -280px;
+  }
+}

@@ -95,7 +95,7 @@ export default {
 
 		*getSongs({ payload }, { call, put }) {
 
-			const temp = yield call(songListService.getSongList, payload.tag, payload.curPage, payload.limit);
+			const temp = yield call(songListService.getSongList, payload);
 
 			if(temp.code === 200) {
 

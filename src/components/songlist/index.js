@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { NavLink } from "dva/router";
+import { NavLink } from "react-router-dom";
 import "./index.less";
 
 class SongListInner extends React.Component {
@@ -17,7 +17,8 @@ class SongListInner extends React.Component {
 			<div className="songlist-content">
 				<ul className="songlists">
 					{
-						playlists && playlists.map((item, index) => {
+
+				         playlists.map( item => {
 
 							return(
 								<li className="songlists-item">
@@ -26,7 +27,7 @@ class SongListInner extends React.Component {
 										<div className="mask" />
 										<div className="bottom">
 											<i className="ico-listen" />
-											<span className="num-listen">16844</span>
+											<span className="num-listen">{`${item.playCount}万`}</span>
 											<NavLink to="/" className="ico-play" />
 										</div>
 									</NavLink>

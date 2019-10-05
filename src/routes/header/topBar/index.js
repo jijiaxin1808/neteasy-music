@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { Data } from "../../../assets/TopData";
 import React from "react";
 import "./index.less";
@@ -13,9 +13,9 @@ class TopBar extends React.Component {
 					Data.map(( item,index )=> {
 						return (
 							<div className="topBarItem" key = { index }  >
-								<Link to={item.linkTo} >
+								<NavLink to={item.linkTo} >
 									{item.name}
-								</Link>
+								</NavLink>
 							</div>
 						);
 					})
@@ -26,9 +26,9 @@ class TopBar extends React.Component {
 					<input />
 				</div>
 				<div className = "topBar_creater" >
-					<Link to="/creater">
+					<NavLink to="/creater">
 						{ "创作者中心" }
-					</Link>
+					</NavLink>
 				</div>	
 				<div className = "topBar_login">
 					<span > { "登录" } </span>

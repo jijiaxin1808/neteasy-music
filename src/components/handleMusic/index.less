@@ -1,5 +1,6 @@
 .handle-music {
-    width: 670;
+
+    width: 670px;
     // margin: 0 auto;
     display: flex;
     flex-wrap: nowrap;
@@ -20,15 +21,28 @@
 }
 
 .handle-music-btn {
-    margin-left: 20px;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  p {
+    font-size: 20px;
+    color: #333;
+  }
+  ul {
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    p {
-        font-size: 20px;
-        color: #333;
-
+    flex-wrap: nowrap;
+    li {
+      cursor: pointer;
+      margin-right: 5px;
+      background: url("../../assets/button2.png") no-repeat 0 9999px;
+      text-align: center;
+      line-height: 30px;
+      height: 30px;
+      padding-right: 2px;
+      padding-left: 28px;
     }
+
     ul {
         display: flex;
         flex-wrap: nowrap;
@@ -87,4 +101,5 @@
             }
         }
     }
+}
 }

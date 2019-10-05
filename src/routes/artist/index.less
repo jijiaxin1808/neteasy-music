@@ -1,0 +1,80 @@
+.artist-list {
+  width: 980px;
+  margin: 0 auto;
+  border: 1px solid #d3d3d3;
+  border-width: 0 1px;
+  background: url("../../assets/wrap2.png") repeat-y 0 0;
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+  .content {
+    float: right;
+    background-color: #fff;
+    width: calc(~"100% - 182px");
+    padding: 32px 40px;
+    .tit {
+      height: 40px;
+      line-height: 40px;
+      border-bottom: 2px solid #c20c0c;
+    }
+  }
+}
+
+.artist-tag {
+  float: left;
+  font-size: 23px;
+  color: #000;
+}
+.artist-more {
+  float: right;
+}
+.artist-name-nav {
+  margin-top: 20px;
+  ul {
+    display: flex;
+    justify-content: space-between;
+    &:before,
+    &:after {
+      content: "";
+      display: table;
+    }
+    &:after {
+      clear: both;
+    }
+  }
+  li {
+    flex: 0 0 auto;
+
+    font-size: 14px;
+  }
+  li a {
+    color: #000;
+    float: left;
+    width: 21px;
+    line-height: 24px;
+    text-align: center;
+  }
+  .artistHot {
+    margin-left: -3px;
+  }
+  .artistOther {
+    margin-right: -3px;
+  }
+  .artistHot a,
+  .artistOther a {
+    font-size: 12px;
+    color: #333;
+    width: 45px;
+    height: 24px;
+  }
+  .active a {
+    color: rgb(255, 255, 255);
+    background: rgb(194, 12, 12);
+    border-radius: 2px;
+  }
+}

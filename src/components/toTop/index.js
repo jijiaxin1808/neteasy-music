@@ -15,7 +15,6 @@ class ToTop extends React.Component {
 			window.scrollTo(0,0);	
 		};
 		document.body.onscroll = ()=>{
-			console.log(document.documentElement.scrollTop);
 			if( document.documentElement.scrollTop>400) {
 				this.setState({isshow:true});
 			}

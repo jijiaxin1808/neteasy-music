@@ -1,17 +1,10 @@
 import React from "react";
 import { connect } from "dva";
-import { withRouter } from "dva/router";
 import classnames from "classnames";
 import "./index.less";
 
-//es7修饰器@connect() - connect的语法糖，可以不用在connect里写dispatch。eject配置
 class Pagination extends React.Component {
 
-	constructor(props) {
-		super(props);
-		this.state = {
-		};
-	}
 	render() {
 		const {
 			totalPage,
@@ -38,23 +31,16 @@ class Pagination extends React.Component {
 							})}
 							onClick={() => {handlePrevClick(this.props.SongList);}}
 						>
-              上一页
+                            上一页
 						</a>
 						<a
-							className={classnames({
-								"zpgi": true,
-								"js-selected": curPage === 1
-							})}
+							className={classnames({"zpgi": true, "js-selected": curPage === 1})}
 							onClick={(e) => handlePageClick(e)}
 						>
-              1
+                            1
 						</a>
-						<span
-							className={classnames({
-								zdot: curPage < 6 && totalPage >= 9,
-							})}
-						>
-              ...
+						<span className={classnames({zdot: curPage < 6 && totalPage >= 9,})}>
+                            ...
 						</span>
 						{
 							Array.from({length: groupCount}).map((item, index) => {
@@ -64,31 +50,23 @@ class Pagination extends React.Component {
 									return index + startPage;
 								}
  
-							}).map(
-								(item, index) =>
-									(item < totalPage) && <a
-										className={classnames({
-											"zpgi": true,
-											"js-selected": item === curPage
-										})}
-										onClick={(e) => handlePageClick(e)}
-									>
-										{item}
-									</a>
+							}).map((item, index) =>
+								(item < totalPage) &&
+                                    <a
+                                    	className={classnames({"zpgi": true, "js-selected": item === curPage})}
+                                    	onClick={(e) => handlePageClick(e)}
+                                    >
+                                    	{item}
+                                    </a>
 							)
 						}
 						<span
-							className={classnames({
-								zdot: curPage > totalPage - groupCount && totalPage >= 9,
-							})}
+							className={classnames({zdot: curPage > totalPage - groupCount && totalPage >= 9})}
 						>
-              ...
+                            ...
 						</span>
 						<a
-							className={classnames({
-								"zpgi": true,
-								"js-selected": curPage === totalPage
-							})}
+							className={classnames({"zpgi": true, "js-selected": curPage === totalPage})}
 							onClick={(e) => handlePageClick(e)}
 						>
 							{totalPage}
@@ -101,7 +79,7 @@ class Pagination extends React.Component {
 							})}
 							onClick={() => {handleNextClick(this.props.SongList);}}
 						>
-              下一页
+                            下一页
 						</a>
 					</ul>
 				</div>
@@ -192,6 +170,6 @@ const mapDispatch = (dispatch) => ({
 	},
 });
 
-export default withRouter(connect(({ SongList }) => ({
+export default connect(({ SongList }) => ({
 	SongList,
-}), mapDispatch)(Pagination));
+}), mapDispatch)(Pagination);
