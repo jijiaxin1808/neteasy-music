@@ -6,7 +6,6 @@ import Login from "../Login";
 import "./icon.less";
 import SubBar from "./subBar";
 import ToTop from "../../components/toTop";
-import PlayQueue from "../../routes/playBar/playQueue";
 
 class Header extends React.Component {
 	

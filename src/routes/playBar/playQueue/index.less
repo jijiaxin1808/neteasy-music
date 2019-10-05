@@ -8,9 +8,13 @@
   right: 200px;
   visibility: hidden;
 }
+.playqueue-hide {
+    display:none;
+}
 .playqueue-lrc {
-  width: 420px;
-  height: 100%;
+    width: 420px;
+    height: 100%;
+    margin-left: -2px;
 }
 .playqueue-playlist {
   border-right: 2px solid white;
@@ -72,26 +76,16 @@
   background-position: -51px 0;
 }
 .playqueue-playlist-content {
-  overflow-y: auto;
-  height: 270px;
-  background: #191919;
-  &::-webkit-scrollbar-thumb {
-    border-radius: 5px;
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
-    background: rgba(0, 0, 0, 0.2);
-  }
-  &::-webkit-scrollbar {
-    width: 5px;
-    background: #868686;
-    border: 1px solid #a6a6a6;
-  }
-  // &::-webkit-scrollbar-track {
-  //     width: 5px;
-  // }
-  // &::-webkit-scrollbar-button {
-  //     display: none;
 
-  // }
+    position: relative;
+    overflow-y: auto;
+    height: 270px;
+    background: #191919; 
+    &::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+        background: rgba(0,0,0,0.2);
+}
   scrollbar-base-color: #f8f8f8;
 }
 .playqueue-playlist-list {

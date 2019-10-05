@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "dva";
-import { withRouter } from "react-router-dom";
 import TagList from "./taglist";
 import SongListInner from "../../components/songlist";
 import Pagination from "../../components/pagination";

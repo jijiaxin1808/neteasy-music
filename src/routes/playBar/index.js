@@ -24,6 +24,7 @@ class PlayBar extends React.Component {
 			mouseIsLeaveLock: false,
 			playState: "paused",
 			playbarState: "lock",
+			isPlayqueueShow: false
 		};
 		this.lectureAudio = React.createRef();
 		this.handleTimeUpdate = this.handleTimeUpdate.bind(this);
@@ -39,10 +40,12 @@ class PlayBar extends React.Component {
 		this.handleVolMove = this.handleVolMove.bind(this);
 		this.handleVolUp = this.handleVolUp.bind(this);
 		this.handleLockClick = this.handleLockClick.bind(this);
+		this.handlPlayqueue = this.handlPlayqueue.bind(this);
 	}
 	render() {
 		return (
 		    <div className="g-btmbar">
+				<PlayQueue   currentTime = { this.state.currentTime } isPlayqueueShow = { this.state.isPlayqueueShow }  />
 				<div
 					className={classnames({
 						playBar: true,
@@ -82,7 +85,7 @@ class PlayBar extends React.Component {
 						</div>
 						<div className="play">
 							<div className="head">
-								<img src="http://p2.music.126.net/rtezgU6AxamJZKDAScz0dw==/109951164351789011.jpg?param=34y34" />
+								<img src="http://p2.music.126.net/rtezgU6AxamJZKDAScz0dw==/109951164351789011.jpg?param=34y34" alt = "歌名" />
 								<a className="mask">mask</a>
 							</div>
 							<div className="words">
@@ -156,8 +159,8 @@ class PlayBar extends React.Component {
 								</div>
 							</a>
 							<a><i className="icon-mode" title="单曲循环">单曲循环</i></a>
-							<a><i className="icon-add" title="播放列表">100</i></a>
-						</div>
+							<a><i className="icon-add" title="播放列表" onClick = { this.handlPlayqueue }>100</i></a>
+						</div >
 					</div>
 				</div>
 				<Audio
@@ -322,6 +325,12 @@ class PlayBar extends React.Component {
 			return {
 				playbarState: state.playbarState === "lock" ? "unlock" : "lock",
 			};
+		});
+	}
+	handlPlayqueue(e) {
+		e.preventDefault();
+		this.setState({
+			isPlayqueueShow:!this.state.isPlayqueueShow
 		});
 	}
 }

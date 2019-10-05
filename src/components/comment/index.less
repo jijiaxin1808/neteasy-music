@@ -1,5 +1,7 @@
 .comment {
-  width: 670px;
+  width: 640px;
+  margin: 0 auto;
+  background: white;
   .bd {
     color: #dedede;
     position: absolute;
@@ -26,12 +28,13 @@
 }
 .comment-header {
   height: 20px;
-  width: 670px;
+  width: 640px;
   border-bottom: 1px solid #cfcfcf;
   font-size: 12px;
   color: #333;
 }
 .comment-item {
+  width: 640px;
   img {
     height: 50px;
     width: 50px;
@@ -40,6 +43,7 @@
   padding: 15px 0;
   border-bottom: 1px dotted #ccc;
   display: flex;
+
 }
 .comment-beReplied {
   img {
@@ -48,8 +52,9 @@
   }
   padding: 15px 5px;
   display: flex;
-  background: white;
+  background: #f4f4f4;
   position: relative;
+  width: 580px;
 }
 
 .comment-user-name {
@@ -64,6 +69,7 @@
   padding: 0 15px;
   display: flex;
   flex-direction: column;
+  width: 580px;
 }
 .comment-content-main {
   word-wrap: break-word;
@@ -82,7 +88,7 @@
   margin-top: 20px;
   display: flex;
   justify-content: space-between;
-  width: 610px;
+  width: 580px;
 }
 .comment-item-unlike {
   background: url("../../assets/icon2.png") no-repeat;
@@ -92,8 +98,10 @@
   display: inline-block;
   margin-right: 7px;
   vertical-align: -2px;
+  cursor: pointer;
 }
 .comment-item-like {
+  cursor: pointer;
   background: url("../../assets/icon2.png") no-repeat;
   background-position: -170px 0;
   height: 15px;
