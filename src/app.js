@@ -50,6 +50,12 @@ const mv = Loadable({
 	loading: Loading
 });
 
+const program = Loadable({
+	loader: () => import("./routes/program"),
+	loading: Loading
+});
+
+
 export default [
 	{
 		name: "歌单",
@@ -92,6 +98,12 @@ export default [
 		icon: "/mv",
 		path: "/mv",
 		component: mv,
+		key: 1
+	},{
+		name:"program",
+		icon: "/program",
+		path: "/program",
+		component: program,
 		key: 1
 	}
 ];

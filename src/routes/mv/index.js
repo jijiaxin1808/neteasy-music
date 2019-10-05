@@ -7,7 +7,7 @@ class Mv extends React.Component {
 	render() {
 		const count = (nums)=> {
 			if(nums>100000) {
-				return parseInt(nums/10000)+1+"万次";
+				return Number(nums/10000)+1+"万次";
 			}
 			else return nums+"次";
 		};
@@ -167,9 +167,9 @@ class Mv extends React.Component {
 				</div>
 				<div className = "mv-sidebar">
 					<div className = "mv-detail" >
-						<p>mv简介</p>
-						<p>{ `发布时间： ${ data.publishTime }` }</p>
-						<p>{ "播放次数:"}  {count(data.playCount)}</p>
+						<p className = "mv-introduction">mv简介</p>
+						<p className = "mv-detail-info" >{ `发布时间： ${ data.publishTime }` }</p>
+						<p className = "mv-detail-info" >{ "播放次数:"}  {count(data.playCount)}</p>
 						<p className = "mv-desc">{ data.desc }</p>
 				    </div>
 					<div className = "mv-recommend">
@@ -177,10 +177,11 @@ class Mv extends React.Component {
 							recommenddata.map((item, index)=>{
 								return (
 									  <Fragment> 
-										  <Link to = { `video?id=${ item.vid }` }>
+										  <Link to = { `video?id=${ item.vid }` } className = "mv-recommand-item">
 											  <Fragment>
-												 <img src = { `${ item.coverUrl }` } alt = { item.title } width = "96px" height = "54px" style = {{display:"block"}}/>
-											 <span>{item.title}</span> 
+												 <img src = { `${ item.coverUrl }` } alt = { item.title } width = "96px" height = "54px" style = {{display:"inline-block"}}/>
+											 	<span className = "mv-name">{item.title}</span>
+											 	<span className = "mv-name">{`by ${ item.creator[0].userName }`}</span> 
 											 </Fragment> 
 										</Link>
 									</Fragment>

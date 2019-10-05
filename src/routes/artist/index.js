@@ -75,7 +75,7 @@ class Artist extends React.Component {
 	}
 	componentDidMount() {
 
-		const { getHotArtists, getMoreArtists, artists } = this.props;
+		// const { getHotArtists, getMoreArtists, artists } = this.props;
 		let cat = (decodeURI(this.props.location.search)).split("?")[1];
 		if(cat === "入驻歌手" || cat === "推荐歌手") {
 			// window.onscroll = () => {

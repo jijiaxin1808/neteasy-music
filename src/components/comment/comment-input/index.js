@@ -7,7 +7,7 @@ class ComponentInput extends React.Component {
 			<Fragment>
 				<div className = "comment-input-header">
 					<p>评论</p>
-					<span>{`共${111}条评论`}</span>
+					<span>{`共${ this.props.commentCount }条评论`}</span>
 				</div>
 				<div className = "comment-input-content">
 					<img src = "http://p4.music.126.net/ma8NC_MpYqC-dK_L81FWXQ==/109951163250233892.jpg?param=50y50"  

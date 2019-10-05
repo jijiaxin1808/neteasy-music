@@ -43,7 +43,7 @@ class PlayBar extends React.Component {
 		this.handleVolMove = this.handleVolMove.bind(this);
 		this.handleVolUp = this.handleVolUp.bind(this);
 		this.handleLockClick = this.handleLockClick.bind(this);
-		this.handlPlayqueue = this.handlPlayqueue.bind(this)
+		this.handlPlayqueue = this.handlPlayqueue.bind(this);
 	}
 	render() {
 		return (
@@ -88,7 +88,7 @@ class PlayBar extends React.Component {
 						</div>
 						<div className="play">
 							<div className="head">
-								<img src="http://p2.music.126.net/rtezgU6AxamJZKDAScz0dw==/109951164351789011.jpg?param=34y34" />
+								<img src="http://p2.music.126.net/rtezgU6AxamJZKDAScz0dw==/109951164351789011.jpg?param=34y34" alt = "歌名" />
 								<a className="mask">mask</a>
 							</div>
 							<div className="words">

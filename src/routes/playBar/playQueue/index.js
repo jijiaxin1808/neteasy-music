@@ -28,12 +28,12 @@ class PlayQueue extends React.Component {
 		const isShow = true;
 		const { currentTime,isPlayqueueShow } = this.props;
 		const length = time1.length;
-		let nowP = 0;
+		// let nowP = 0;
 		let scrollTop = 0;
 		if(this.state.isScroll){
 			for( let i=0;i<length;i++ ){
 				if(currentTime <time1[i]) {
-					nowP = i+1;
+					// nowP = i+1;
 					scrollTop = 32*(this.state.nowP-5);
 					console.log("当前为第",i,"句");
 					break;
@@ -55,9 +55,9 @@ class PlayQueue extends React.Component {
 						</div>
 						<div className ="playqueue-playlist-content" >
 							{
-								cr.map(()=>{
+								cr.map(( item,index )=>{
 									return (
-										<div className = "playqueue-playlist-list">
+										<div className = "playqueue-playlist-list" key = { index }>
 											<div>
 												<span className = "playqueue-playlist-playing"></span>
 												<span className = "playqueue-playlist-songname">name</span>

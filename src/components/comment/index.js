@@ -12,42 +12,46 @@ class Comment extends React.Component {
 		//props需要传入的参数为   type 和 id  type为字符串格式
 	}
 	render() {
-		const { className,comment,handleLike,type,id } = this.props;
-
+		const { comment,handleLike,type,id } = this.props;
+		const beReplied = (item)=> {
+			console.log("被回复？");
+			if( item.beReplied.length ) {
+				console.log(item);
+				return (
+					<div className = "comment-beReplied">
+						<span className="daar">
+							<i className="bd">◆</i>
+							<i className="bg">◆</i>
+						</span>
+						<div className = "comment-content-main">
+							<NavLink to = "/" className = "comment-user-name" >{ item.beReplied[0].user.nickname  }:</NavLink>
+							<p>{ item.beReplied[0].content }</p>
+						</div>
+					</div>
+				);														
+			}
+			else 
+				return null;
+		};
 
 		const func = ()=> {
 			if( comment.data ) {
 				return (
-					<div className = {className}>
-						<CommentInput />
+					<div className = {"comment"}>
+						<CommentInput commentCount = { comment.data.length}  />
 						<div className = "comment-header">最新评论</div>
 						{	
-							comment.data.map(( item )=>{
+							comment.data.map(( item, index )=>{
 								return (
-									<div className = "comment-item">
+									<div className = "comment-item"  key = { index }>
 										<img src = { item.user.avatarUrl }  alt = { item.user.avatarUrl }/>
 										<div  className = "comment-content">
 											<div className = "comment-content-main">
 												<NavLink to = "/" className = "comment-user-name" >{ item.user.nickname }:</NavLink>
 												<p>{ item.content }</p>
 												{
-													()=>{
-														if( item.beReplied ) {
-															return (
-																<div className = "comment-beReplied">
-																	<span className="daar">
-																		<i className="bd">◆</i>
-																		<i className="bg">◆</i>
-																	</span>
-																	<div className = "comment-content-main">
-																		<NavLink to = "/" className = "comment-user-name" >{ item.beReplied[0].user.nickname  }:</NavLink>
-																		<p>{ item.beReplied[0].content }</p>
-																	</div>
-																</div>
-															);														
-														}
-		
-													}}
+													beReplied(item)
+												}
 											</div>
 											<div className = "comment-content-footer">
 												{
