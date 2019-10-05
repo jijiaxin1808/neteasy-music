@@ -41,7 +41,6 @@ export default {
 		},
 		*getAlbum({ payload }, { call, put }) {
 			//待和上面getHotAlbum合并
-
 			let temp = yield call(albumService.getAlbum, payload),
 				allAlbum = [];
 

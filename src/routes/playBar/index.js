@@ -7,9 +7,6 @@ import * as utils from "../../utils/utils";
 import "./index.less";
 import PlayQueue from "./playQueue";
 
-
-
-
 class PlayBar extends React.Component {
 
 	constructor(props) {
@@ -55,7 +52,7 @@ class PlayBar extends React.Component {
 						unlock: this.state.playbarState === "unlock",
 					})}
 				>
-
+					<PlayQueue currentTime = { this.state.currentTime } />
 					<div className="bg" />
 					<div className="hand" title="展开播放条" />
 					<div className="up-btn">
@@ -168,8 +165,8 @@ class PlayBar extends React.Component {
 				</div>
 				<Audio
 					ref={this.lectureAudio}
-					handleCanPlay={this.handleCanPlay}
-					handleTimeUpdate={this.handleTimeUpdate}
+					onCanPlay={this.handleCanPlay}
+					onTimeUpdate={this.handleTimeUpdate}
 				/>
 			</div>
 		);
@@ -216,7 +213,6 @@ class PlayBar extends React.Component {
 	handleCanPlay() {
 		const audio = this.lectureAudio.current,
 			  currentVolume = audio.volume;
-
 		this.setState((state, props) => {
 			return {
 				duration: timeUtils.unitTime(audio.duration),

@@ -1,6 +1,6 @@
 import React from "react";
 import "./index.less";
-import { Link } from "dva/router";
+import { NavLink } from "react-router-dom";
 
 
 
@@ -924,8 +924,8 @@ class DjradioRecommend extends React.Component {
 		return (
 			<div className = "djradioRecommend">
 				<div className = "djradioRecommend-header">
-					<Link to = "/" style = {{fontSize:"24px"}}>{ title }</Link>
-					<Link to = "/">更多></Link>
+					<NavLink to = "/" style = {{fontSize:"24px"}}>{ title }</NavLink>
+					<NavLink to = "/">更多></NavLink>
 				</div>
         		<div>
 					<ul>
