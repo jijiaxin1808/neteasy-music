@@ -9,7 +9,11 @@ class SubBar extends React.Component {
 	render() {
 		const url = window.location.hash.split("/")[2]?window.location.hash.split("/")[2]:"";
 		console.log("当前路由为",url);
-		const	playlistreg = /playlist\w*/ig;
+		const playlistreg = /playlist\w*/ig;
+		const toplistreg = /toplist\w*/ig;
+		const djradioreg = /djradio\w*/ig;
+		const albumreg = /album\w*/ig;
+		const artistreg = /artist\w*/ig;
 		return (
 			<div className = "subBar">
 				<ul className = "subBar-ul">
@@ -17,19 +21,19 @@ class SubBar extends React.Component {
 						<NavLink to = "/discover/recommand"  ><span className = { url==="recommand" || url===""  ?"subBar-hover":"" }>推荐</span></NavLink>
 					</li>
 					<li className = "subbar-link">
-						<NavLink to = "/discover/toplist"  ><span className = { url==="toplist"?"subBar-hover":"" }>排行榜</span></NavLink>
+						<NavLink to = "/discover/toplist"  ><span className = { toplistreg.test(url)?"subBar-hover":"" }>排行榜</span></NavLink>
 					</li>
 					<li className = "subbar-link">
 						<NavLink to = "/discover/playlist"   ><span className = { playlistreg.test(url)?"subBar-hover":"" }>歌单</span></NavLink>
 					</li>
 					<li className = "subbar-link">
-						<NavLink to = "/discover/djradio"  ><span className = { url==="djradio"?"subBar-hover":"" }>主播电台</span></NavLink>
+						<NavLink to = "/discover/djradio"  ><span className = { djradioreg.test(url)?"subBar-hover":"" }>主播电台</span></NavLink>
 					</li>
 					<li className = "subbar-link">
-						<NavLink to = "/discover/artist"  ><span className = { url==="artist"?"subBar-hover":"" }>歌手</span></NavLink>
+						<NavLink to = "/discover/artist"  ><span className = { artistreg.test(url)?"subBar-hover":"" }>歌手</span></NavLink>
 					</li>
 					<li className = "subbar-link">
-						<NavLink to = "/discover/album"   ><span className = { url==="album"?"subBar-hover":"" }>新碟上架</span></NavLink>
+						<NavLink to = "/discover/album"   ><span className = { albumreg.test(url)?"subBar-hover":"" }>新碟上架</span></NavLink>
 					</li>
 				</ul>
 			</div>
