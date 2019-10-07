@@ -13,8 +13,7 @@ function LayoutOne(props) {
 					<div className="g-wrap">
 						<div className="info">
 							<div className="cover">
-								{props.renderImg()}
-								<div className="mask" />
+								{props.children.renderImg()}
 							</div>
 							<div className="cnt">
 								{props.children.renderInfo()}

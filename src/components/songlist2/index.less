@@ -1,20 +1,132 @@
+#ellipsis() {
+  overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+}
 .song-tb {
+  margin-top: 28px;
   .title {
-    
+    border-bottom: 2px solid #c20c0c;
+    height: 33px;
+    h3 {
+      line-height: 28px;
+      float: left;
+    }
+    .song-count {
+      float: left;
+      margin: 7px 0 0 15px;
+    }
+    .play-count,
+    .link-out {
+      float: right;
+      margin-top: 5px;
+    }
+    .play-count {
+      margin-left: 18px;
+      strong {
+        color: #c20c0c;
+      }
+    }
+    .link-out {      
+      .music-icon {
+        display: inline-block;
+        vertical-align: middle;
+        width: 16px;
+        height: 16px;
+        background: url("../../assets/icon.png") no-repeat -34px -863px;
+      }
+      & > a {
+        color: #4996d1;
+        text-decoration: underline;
+      }
+    }
+    h3 span {
+      color: #333;
+      font-size: 20px;
+      font-weight: normal;
+    }
   }
 }
 .m-table,
 .m-table th,
 .m-table th .wp,
-.m-table td {
+.m-table td,
+.m-table td .ply,
+.m-table td .tt .mv {
   background: url("../../assets/table.png") no-repeat 0 9999px;
 }
 .m-table th {
   background-position: 0 0;
   background-repeat: repeat-x;
   background-color: #f7f7f7;
-  height:38px;
+  height:37px;
 }
 .m-table {
   width: 100%;
+  border: 1px solid #d9d9d9;
+  table-layout: fixed;
+  th .wp {
+    height: 33px;
+    padding: 7px 0 7px 10px;
+    background-position: 0 -56px;
+    color: #666;
+    font-weight: normal;
+  }
+  td {
+    line-height: 18px;
+    padding: 7px 11px;
+  }
+  td .hd {
+    height: 18px;
+    .ply {
+      float: right;
+      width: 17px;
+      height: 17px;
+      cursor: pointer;
+      background-position: 0 -103px; 
+      &:hover {
+        background-position: 0 -128px;
+      }
+    }
+    .num {
+      color: #999;
+    }
+  }
+  td .tt {
+    width: 100%;
+    .tt-c {
+      margin-right: 20px;
+      position: relative;
+    }
+    .txt {
+      max-width: 99%;
+      height: 20px;
+      padding-right: 15px;
+      #ellipsis();
+      span {
+        color: #aeaeae;
+      }
+    }
+    .mv {
+      position: absolute;
+      width: 23px;
+      height: 17px;
+      top: 0;
+      right: -8px;
+      background-position: 0 -151px;
+      cursor: pointer;
+      &:hover {
+        background-position: -30px -151px;
+      }
+    }
+  }
+  td .s-f3 {
+    color: #666;
+  }
+  td .text {
+    #ellipsis();
+  }
+  tbody .even td {
+    background-color: #f7f7f7;
+  }
 }

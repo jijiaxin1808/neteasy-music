@@ -9,11 +9,6 @@ import "./index.less";
 
 function SongListDetail(props) {
 
-	const renderSongListImg = () => {
-		return (
-			<img src="http://p3.music.126.net/v0guOXrzl3Wn24GLi-B-nw==/109951164389512106.jpg?param=200y200" alt="img"/>
-		);
-	};
 	const { details, subscribers, recSongList, getSubecriber, getRecList, getSongListDetail } = props;
 	let arrAll = JSON.stringify(details) !== "{}" && subscribers.length !== 0 && recSongList.length !== 0;
 	useEffect(() => {
@@ -23,12 +18,19 @@ function SongListDetail(props) {
 	}, []); 
 
 	return (
-		<LayoutOne renderImg={renderSongListImg}>
-
+		<LayoutOne>
 			{
 				{
 					sliderData: {
 						tags: ["喜欢这个歌单的人", "相关推荐"],
+					},
+					renderImg: () => {
+						return (
+							<React.Fragment>
+								<img style={styles.img} src="http://p3.music.126.net/v0guOXrzl3Wn24GLi-B-nw==/109951164389512106.jpg?param=200y200" alt="img"/>
+								<div style={styles.mask}></div>
+							</React.Fragment>
+						);
 					},
 					renderPicList: () => {
 						if(arrAll)
@@ -62,11 +64,25 @@ function SongListDetail(props) {
 		</LayoutOne>
 	);
 }
+const styles = {
+	img: {
+
+	},
+	mask: {
+		position: "absolute",
+		width: "208px",
+		height: "208px",
+		backgroundImage: `url(${require("../../assets/coverall.png")})`,
+		backgroundPosition: "0 -1285px",
+		top: "-4px",
+		left: "-4px",
+	},
+}
 
 const listData = [
 	{
 		width: "74px",
-		title: "",		
+		title: "",	
 	},
 	{
 		width: "auto",
