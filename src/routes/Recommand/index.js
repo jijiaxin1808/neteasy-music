@@ -9,7 +9,7 @@ class Recommand extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			left: ["-643px", "35px", "713px", "713px"],
+			left: ["-643px", "35px", "713px", "713px"],       
 			ani: [false, true, false, false],
 			showOper: false,
 			operIndex: 0,
@@ -37,7 +37,7 @@ class Recommand extends React.Component {
 					<div className="rec-wrap">
 						<div className="rec-banner-inner">
 							<a href="/">
-								<img src="http://p1.music.126.net/1GtUjldt_KjmhZ17NO_Krg==/109951164364414304.jpg" />
+								<img src="http://p1.music.126.net/1GtUjldt_KjmhZ17NO_Krg==/109951164364414304.jpg"  alt = "http://p1.music.126.net/1GtUjldt_KjmhZ17NO_Krg==/109951164364414304.jpg"/>
 							</a>
 							<div className="download">
 								<NavLink to="/" />

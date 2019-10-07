@@ -2,49 +2,64 @@ import React from "react";
 import "./index.less";
 import { NavLink } from "react-router-dom";
 import getTime from "../../assets/time";
+import CommentInput from "./comment-input";
+import { connect } from "dva";
 
 class Comment extends React.Component {
+	componentDidMount() {
+
+		this.props.initComment(this.props.type,this.props.id);
+		//props需要传入的参数为   type 和 id  type为字符串格式
+	}
 	render() {
-		const { data1,className } = this.props;
-		const func = ()=> {
-			if( data1 ) {
+		const { comment,handleLike,type,id } = this.props;
+		const beReplied = (item)=> {
+			console.log("被回复？");
+			if( item.beReplied.length ) {
+				console.log(item);
 				return (
-					<div className = {className}>
+					<div className = "comment-beReplied">
+						<span className="daar">
+							<i className="bd">◆</i>
+							<i className="bg">◆</i>
+						</span>
+						<div className = "comment-content-main">
+							<NavLink to = "/" className = "comment-user-name" >{ item.beReplied[0].user.nickname  }:</NavLink>
+							<p>{ item.beReplied[0].content }</p>
+						</div>
+					</div>
+				);														
+			}
+			else 
+				return null;
+		};
+
+		const func = ()=> {
+			if( comment.data ) {
+				return (
+					<div className = {"comment"}>
+						<CommentInput commentCount = { comment.data.length}  />
 						<div className = "comment-header">最新评论</div>
 						{	
-							data1.map(( item )=>{
+							comment.data.map(( item, index )=>{
 								return (
-									<div className = "comment-item">
+									<div className = "comment-item"  key = { index }>
 										<img src = { item.user.avatarUrl }  alt = { item.user.avatarUrl }/>
 										<div  className = "comment-content">
 											<div className = "comment-content-main">
 												<NavLink to = "/" className = "comment-user-name" >{ item.user.nickname }:</NavLink>
 												<p>{ item.content }</p>
 												{
-													()=>{
-														if( item.beReplied ) {
-															return (
-																<div className = "comment-beReplied">
-																	<span className="daar">
-																		<i className="bd">◆</i>
-																		<i className="bg">◆</i>
-																	</span>
-																	<div className = "comment-content-main">
-																		<NavLink to = "/" className = "comment-user-name" >{ item.beReplied[0].user.nickname  }:</NavLink>
-																		<p>{ item.beReplied[0].content }</p>
-																	</div>
-																</div>
-															);														
-														}
-		
-													}}
+													beReplied(item)
+												}
 											</div>
 											<div className = "comment-content-footer">
 												{
-													getTime(item.time)
+													getTime(1569996398761)
 												}
 												<span>
-													<i className = { item.liked?"comment-item-like":"comment-item-unlike" } ></i>
+													<i className = { item.liked?"comment-item-like":"comment-item-unlike" }
+														onClick = {()=> {handleLike(type,id,item.commentId,item.liked?0:1);}  } ></i>
 													<span style = {{ marginRight:"5px",display:"inline-block" }} >回复</span>
 												</span>
 											</div>
@@ -75,6 +90,31 @@ class Comment extends React.Component {
 
 
 }
+const mapDispatchToProps = (dispatch)=> ({
+	initComment( type, id  ) {
+		dispatch({
+			type:"comment/getcomment",
+			payload: {
+				type:type,
+				id:id
+			}
+		});
+	},//传入  评论所属类型和对应id
+	handleLike( type, id, cid, t ) {
+		dispatch({
+			type: "comment/commentlike",
+			payload: {
+				type: type,
+				id: id,
+				cid: cid,
+				t: t
+			}
+		});
 
 
-export default Comment;
+	},//传入 type 目标id 和 目标评论的cid 和点赞/取消带点赞
+});
+
+
+
+export default  connect(({comment})=>({comment}),mapDispatchToProps)(Comment);
