@@ -62,14 +62,14 @@ const SongListDetail = Loadable({
 
 const AlbumDetail = Loadable({
 	loader: () => import("./routes/albumDetail"),
-	laoding: Loading
+	loading: Loading
 });
 
 export default [
 	{
 		name: "歌单",
 		icon: "songlist",
-		path: "/discover/songlist",
+		path: "/discover/playlist",
 		component: songlist,
 		key: 0
 	},{

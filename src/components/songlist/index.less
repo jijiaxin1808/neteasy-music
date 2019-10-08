@@ -1,9 +1,6 @@
-@bg-coverall: url("../../assets/coverall.png");
-@bg-iconall: url("../../assets/iconall.png");
-
 .songlists {
   @spacing: 28px;
-  margin-left: -48px; //important
+  margin-left: -48px;//important
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
@@ -12,7 +9,7 @@
   .songlists-item {
     margin-bottom: @spacing;
     width: 140px;
-    margin-left: 46px; //important
+    margin-left: 46px;//important
     & > a {
       display: inline-block;
       position: relative;
@@ -23,7 +20,7 @@
       top: 0;
       width: 100%;
       height: 100%;
-      background: @bg-coverall 0px 0px;
+      background: url("../../assets/coverall.png") 0px 0px;
     }
     .bottom {
       position: absolute;
@@ -32,12 +29,12 @@
       width: 100%;
       height: 27px;
       line-height: 27px;
-      background: @bg-coverall no-repeat 0px -538px;
+      background: url("../../assets/coverall.png") no-repeat 0px -538px;
       .ico-listen {
         float: left;
         width: 16px;
         height: 16px;
-        background: @bg-iconall no-repeat 0px -22px;
+        background: url("../../assets/iconall.png") no-repeat 0px -22px;
         margin: 6px 2px 5px 8px;
       }
       .num-listen {
@@ -50,13 +47,13 @@
         width: 16px;
         height: 16px;
         margin: 5px 8px 0 0;
-        background: @bg-iconall 0px 0px;
+        background: url("../../assets/iconall.png") 0px 0px;
       }
     }
     #ellipsis() {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
       word-wrap: normal;
     }
     .dec {

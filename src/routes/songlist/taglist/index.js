@@ -35,7 +35,7 @@ class TagList extends React.Component {
 					{
 
 						categories.map((item, index) => (
-							<dl key={item}>
+							<dl key={`item${index}`}>
 								<dt>
 									<i className={`icon-${index + 1}`} />
 									<span>{item}</span>
