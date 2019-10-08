@@ -34,9 +34,12 @@ const app = dva({
 			allAlbum: [],
 		},
 		SongListDetail: {
-	  		songs: [],
+	  	songs: [],
 			subscribers: [],
 			recSongList: [],
+			details: {},
+		},
+		AlbumDetail: {
 			details: {},
 		}
 	}

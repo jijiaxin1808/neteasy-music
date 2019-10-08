@@ -7,3 +7,6 @@ export function getAlbum({ offset, limit }) {
 export function getHotAlbum() {
 	return request(`${baseUrl}album/newest`);
 }
+export function getAlbumDetail(id) {
+	return request(`${baseUrl}album?id=${id}`);
+}

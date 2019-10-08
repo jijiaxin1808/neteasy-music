@@ -7,8 +7,7 @@ import "./index.less";
 function Info(props) {
 
 	const { details } = props;
-	console.log(details);
-
+	// console.log(details);
 	return (
 		<div className="songlist-cont-c">
 			<div className="hd">
@@ -25,7 +24,7 @@ function Info(props) {
 				<span className="time">{`${timeUtils.dateFormat(details.playlist.createTime)}创建`}</span>
 			</div>
 			<div className="oper">
-				<Icon1 />
+				<Icon1 />                                                         
 				<Icon className="uBtnCollect" Info={`(${details.playlist.trackCount})`}/>
 				<Icon className="uBtnShare" Info={`(${details.playlist.shareCount})`}/>
 				<Icon className="uBtnDownload" Info="下载"/>
