@@ -65,6 +65,11 @@ const AlbumDetail = Loadable({
 	loading: Loading
 });
 
+const ArtistDetail = Loadable({
+	loader: () => import("./routes/artistDetail"),
+	loading: Loading
+});
+
 export default [
 	{
 		name: "歌单",
@@ -126,7 +131,13 @@ export default [
 		path: "/album",
 		component: AlbumDetail,
 		key: 1,
-	},
+	},{
+		name: "歌手",
+		icon: "/artist",
+		path: "/artist",
+		component: ArtistDetail,
+		key: 1,
+	}
 ];
 
 

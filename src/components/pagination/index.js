@@ -1,19 +1,11 @@
 import React from "react";
 import { connect } from "dva";
-import { withRouter } from "dva/router";
 import classnames from "classnames";
-import qs from "qs";
 import "./index.less";
 
 //es7修饰器@connect() - connect的语法糖，可以不用在connect里写dispatch。eject配置
 class Pagination extends React.Component {
 
-	constructor(props) {
-		super(props);
-		this.state = {
-
-		};
-	}
 	render() {
 		const {
 			totalPage,
@@ -124,7 +116,7 @@ class Pagination extends React.Component {
 		const { curPage, curTag } = this.props.SongList;
 		const { getMoreSongs, }= this.props;
 
-		getMoreSongs(curPage, curTag);
+		getMoreSongs(35, curPage, curTag);
 	}
 
 }
@@ -182,10 +174,11 @@ const mapDispatch = (dispatch) => ({
 			},
 		});
 	},
-	getMoreSongs(curPage, tag) {
+	getMoreSongs(limit, curPage, tag) {
 		dispatch({
 			type: "SongList/getSongs",
 			payload: {
+				limit,
 				curPage,
 				tag,
 			},
@@ -193,6 +186,6 @@ const mapDispatch = (dispatch) => ({
 	},
 });
 
-export default withRouter(connect(({ SongList }) => ({
+export default connect(({ SongList }) => ({
 	SongList,
-}), mapDispatch)(Pagination));
+}), mapDispatch)(Pagination);

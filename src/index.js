@@ -41,7 +41,10 @@ const app = dva({
 		},
 		AlbumDetail: {
 			details: {},
-		}
+		},
+		ArtistDetail: {
+
+		},
 	}
 });
 

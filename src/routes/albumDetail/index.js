@@ -1,22 +1,35 @@
 import React, { useEffect } from "react";
 import { connect } from "dva";
-import "./index.less";
 import Info from "./Info";
+import Desc from "./desc";
 import LayoutOne from "../../components/detail/layout/layout1";
+import SongList from "../../components/songlist2";
 
 function AlbumDetail(props) {
 
   useEffect(() => {
     getAlbum(81920082);
+    
   }, []);
-  const { getAlbum } = props;
+  const { details, getAlbum } = props;
+  let arrAll = JSON.stringify(details) !== "{}";
+  
   return (
     <LayoutOne>
       {
         {
-          sliderData: {
-            tags: []
-          },
+          sliderData: [
+            {
+              tag: "喜欢这张专辑的人",
+              more: false,
+              render: () => {}
+            },
+            {
+              tag: "Ta的其他热门专辑",
+              more: true,
+              render: () => {}
+            }
+          ],
           renderImg: () => {
 						return (
 							<React.Fragment>
@@ -32,13 +45,13 @@ function AlbumDetail(props) {
           },
           renderShowList: () => {
             return (
+              arrAll && 
               <React.Fragment>
-                
+                <Desc desc={props.details.album.description}/>
+                <SongList flag="专辑" list={props.details.songs} listData={listData}/>
               </React.Fragment>
             );
           },
-          renderPicList: () => {},
-          renderRecList: () => {},
         }
       }
     </LayoutOne>
@@ -46,9 +59,6 @@ function AlbumDetail(props) {
 }
 
 const styles = {
-  img: {
-
-  },
   mask: {
     width: "209px",
     height: "177px",
@@ -58,6 +68,25 @@ const styles = {
     left: "0",
   },
 }
+
+const listData = [
+	{
+		width: "74px",
+		title: ""
+	},
+	{
+		width: "auto",
+		title: "歌曲标题"
+	},
+	{
+		width: "91px",
+		title: "时长"
+	},
+	{
+		width: "20%",
+		title: "歌手"
+	},
+];
 
 const mapDispatch = (dispatch) => ({
   getAlbum(id) {
@@ -70,4 +99,6 @@ const mapDispatch = (dispatch) => ({
   }
 });
 
-export default connect(({}) => ({}), mapDispatch)(AlbumDetail);
+export default connect(({AlbumDetail}) => ({
+  details: AlbumDetail.details,
+}), mapDispatch)(AlbumDetail);

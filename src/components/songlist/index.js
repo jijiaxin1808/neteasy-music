@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "dva";
 import PropTypes from "prop-types";
-import { NavLink } from "dva/router";
+import { Link } from "react-router-dom";
 import "./index.less";
 
 class SongListInner extends React.Component {
@@ -22,20 +22,20 @@ class SongListInner extends React.Component {
 
 							return(
 								<li className="songlists-item">
-									<NavLink to="/">
+									<Link to="/">
 										<img src={`${item.coverImgUrl}` + "?param=140y140"} />
 										<div className="mask" />
 										<div className="bottom">
 											<i className="ico-listen" />
 											<span className="num-listen">16844</span>
-											<NavLink to="/" className="ico-play" />
+											<Link to="/" className="ico-play" />
 										</div>
-									</NavLink>
+									</Link>
 									<p className="dec">
-										<NavLink to="/">{item.name}</NavLink>
+										<Link to="/">{item.name}</Link>
 									</p>
 									<p>by
-										<NavLink to="/">{item.creator.signature || item.creator.nickname}</NavLink>
+										<Link to="/">{item.creator.signature || item.creator.nickname}</Link>
 										<sub className="ico-v" />
 									</p>
 								</li>
@@ -44,10 +44,8 @@ class SongListInner extends React.Component {
 					}
 				</ul>
 			</div>
-
 		);
 	}
-
 }
 
 SongListInner.PropTypes = {

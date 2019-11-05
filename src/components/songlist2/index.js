@@ -1,22 +1,35 @@
 /*详情页的歌曲/专辑 */
-import React from "react";
+import React, {useState,useEffect} from "react";
 import { Link } from "react-router-dom";
 import "./index.less";
 
 function SongList(props) {
+
+  //需要判断是歌曲还是专辑的列表
+  const [flag, setFlag] = useState("");
+  useEffect(() => {
+    setFlag(props.flag);
+  }, []);
 
   const { listData, list } = props;
   return (
     <div className="song-tb">
 			<div className="title">
         <h3>
-          <span>歌曲列表</span>
+          <span>
+            {
+              flag === "专辑" ? "包含歌曲列表" : "歌曲列表"
+            }
+          </span>
         </h3>
         <span className="song-count">36首歌</span>
-        <div className="play-count">
-          播放:&nbsp;&nbsp;
-          <strong>74838次</strong>
-        </div>
+        {
+          flag === "歌单" &&
+          <div className="play-count">
+            播放:&nbsp;&nbsp;
+            <strong>74838次</strong>
+          </div>
+        }
         <div className="link-out">
           <i className="music-icon"></i>
           <a href="/">生成外链播放</a>
@@ -71,11 +84,14 @@ function SongList(props) {
                         <Link to="/">{item.ar[0].name}</Link>
                       </div>
                     </td>
-                    <td>
-                      <div className="text">
-                        <Link to="/">{item.al.name}</Link>
-                      </div>
-                    </td>
+                    {
+                      flag === "歌单" &&
+                      <td>
+                        <div className="text">
+                          <Link to="/">{item.al.name}</Link>
+                        </div>
+                      </td>
+                    }
                   </tr>
                 ))
               }

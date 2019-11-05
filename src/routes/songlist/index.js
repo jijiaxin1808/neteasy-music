@@ -54,7 +54,6 @@ class SongList extends React.Component {
 					</div>
 				</div>
 				<Pagination limit={35}/>
-				{/*	limit */}
 			</div>
 		);
 	}

@@ -21,9 +21,28 @@ function SongListDetail(props) {
 		<LayoutOne>
 			{
 				{
-					sliderData: {
-						tags: ["喜欢这个歌单的人", "相关推荐"],
-					},
+					sliderData: [
+						{
+							tag: "喜欢这个歌单的人",
+							more: false,
+							render: () => {
+								if(arrAll)
+									return (
+										<PicList picList={subscribers}/>
+									);
+							},
+						},
+						{
+							tag: "相关推荐",
+							more: false,
+							render: () => {
+								if(arrAll)
+									return (
+										<RecList recList={recSongList} />
+									);
+							},
+						}
+					],
 					renderImg: () => {
 						return (
 							<React.Fragment>
@@ -31,18 +50,6 @@ function SongListDetail(props) {
 								<div style={styles.mask}></div>
 							</React.Fragment>
 						);
-					},
-					renderPicList: () => {
-						if(arrAll)
-							return (
-								<PicList picList={subscribers}/>
-							);
-					},
-					renderRecList: () => {
-						if(arrAll)
-							return (
-								<RecList recList={recSongList} />
-							);
 					},
 					renderInfo: () => {
 
@@ -55,7 +62,7 @@ function SongListDetail(props) {
 					renderShowList: () => {
 						if(arrAll) {
 							return (
-								<SongList list={details.playlist.tracks} listData={listData}/>
+								<SongList flag="歌单" list={details.playlist.tracks} listData={listData}/>
 							);
 						}
 					}

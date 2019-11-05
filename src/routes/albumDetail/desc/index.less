@@ -1,0 +1,44 @@
+.album-desc {
+  margin-top: 20px;
+  p {
+    color: #666;
+    text-indent: 2em;
+    line-height: 24px;
+    margin-top: 4px;
+  }
+  .f-brk {
+    word-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+  }
+  .hide {
+    display: none!important;
+  }
+  .unfold-btn,
+  .fold-btn {
+    &:after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+    a {
+      float: right;
+      color: #0c73c2;
+    }
+  }
+  .icon-unfold,
+    .icon-fold {
+      display: inline-block;
+      width: 11px;
+      height: 8px;
+      font-size: 0;
+      background-image: url("../../../assets/icon.png");
+      vertical-align: middle;
+    }
+  .icon-unfold {
+    background-position: -65px -520px;
+  }
+  .icon-fold {
+    background-position: -45px -520px;
+  }
+}
