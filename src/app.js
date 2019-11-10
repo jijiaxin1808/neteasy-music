@@ -72,6 +72,13 @@ const ArtistDetail = Loadable({
 
 export default [
 	{
+		name: "首页",
+		path: "/",
+		icon: "index",
+		component: recommand,
+		key: 0
+	},
+	{
 		name: "歌单",
 		icon: "songlist",
 		path: "/discover/playlist",

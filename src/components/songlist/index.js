@@ -52,6 +52,4 @@ SongListInner.PropTypes = {
 	playlists: PropTypes.array.isRequired,
 };
 
-export default connect(({ SongList }) => ({
-	playlists: SongList.playlists,
-}))(SongListInner);
+export default SongListInner;

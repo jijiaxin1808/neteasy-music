@@ -1,13 +1,9 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { connect } from "dva";
 import Pagination from "../../components/pagination";
-import AlbumList from "./main/albumList";
+import AlbumList from "../../components/albumList/albumList";
 import "./index.less";
-
-export const AlbumContext = React.createContext({
-	album: []
-});
 
 class Album extends React.Component {
 
@@ -22,9 +18,7 @@ class Album extends React.Component {
 						<div className="tit">
 							<span>热门新碟</span>
 						</div>
-						<AlbumContext.Provider value={hotAlbum}>
-							<AlbumList/>
-						</AlbumContext.Provider>
+						<AlbumList hotAlbum={hotAlbum} itemR={"34px"}/>
 					</div>
 					<div className="all-album">
 						<div className="tit">
@@ -33,22 +27,20 @@ class Album extends React.Component {
 								{
 									["全部", "华语", "欧美", "韩国", "日本"].map(item => (
 										<React.Fragment key={item}>
-											<NavLink
+											<Link
 												to={"/discover/album?" + item.name}
 												activeClassName="tag-active"
 												onClick={() => this.handleTabClick()}
 											>
 												{item}
-											</NavLink>
+											</Link>
 											<span>|</span>
 										</React.Fragment>
 									))
 								}
 							</div>
 						</div>
-						<AlbumContext.Provider value={allAlbum}>
-							<AlbumList/>
-						</AlbumContext.Provider>
+							<AlbumList allAlbum={allAlbum} itemR={"34px"}/>
 					</div>
 					<Pagination />
 				</div>

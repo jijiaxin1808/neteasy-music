@@ -1,47 +1,57 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import { AlbumContext } from "../../routes/album";
+import "./index.less";
+
+const Size = {
+	big: {
+		img: "130",
+		li: "151px",
+		margin: "34px",
+		background: "0 -844px",
+	},
+	mid: {
+		img: "120",
+		li: "145px",
+		margin: "15px",
+		background: "-170px -850px",
+	}
+}
 
 class AlbumList extends React.Component {
 
 	render() {
 
-		const { hotAlbum=[], allAlbum=[] } = this.props;
+		const { hotAlbum=[], allAlbum=[], size="big" } = this.props;
 		let album = (hotAlbum.length !== 0) ? hotAlbum : allAlbum;
 
-		// console.log(this.)
-		return (
-			<AlbumContext.Consumer>
-				{album =>
-					<ul className="hot-album-list">
-						{
-							album.map(item => {
+			return (
+				<ul className="hot-album-list" style={{marginLeft: `-${Size[size].margin}`}}>
+					{
+						album.map(item => (
 
-								return (
-									<li className="hot-album-item u-cover-alb1">
-										<NavLink to="/" className="hot-album-name">
-											<img src={`${item.picUrl}?param=130y130`} alt={item.name}/>
-											<div className="mask"/>
-											<i className="icon-play"/>
-										</NavLink>
-										<p className="dec">
-											<NavLink to="/" className="album-name"><i>{item.name}</i></NavLink>
-											<NavLink to="/" className="album-artist">{item.artist}</NavLink>
-										</p>
-									</li>
-								);
-							})
-						}
-					</ul>
-				}
-			</AlbumContext.Consumer>
-		);
+							<li className="hot-album-item u-cover-alb1" style={{marginLeft: Size[size].margin, width: Size[size].li}}>
+								<Link to={`/album?${item.id}`} className="hot-album-name">
+									<img src={`${item.picUrl}?param=${Size[size].img}y${Size[size].img}`} alt={item.name}/>
+									<div className="mask" style={{backgroundPosition: Size[size].background}}/>
+									<i className="icon-play"/>
+								</Link>
+								<p className="dec">
+									<Link to="/" className="album-name"><i>{item.name}</i></Link>
+									<Link to="/" className="album-artist">{typeof item.artist === "object" ? item.artist.name : item.artist}</Link>
+								</p>
+							</li>
+						))
+					}
+				</ul>
+			) 
+
 	}
 }
+
 AlbumList.propTypes = {
 	hotAlbum: PropTypes.array,
 	allAlbum: PropTypes.array,
 };
-AlbumList.contextType = AlbumContext;
+
 export default AlbumList;

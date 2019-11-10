@@ -121,11 +121,8 @@ class Recommand extends React.Component {
 									{["华语", "流行", "摇滚", "民谣", "电子"].map(item => (
 										<React.Fragment key={item}>
 											<NavLink
-												to={"/discover/playlist?" + item.name}
+												to={"/discover/playlist?" + item}
 												activeClassName="tag-active"
-												onClick={() => {
-													this.handleTagClick();
-												}}
 											>
 												{item}
 											</NavLink>
@@ -276,7 +273,7 @@ class Recommand extends React.Component {
 										setTimeout(this.next, 200);
 									}}
 								>
-                                 →
+                  →
 								</a>
 							</div>
 						</div>
@@ -424,7 +421,7 @@ class Recommand extends React.Component {
 	}
 	componentDidMount() {
 		const {
-		    getRecSongList,
+		  getRecSongList,
 			getRecAlbum,
 			getTopList,
 			getTopArtists,
@@ -438,7 +435,6 @@ class Recommand extends React.Component {
 	prev() {
 		const ani = [...this.state.ani];
 		const left = [...this.state.left];
-		// console.log(left.indexOf("35px"));
 		for (let i = 0; i < ani.length; i++) {
 			if (i !== left.indexOf("35px")) {
 				ani[i] = false;

@@ -24,7 +24,7 @@ const app = dva({
 			topartists: [],
 		},
 		Artist: {
-	        artists: [],
+	    artists: [],
 			letterBarFlag: "热门",
 			showLetterBar: true,
 			shoArtistList: true,
@@ -43,7 +43,10 @@ const app = dva({
 			details: {},
 		},
 		ArtistDetail: {
-
+			songs: [],
+			album: [],
+			desc: {},
+			mv: {},
 		},
 	}
 });

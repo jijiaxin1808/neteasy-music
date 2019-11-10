@@ -8,6 +8,11 @@ import "./index.less";
 
 class Artist extends React.Component {
 
+	constructor(props) {
+		super(props);
+
+		this.LoadMore = this.LoadMore.bind(this);
+	}
 	getLetter() {
 		let letterArr = [];
 		for(let i = 0 ; i <= 25 ; i++) {
@@ -17,8 +22,8 @@ class Artist extends React.Component {
 	}
 
 	render() {
-	    const { artists, getArtists, letterBarFlag = "热门", getHotArtists } = this.props;
-		let cat = (decodeURI(this.props.location.search)).split("?")[1];
+	  const { artists, getArtists, letterBarFlag = "热门", getHotArtists } = this.props;
+		let cat = (decodeURI(this.props.location.search)).split("?")[1] || "推荐歌手";
 		return (
 			<div className="artist-list">
 				<SlideBar getArtists={getArtists}/>
@@ -73,24 +78,31 @@ class Artist extends React.Component {
 			</div>
 		);
 	}
+
+	LoadMore() {
+		
+		const { getMoreArtists } = this.props;
+		const clientHeight = document.body.clientHeight || document.documentElement.clientHeight;
+		const scrollHeight = document.body.scrollHeight || document.documentElement.scrollHeight;
+		const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+
+		if (scrollHeight <= clientHeight + scrollTop) {
+			console.log(scrollHeight, clientHeight, scrollTop)
+			
+		}
+	}
 	componentDidMount() {
 
-		// const { getHotArtists, getMoreArtists, artists } = this.props;
+		const { getArtists } = this.props;
 		let cat = (decodeURI(this.props.location.search)).split("?")[1];
 		if(cat === "入驻歌手" || cat === "推荐歌手") {
-			// window.onscroll = () => {
-			//     let sT = document.documentElement.scrollTop;
-			// 	console.log(sT);
-			//     if(sT >= 2300) {
-			//         console.log("adfas");
-			//         // document.documentElement.scrollTop = 1000;
-			// 	}
-			// };
+			window.addEventListener("scroll", this.LoadMore, false)
 		}
-		// getHotArtists(100, 0);
+		getArtists(30, "", 0);
 	}
+
 	componentWillUnmount() {
-	    window.onscroll = null;
+	  window.removeEventListener("scroll", this.LoadMore, false)
 	}
 }
 
@@ -115,12 +127,12 @@ const mapDispatch = (dispatch) => ({
 	},
 	getHotArtists(limit, offset, initial) {
 	    dispatch({
-			type: "Artist/getArtists",
-			payload: {
-				limit,
-				offset,
-			}
-		});
+				type: "Artist/getArtists",
+				payload: {
+					limit,
+					offset,
+				}
+			});
 		dispatch({
 			type: "Artist/change-letter-flag",
 			payload: {
@@ -132,8 +144,8 @@ const mapDispatch = (dispatch) => ({
 	    dispatch({
 			type: "Artist/getArtists",
 			payload: {
-			    limit,
-			    offset,
+			  limit,
+			  offset,
 				cat,
 				artists,
 			}

@@ -1,0 +1,76 @@
+@bg-coverall: url("../../assets/coverall.png") no-repeat;
+@bg-iconall: url("../../assets/iconall.png") no-repeat;
+@bg-icon: url("../../assets/icon.png") no-repeat;
+@margin-left: 28px;
+#ellipsis() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+
+.mv-list {
+  @spacing: 28px;
+  margin-left: -@margin-left; //important
+  padding-top: @spacing;
+
+  .mv-item {
+    display: inline-block;
+    width: 138px;
+    margin-left: @margin-left; //important
+    margin-bottom: 21px;
+
+    & > a {
+      display: inline-block;
+      position: relative;
+    }
+    .mv-name {
+      margin-bottom: 5px;
+      width: 100%;
+      &:hover .icon-play {
+        display: block;
+      }
+      .icon-play {
+        position: absolute;
+        height: 44px;
+        width: 44px;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        background: @bg-iconall no-repeat -30px -135px;
+        &:hover {
+          background-position: -30px -85px;
+        }
+      }
+    }
+    .mask {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: @bg-coverall;
+      background-position: 0 -1170px;
+    }
+  }
+  .dec > a {
+    display: block;
+    #ellipsis();
+  }
+}
+.mv-name {
+  font-size: 14px;
+  color: #000;
+  &:hover {
+    color: #000;
+  }
+  i {
+    font-style: normal;
+  }
+}
+.mv-artist {
+  color: #666;
+  &:hover {
+    color: #666;
+  }
+}

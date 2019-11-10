@@ -3,7 +3,6 @@ import { connect } from "dva";
 import classnames from "classnames";
 import "./index.less";
 
-//es7修饰器@connect() - connect的语法糖，可以不用在connect里写dispatch。eject配置
 class Pagination extends React.Component {
 
 	render() {
@@ -125,6 +124,7 @@ const mapDispatch = (dispatch) => ({
 
 	handlePageClick(e) {
 
+		window.scrollTo(0,0);
 		dispatch({
 			type: "SongList/orientate-cur-page",
 			payload: {
@@ -134,6 +134,7 @@ const mapDispatch = (dispatch) => ({
 	},
 
 	handleNextClick({curPage, groupCount, startPage, totalPage}) {
+		window.scrollTo(0,0);
 		if(curPage === groupCount + startPage - 1 && curPage !== totalPage) {
 			dispatch({
 				type: "SongList/change-start-page",
@@ -159,6 +160,7 @@ const mapDispatch = (dispatch) => ({
 	},
 
 	handlePrevClick({curPage, startPage, groupCount,}) {
+		window.scrollTo(0,0);
 		if(curPage === startPage) {
 			dispatch({
 				type: "SongList/change-start-page",

@@ -13,7 +13,6 @@ export default {
       
       let temp = yield call(album.getAlbumDetail, payload.id);
       if(temp.code === 200) {
-        console.log(temp)
         yield put({
           type: "add-album",
           payload: {

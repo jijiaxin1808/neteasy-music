@@ -48,7 +48,7 @@ function AlbumDetail(props) {
               arrAll && 
               <React.Fragment>
                 <Desc desc={props.details.album.description}/>
-                <SongList flag="专辑" list={props.details.songs} listData={listData}/>
+                <SongList list={props.details.songs} listData={listData} options={{album: false, artist: true}} title={true}/>
               </React.Fragment>
             );
           },
