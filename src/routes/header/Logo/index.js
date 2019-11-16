@@ -1,14 +1,14 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./index.less";
 
 const Logo = ()=> {
     
 	return (
-		<NavLink to="/">
+		<Link to="/">
 			<div className="neteasy-music-logo">
 			</div>
-		</NavLink>
+		</Link>
 
 	);
 };

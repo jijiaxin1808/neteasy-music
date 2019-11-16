@@ -1,6 +1,6 @@
 import React from "react";
 import "./index.less";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import getTime from "../../assets/time";
 import CommentInput from "./comment-input";
 import { connect } from "dva";
@@ -14,9 +14,8 @@ class Comment extends React.Component {
 	render() {
 		const { comment,handleLike,type,id } = this.props;
 		const beReplied = (item)=> {
-			console.log("被回复？");
 			if( item.beReplied.length ) {
-				console.log(item);
+
 				return (
 					<div className = "comment-beReplied">
 						<span className="daar">
@@ -24,7 +23,7 @@ class Comment extends React.Component {
 							<i className="bg">◆</i>
 						</span>
 						<div className = "comment-content-main">
-							<NavLink to = "/" className = "comment-user-name" >{ item.beReplied[0].user.nickname  }:</NavLink>
+							<Link to = "/" className = "comment-user-name" >{ item.beReplied[0].user.nickname  }:</Link>
 							<p>{ item.beReplied[0].content }</p>
 						</div>
 					</div>
@@ -47,7 +46,7 @@ class Comment extends React.Component {
 										<img src = { item.user.avatarUrl }  alt = { item.user.avatarUrl }/>
 										<div  className = "comment-content">
 											<div className = "comment-content-main">
-												<NavLink to = "/" className = "comment-user-name" >{ item.user.nickname }:</NavLink>
+												<Link to = "/" className = "comment-user-name" >{ item.user.nickname }:</Link>
 												<p>{ item.content }</p>
 												{
 													beReplied(item)

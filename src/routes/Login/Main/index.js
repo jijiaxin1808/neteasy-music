@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "dva/router";
+import { Link } from "react-router-dom";
 import Button from "../../../components/Button";
 import { connect } from "dva";
 

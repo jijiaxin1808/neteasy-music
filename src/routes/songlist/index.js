@@ -13,6 +13,7 @@ class SongList extends React.Component {
 			tag: "全部",
 		};
 	}
+	
 	render() {
 
 		let tag = (decodeURI(this.props.location.search)).split("?")[1] || "全部";
@@ -40,7 +41,7 @@ class SongList extends React.Component {
 									onClick={handleSelectClick}
 								>
 									<i>
-                                        选择分类
+										选择分类
 										<em className="ico" />
 									</i>
 									{ showTagList && <TagList tag={tag} /> }

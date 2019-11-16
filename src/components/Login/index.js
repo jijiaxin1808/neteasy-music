@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'dva';
 import LoginName from './LoginName';
-import NavLink from 'dva/router';
+import  { Link } from 'react-router-dom';
 
 const Data = [{
     imgUrl:"",
@@ -26,11 +26,12 @@ class Login extends React.Component {
         console.log(this.props)
         // const { Login } = this.props;
         // {console.log(Login)}
-        return ( <div>
+        return ( 
+            <div>
                 <div className="topBarCreater">
-                    <NavLink to="/creater">
+                    <Link to="/creater">
                         {'创作者中心'}
-                    </NavLink>
+                    </Link>
                 </div>
                 <div className="login">
                     <LoginName Name={Login.name}  />

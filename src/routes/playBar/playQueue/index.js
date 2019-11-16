@@ -35,7 +35,7 @@ class PlayQueue extends React.Component {
 				if(currentTime <time1[i]) {
 					// nowP = i+1;
 					scrollTop = 32*(this.state.nowP-5);
-					console.log("当前为第",i,"句");
+					// console.log("当前为第",i,"句");
 					break;
 				}
 			}

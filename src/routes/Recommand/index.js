@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "dva";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import classnames from "classnames";
 import SongListInner from "../../components/songlist";
 import "./index.less";
@@ -27,24 +27,26 @@ class Recommand extends React.Component {
 			rectoplists,
 			topartists,
 			hanldleDotClick,
+			hanldeLogin,
 		} = this.props;
 		const { left, ani, showOper, operIndex, operTopname, } = this.state;
 
 
 		return (
-			<div>
-				<div className="rec-banner">
+			<div style={{marginTop: 65}}>
+				{/* <div className="rec-banner">
+
 					<div className="rec-wrap">
 						<div className="rec-banner-inner">
 							<a href="/">
 								<img src="http://p1.music.126.net/1GtUjldt_KjmhZ17NO_Krg==/109951164364414304.jpg"  alt = "http://p1.music.126.net/1GtUjldt_KjmhZ17NO_Krg==/109951164364414304.jpg"/>
 							</a>
-							<div className="download">
-								<NavLink to="/" />
+							 <div className="download">
+								<Link to="/" />
 								<p>PC 安卓 iPhone WP iPad Mac 六大客户端</p>
 								<span className="shadow-l" />
 								<span className="shadow-r" />
-							</div>
+							</div> 
 							<ul className="rec-ban-dots">
 								<li
 									className={classnames({
@@ -108,24 +110,24 @@ class Recommand extends React.Component {
 
 						</div>
 					</div>
-				</div>
+				</div> */}
 				<div className="rec-module">
 					<div className="rec-module-l">
 						<div className="rec-songlists">
 							<div className="rec-songlists-title rec-module-title">
-								<NavLink to="/discover/playlists">
+								<Link to="/discover/playlists">
 									<i className="ico-rec" />
 									<span>热门推荐</span>
-								</NavLink>
+								</Link>
 								<div className="tab">
 									{["华语", "流行", "摇滚", "民谣", "电子"].map(item => (
 										<React.Fragment key={item}>
-											<NavLink
+											<Link
 												to={"/discover/playlist?" + item}
 												activeClassName="tag-active"
 											>
 												{item}
-											</NavLink>
+											</Link>
 											<span>|</span>
 										</React.Fragment>
 									))}
@@ -141,10 +143,10 @@ class Recommand extends React.Component {
 						{/*新碟上架*/}
 						<div className="rec-new">
 							<div className="rec-new-title rec-module-title">
-								<NavLink to="/discover/playlists">
+								<Link to="/discover/playlists">
 									<i className="ico-rec" />
 									<span>新碟上架</span>
-								</NavLink>
+								</Link>
 								<div className="more">
                                     更多
 									<i className="icon-more" />
@@ -177,10 +179,10 @@ class Recommand extends React.Component {
 													<i className="icon-play" />
 												</div>
 												<p>
-													<NavLink to="/">{item.name}</NavLink>
+													<Link to="/">{item.name}</Link>
 												</p>
 												<p className="tit">
-													<NavLink to="/">{item.artist.name}</NavLink>
+													<Link to="/">{item.artist.name}</Link>
 												</p>
 											</li>
 										);
@@ -204,10 +206,10 @@ class Recommand extends React.Component {
 													<i className="icon-play" />
 												</div>
 												<p>
-													<NavLink to="/">{item.name}</NavLink>
+													<Link to="/">{item.name}</Link>
 												</p>
 												<p className="tit">
-													<NavLink to="/">{item.artist.name}</NavLink>
+													<Link to="/">{item.artist.name}</Link>
 												</p>
 											</li>
 										);
@@ -231,10 +233,10 @@ class Recommand extends React.Component {
 													<i className="icon-play" />
 												</div>
 												<p>
-													<NavLink to="/">{item.name}</NavLink>
+													<Link to="/">{item.name}</Link>
 												</p>
 												<p className="tit">
-													<NavLink to="/">{item.artist.name}</NavLink>
+													<Link to="/">{item.artist.name}</Link>
 												</p>
 											</li>
 										);
@@ -258,10 +260,10 @@ class Recommand extends React.Component {
 													<i className="icon-play">icon-play</i>
 												</div>
 												<p>
-													<NavLink to="/">{item.name}</NavLink>
+													<Link to="/">{item.name}</Link>
 												</p>
 												<p className="tit">
-													<NavLink to="/">{item.artist.name}</NavLink>
+													<Link to="/">{item.artist.name}</Link>
 												</p>
 											</li>
 										);
@@ -281,10 +283,10 @@ class Recommand extends React.Component {
 						{/*榜单*/}
 						<div className="rec-toplists">
 							<div className="rec-toplists-title rec-module-title">
-								<NavLink to="/discover/playlists">
+								<Link to="/discover/playlists">
 									<i className="ico-rec" />
 									<span>榜单</span>
-								</NavLink>
+								</Link>
 								<div className="more">
                                     更多
 									<i className="icon-more" />
@@ -337,9 +339,9 @@ class Recommand extends React.Component {
 																>
 																	<div className="tit">
 																		<span className="top">{index + 1}</span>
-																		<NavLink to="/">
+																		<Link to="/">
 																			{item}
-																		</NavLink>
+																		</Link>
 																	</div>
 																	<div className="oper">
 																		<a className="icon-play">播放</a>
@@ -358,9 +360,9 @@ class Recommand extends React.Component {
 																>
 																	<div className="tit">
 																		<span className="no-top">{index + 1}</span>
-																		<NavLink to="/" >
+																		<Link to="/" >
 																			{item}
-																		</NavLink>
+																		</Link>
 																	</div>
 																	<div className="oper">
 																		<a className="icon-play">播放</a>
@@ -372,7 +374,7 @@ class Recommand extends React.Component {
 														}
 													})}
 											</dd>
-											<NavLink className="all" to="/">查看全部&gt;</NavLink>
+											<Link className="all" to="/">查看全部&gt;</Link>
 										</dl>
 									);}
 								)}
@@ -383,12 +385,12 @@ class Recommand extends React.Component {
 					<div className="rec-module-slide">
 						<div className="rec-login">
 							<p>登录网易云音乐，可以享受无限收藏的乐趣，并且无限同步到手机</p>
-							<a className="rec-login-btn">用户登录</a>
+							<a className="rec-login-btn" onClick={hanldeLogin}>用户登录</a>
 						</div>
 						<div className="rec-songer">
 							<div className="rec-songer-tit rec-slide-tit">
                                 入驻歌手
-								<NavLink to="/" className="all">查看全部&gt;</NavLink>
+								<Link to="/" className="all">查看全部&gt;</Link>
 							</div>
 							{
 								topartists.map((item) => {
@@ -515,6 +517,14 @@ const mapDispatch = dispatch => ({
 			},
 		});
 	},
+	hanldeLogin() {
+		dispatch({
+			type: "login/changeStatus",
+			payload: {
+				type: "loginDefault"
+			}
+		});
+	}
 });
 
 export default connect(({ Recommand }) => ({

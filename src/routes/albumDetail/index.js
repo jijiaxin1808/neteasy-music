@@ -7,13 +7,14 @@ import SongList from "../../components/songlist2";
 
 function AlbumDetail(props) {
 
-  useEffect(() => {
-    getAlbum(81920082);
-    
-  }, []);
   const { details, getAlbum } = props;
   let arrAll = JSON.stringify(details) !== "{}";
-  
+  const id = props.location.search.substring(1);
+    
+  useEffect(() => {
+    getAlbum(id);  
+  }, [id]);
+
   return (
     <LayoutOne>
       {
@@ -33,14 +34,19 @@ function AlbumDetail(props) {
           renderImg: () => {
 						return (
 							<React.Fragment>
-								<img style={styles.img} src="http://p2.music.126.net/cjxYSPwmkpAf5rQ9X1dPQg==/109951164385840647.jpg?param=177y177" alt="img"/>
-								<div style={styles.mask}></div>
+                {
+                  details.album && 
+                  <>
+                    <img style={styles.img} src={`${details.album.picUrl}?param=177y177`} alt="img"/>
+                    <div style={styles.mask}></div>
+                  </>
+                }
 							</React.Fragment>
             );
           },
           renderInfo: () => {
             return (
-              <Info />
+              <Info album={details.album}/>
             );
           },
           renderShowList: () => {

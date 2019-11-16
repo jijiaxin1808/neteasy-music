@@ -5,6 +5,7 @@ import "./index.less";
 function Icon(props) {
 
 	const { className, Info } = props;
+
 	return (
 		<a className="u-btni">
 			<i className={classNames[className]}>{Info}</i>

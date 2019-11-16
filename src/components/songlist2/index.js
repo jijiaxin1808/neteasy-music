@@ -5,17 +5,9 @@ import "./index.less";
 
 function SongList(props) {
 
-  //需要判断是歌曲还是专辑的列表
-  const [flag, setFlag] = useState("");
-  const [showTitle, setShowTitle] = useState(true);
-  
-  useEffect(() => {
-    setFlag(props.flag);
-    setShowTitle(props.title);
-  }, []);
-
-  const { listData, list, options } = props;
-  console.log(list)
+  const { listData, options, showTitle, flag } = props;
+  let { list } = props;
+  if (!Array.isArray(list)) list = list.tracks;
 
   return (
     <div className="song-tb">
@@ -29,12 +21,12 @@ function SongList(props) {
               }
             </span>
           </h3>
-          <span className="song-count">36首歌</span>
+          <span className="song-count">{`${list.tracks && list.tracks.length}首歌`}</span>
           {
             flag === "歌单" &&
             <div className="play-count">
               播放:&nbsp;&nbsp;
-              <strong>74838次</strong>
+              <strong>{list.playCount}</strong>
             </div>
           }
           <div className="link-out">

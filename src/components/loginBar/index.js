@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "dva/router";
+import { Link } from "react-router-dom";
 import "./index.less";
 
 class LoginBar extends React.Component {
@@ -7,9 +7,9 @@ class LoginBar extends React.Component {
 		const { content} = this.props;
 		return (
 			<div className='loginBar' onClick = { this.props.onClick }>
-				<NavLink to="/" >
+				<Link to="/" >
 					{ content }
-				</NavLink>
+				</Link>
 			</div>
 		);
 	}

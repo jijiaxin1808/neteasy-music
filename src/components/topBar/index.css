@@ -1,22 +1,15 @@
 .topBarItem {
   height: 70px;
-  background-color: #252525;
   float: left;
-  font-size: 14px;
+  font-size: 18px;
   display: flex;
   align-items: center;
   padding: 0 17px;
 }
 .topBarItem:hover {
-  background-color: #000000;
+  background-color: #fff;
 }
-.topBarItem a {
-  text-decoration-line: none;
-  color: #ccc;
-}
-.topBarItem a:hover {
-  color: #f8ffff;
-}
+
 .topBarCreater {
   height: 32px;
   width: 90px;
@@ -40,7 +33,7 @@
 .topBarSearch {
   height: 32px;
   width: 158px;
-  margin: 19px 0 0 12px;
+  margin: 19px 0 0 194px;
   float: left;
 }
 .topBarSearch input {

@@ -21,13 +21,14 @@ export default {
 	effects: {
 		*getHotAlbum({ payload }, { call, put }) {
 			let temp = yield call(albumService.getHotAlbum),
+
 				hotAlbum = [];
 
 			if (temp.code === 200) {
 				hotAlbum = hotAlbum.concat(temp.albums.slice(0, 10));
 				hotAlbum.forEach((item, index, arr) => {
 					arr[index] = {
-						...utils.sliceObj(item, ["name", "picUrl"]),
+						...utils.sliceObj(item, ["name", "picUrl", "id"]),
 						artist: utils.sliceObj(item.artist, ["name"])["name"]
 					};
 				});
@@ -48,7 +49,7 @@ export default {
 				allAlbum = allAlbum.concat(temp.albums);
 				allAlbum.forEach((item, index, arr) => {
 					arr[index] = {
-						...utils.sliceObj(item, ["name", "picUrl"]),
+						...utils.sliceObj(item, ["name", "picUrl", "id"]),
 						artist: utils.sliceObj(item.artist, ["name"])["name"]
 					};
 				});

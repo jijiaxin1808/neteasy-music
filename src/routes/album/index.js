@@ -9,8 +9,8 @@ class Album extends React.Component {
 
 	render() {
 
-	    const { hotAlbum, allAlbum } = this.props;
-
+	  const { hotAlbum, allAlbum } = this.props;
+		
 		return (
 			<div className="album-list">
 				<div className="content">

@@ -11,13 +11,22 @@
     "axios": "^0.19.0",
     "babel-plugin-import": "^1.12.2",
     "dva": "^2.4.1",
+    "emoji-mart": "^2.11.1",
+    "emojione-picker": "^2.2.2",
+    "express": "^4.17.1",
+    "nodemailer": "^6.3.1",
     "qs": "^6.9.0",
+    "raven-js": "^3.27.2",
     "react": "^16.9.0",
     "react-dom": "^16.2.0",
+    "react-html5video": "^2.5.1",
     "react-loadable": "^5.5.0",
     "react-router-dom": "^5.1.0",
-    "react-transition-group": "^4.3.0"
+    "react-transition-group": "^4.3.0",
+    "uuid": "^3.3.3",
+    "video-react": "^0.14.1"
   },
+  "proxy": "http://localhost:9093",
   "devDependencies": {
     "babel-plugin-dva-hmr": "^0.3.2",
     "eslint": "^4.14.0",

@@ -37,7 +37,7 @@ export default {
         yield put({
           type: "add-album",
           payload: {
-            album: temp.hotAlbums,
+            album: temp,
           }
         });
       }

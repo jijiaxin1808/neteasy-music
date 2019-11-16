@@ -7,17 +7,20 @@ function LayoutOne(props) {
 
 	const renderChildren = props.children;
 	const sliderData = renderChildren.sliderData;
+
 	return (
 		<div className="wrap">
 			<div className="g-mn">
 				<div className="g-mn-ct">
 					<div className="g-wrap">
 						<div className="info">
-							<div className="cover">
-								{renderChildren.renderImg()}
-							</div>
-							<div className="cnt">
-								{renderChildren.renderInfo()}
+							<div style={{overflow: "hidden",}}>
+								<div className="cover">
+									{renderChildren.renderImg()}
+								</div>
+								<div className="cnt">
+									{renderChildren.renderInfo()}
+								</div>
 							</div>
 							{renderChildren.renderShowList()}
 						</div>
@@ -28,12 +31,14 @@ function LayoutOne(props) {
 				<div className="slider-wrap">
 					{
 						sliderData.map(item => {
-							return (
-								<React.Fragment>
-									<div className="hd">{item.tag}</div>
-									{item.render()}
-								</React.Fragment>							
-							);
+							if (item.show) {
+								return (
+									<React.Fragment>
+										<div className="hd">{item.tag}</div>
+										{item.render()}
+									</React.Fragment>							
+								);
+							}
 						})
 					}
 					<DownLoad />

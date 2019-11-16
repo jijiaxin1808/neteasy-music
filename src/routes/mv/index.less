@@ -6,6 +6,11 @@
 .mv-contet {
     width: 710px;
     background: white;
+    margin-bottom: 10px;
+    .mv-container {
+        width: 640px;
+        margin: 0 auto;
+    }
 }
 .mv-sidebar {
     width: 210px;
@@ -41,4 +46,52 @@
     margin-top: 8px;
     margin-bottom: 15px;
     color: black;
+}
+.mv-title {
+    margin-top: 32px;
+    margin-bottom: 14px;
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    h2 {
+        float: left;
+        max-width: 100%;
+        margin-top: -10px;
+        margin-right: 8px;
+        font-size: 24px;
+        line-height: 32px;
+        font-weight: normal;
+    }
+    h2 .u-icn2 {
+        display: inline-block;
+        width: 29px;
+        height: 18px;
+        margin-right: 10px;
+        background: url("../../assets/icon2.png") no-repeat;
+        background-position: -230px -480px;
+    }
+    .name {
+        float: left;
+        margin: 4px 0 0 0;
+        line-height: 17px;
+    }
+    .name a {
+        color: #0c73c2;
+    }
+}
+.f-thide {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+.mv-oper {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    margin: 10px 0 35px 0;
 }

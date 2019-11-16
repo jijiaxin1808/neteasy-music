@@ -19,20 +19,20 @@ class SongListInner extends React.Component {
 				<ul className="songlists">
 					{
 						playlists && playlists.map((item, index) => {
-
+							
 							return(
 								<li className="songlists-item">
-									<Link to="/">
+									<Link to={`/playlist?${item.id}`}>
 										<img src={`${item.coverImgUrl}` + "?param=140y140"} />
 										<div className="mask" />
 										<div className="bottom">
 											<i className="ico-listen" />
-											<span className="num-listen">16844</span>
+											<span className="num-listen">{item.playCount}</span>
 											<Link to="/" className="ico-play" />
 										</div>
 									</Link>
 									<p className="dec">
-										<Link to="/">{item.name}</Link>
+										<Link to={`/playlist?${item.id}`}>{item.name}</Link>
 									</p>
 									<p>by
 										<Link to="/">{item.creator.signature || item.creator.nickname}</Link>

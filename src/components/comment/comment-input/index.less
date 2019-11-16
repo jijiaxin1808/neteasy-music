@@ -18,6 +18,7 @@
     height: 50px;
     border: 1px solid #cdcdcd;
     border-radius: 2px;
+    resize: none;
 }
 .comment-input-content {
     width: 640px;
@@ -25,21 +26,49 @@
     display: flex;
     flex-wrap: wrap;
     margin-top: 15px;
+    resize: none;
 }
 .comment-input-Avatar {
     margin-right: 10px;
 }
 .comment-input-footer {
-    padding-left: 55px;
+    position: relative;
+    padding-left: 63px;
     width: 640px;
     display: flex;
     justify-content: space-between;
-    span {
-        margin-right: 5px;
+    .icn {
+        float: left;
+        display: inline-block;
+        margin: 0px 10px 0 0;
         cursor: pointer;
+        background: url("../../../assets/icon.png") no-repeat;
     }
-    i {
-        margin-right: 5px;
-        cursor: pointer;
+    .u-icn-emoji {
+        width: 18px;
+        height: 18px;
+        background-position: -40px -490px;
     }
+    .u-icn-call {
+        width: 18px;
+        height: 18px;
+        background-position: -60px -490px;
+    }
+    .emoji-container {
+        position: absolute;
+        top: 24px;
+        left: 46px;
+    }
+}
+.emoji-dialog .emojione {
+    width: 100%;
+    height: 100%;
+}
+.emoji-dialog .emoji-row .emoji {
+    box-sizing: content-box;
+}
+.rh5v-Volume_icon,
+.rh5v-PlayPause_icon,
+.rh5v-Fullscreen_icon {
+    box-sizing: content-box;
 }

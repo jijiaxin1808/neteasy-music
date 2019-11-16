@@ -3,13 +3,13 @@ import { connect } from "dva";
 import LoginHeader from "./Header";
 import "./index.less";
 import DefaultLoginHeader from "./Main";
-import LoginEmail from "./Main/loginEmail/index";
+// import LoginEmail from "./Main/loginEmail/index";
 import LoginPhone from "./../Login/Main/loginPhone";
 import Register from "./../Login/Main/register";
 import VerifyCode from "./Main/register/verifyCode";
 
-
 class Login extends React.Component {
+	
 	componentDidMount(props) {
 		const clientWidth = document.documentElement.clientWidth || document.body.clientWidth;
 		const clientHeight = document.documentElement.clientHeight || document.body.clientHeight;
@@ -27,12 +27,19 @@ class Login extends React.Component {
 		}; 
 	}
 	render() {
+
 		const { login } = this.props;
 
+		if (login.type) {
+			document.body.parentNode.style.overflowY = "hidden";
+		} else {
+			document.body.parentNode.style.overflowY = "auto";
+		}
 
 		const func = ()=> {
-			switch ( login.type ) {
 
+			switch ( login.type ) {
+			
 			case "loginDefault" : {
 				return (
 					<div className = "login_background" 						
@@ -48,25 +55,24 @@ class Login extends React.Component {
 					</div>
 				);
 			}
-			case "loginEmail" : {
-				return (
-					<div>
-						<div className="login-mask"></div>
-						<div className="login" style={{top:`${ this.props.login.loginTop }`,left:`${ this.props.login.loginLeft }`} }>
-							<LoginHeader title = "网易邮箱登录" 
-							/>
-							<LoginEmail/>
-						</div>
-					</div>
-				);
-			}
+			// case "loginEmail" : {
+			// 	return (
+			// 		<div>
+			// 			<div className="login-mask"></div>
+			// 			<div className="login" style={{top:`${ this.props.login.loginTop }`,left:`${ this.props.login.loginLeft }`} }>
+			// 				<LoginHeader title = "网易邮箱登录" 
+			// 				/>
+			// 				<LoginEmail/>
+			// 			</div>
+			// 		</div>
+			// 	);
+			// }
 			case "verifyCode" : {
 				return (
 					<div>
 						<div className="login-mask"></div>
 						<div className="login" style={{top:`${ this.props.login.loginTop }`,left:`${ this.props.login.loginLeft }`} }>
-							<LoginHeader title = "输入验证码" 
-							/>
+							<LoginHeader title = "输入验证码" />
 							{/* <LoginEmail/> */}
 							<VerifyCode />
 						</div>
@@ -80,8 +86,7 @@ class Login extends React.Component {
 					<div>
 						<div className="login-mask"></div>
 						<div className="login" style={{top:`${ this.props.login.loginTop }`,left:`${ this.props.login.loginLeft }`} }>
-							<LoginHeader  title = "手机登录"
-					 />
+							<LoginHeader  title = "手机登录"/>
 							<LoginPhone />
 						</div>
 					</div>
@@ -92,8 +97,7 @@ class Login extends React.Component {
 					<div>
 						<div className="login-mask"></div>
 						<div className="login" style={{top:`${ this.props.login.loginTop }`,left:`${ this.props.login.loginLeft }`} } >
-							<LoginHeader  title = "注册"
-							/>
+							<LoginHeader  title = "注册"/>
 							<Register />
 						</div>
 					</div>
@@ -101,6 +105,7 @@ class Login extends React.Component {
 			}
 
 			case "" : {
+
 				return (
 					<div style = {{ display: "none" }} >
 						{"aaaa"}
@@ -120,7 +125,7 @@ class Login extends React.Component {
 		};
 		return ( 
 			<div>
-				{ func()}
+				{ func() }
 			</div>
 		);
 	}

@@ -44,10 +44,14 @@ const app = dva({
 		},
 		ArtistDetail: {
 			songs: [],
-			album: [],
+			album: {},
 			desc: {},
 			mv: {},
 		},
+		userAuth: {
+			loginStatus: false,
+			userInfo: {},
+		}
 	}
 });
 

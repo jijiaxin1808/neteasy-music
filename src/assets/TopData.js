@@ -11,16 +11,4 @@ export  const Data =  [
 		name: "朋友",
 		linkTo:"/friend"
 	},
-	{
-		name: "商城",
-		linkTo:"/shop"
-	},
-	{
-		name: "音乐人",
-		linkTo:"/"
-	},
-	{
-		name: "下载客户端",
-		linkTo:"/download"
-	}
 ];

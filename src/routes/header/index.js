@@ -10,7 +10,7 @@ import ToTop from "../../components/toTop";
 class Header extends React.Component {
 	
 	render() {
-		// const url = window.location.hash;
+
 		return (
 			<div>
 

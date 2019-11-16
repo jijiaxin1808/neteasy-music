@@ -1,8 +1,9 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Data } from "../../../assets/TopData";
 import React from "react";
 import "./index.less";
 import { connect } from "dva";
+import { message } from "antd";
 
 class TopBar extends React.Component {
 	render() {
@@ -13,9 +14,9 @@ class TopBar extends React.Component {
 					Data.map(( item,index )=> {
 						return (
 							<div className="topBarItem" key = { index }  >
-								<NavLink to={item.linkTo} >
+								<Link to={item.linkTo} >
 									{item.name}
-								</NavLink>
+								</Link>
 							</div>
 						);
 					})
@@ -26,18 +27,18 @@ class TopBar extends React.Component {
 					<input />
 				</div>
 				<div className = "topBar_creater" >
-					<NavLink to="/creater">
+					<Link to="/creater">
 						{ "创作者中心" }
-					</NavLink>
+					</Link>
 				</div>	
 				<div className = "topBar_login">
 					<span > { "登录" } </span>
-					<div>
+					<div style={{zIndex: 99}}>
 						<span onClick={()=> {handlePhone(); } } > 
 							手机号登录
 						</span>
-						<span onClick={()=> {handleEmail(); }}>
-							邮箱登录 
+						<span onClick={()=> {message.error("让你不用点我，你非要点")}}>
+							邮箱登录(敬请期待) 
 						</span>
 					</div>
 				</div> 	
@@ -47,6 +48,7 @@ class TopBar extends React.Component {
 }
 const mapToDispatchToProps = (dispatch)=> ({
 	handlePhone() {
+
 		dispatch({
 			type: "login/changeStatus",
 			payload: {

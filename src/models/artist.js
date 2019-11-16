@@ -38,10 +38,11 @@ export default {
 			        return call(topArtistService.getTopArtists, payload);
 				}
 			})();
+			console.log(temp)
 			let artists = [];
 			if(temp.code === 200) {
 				temp.artists.forEach((item, index) => {
-					artists[index] = utils.sliceObj(item, ["img1v1Url", "name"]);
+					artists[index] = utils.sliceObj(item, ["img1v1Url", "name", "id"]);
 				});
 				yield put({
 					type: "add-artists",
@@ -53,11 +54,11 @@ export default {
 		},
 		*getMoreArtists({ payload }, { call, put }) {
 
-		    let temp = yield call(artistService.getArtistList, payload);
+			let temp = yield call(artistService.getArtistList, payload);
 		    let artists = [...payload.artists];
 			if(temp.code === 200) {
 				temp.artists.forEach((item, index) => {
-					artists[index] = utils.sliceObj(item, ["img1v1Url", "name"]);
+					artists[index] = utils.sliceObj(item, ["img1v1Url", "name", "id"]);
 				});
 				yield put({
 					type: "add-more-artists",

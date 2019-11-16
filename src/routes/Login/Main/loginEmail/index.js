@@ -3,7 +3,7 @@ import Button from "../../../../components/Button";
 import Input from "../../../../components/Input";
 import LoginBar from "../../../../components/loginBar";
 import "./index.less";
-import { NavLink } from "dva/router";
+import { Link } from "react-router-dom";
 import { connect } from "dva";
 
 
@@ -18,9 +18,9 @@ class LoginEmail extends React.Component {
 				<Input type = 'password' placeholder = "请输入密码" onChange = {(e)=> {changePassword(e.target.value);}} />
 				<div className = "middleBar" > 
 					<p>自动登录</p>
-					<NavLink to = "/" >
+					<Link to = "/" >
 						{ "无法登录？" }
-					</NavLink>
+					</Link>
 				</div>
 				<Button type = "blue" url="/" content = "登录" onClick = {()=> { handleEmail(this.props.login); }}/>
 				<LoginBar content="<< 选择登录方式" onClick = { ()=> {handleBack();}  } />

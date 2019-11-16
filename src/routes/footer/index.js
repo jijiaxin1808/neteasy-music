@@ -16,8 +16,8 @@ const Footer = (props) => (
 					<a>意见反馈</a>
 					<div className="line"></div>
 				</div>
-				<p><span>网易公司版权所有©1997-2019</span>杭州乐读科技有限公司运营： <a>浙网文[2018]3506-263号</a></p>
-				<p><span>违法和不良信息举报电话：0571-89853516</span> 举报邮箱：<a>ncm5990@163.com</a></p>
+				<p><span>O(∩_∩)O哈哈~版权所有©2020-9999</span>秦皇岛滴滴快手无限公司： <a>浙网文[2018]3234-533号</a></p>
+				<p><span>违法和不良信息举报电话：7451-1314520</span> 举报邮箱：<a>dannygxm@qq.com</a></p>
 			</div>
 			<div className="footer-service-r">
 				<ul className="footer-service-r-list">

@@ -10,7 +10,6 @@ class Artist extends React.Component {
 
 	constructor(props) {
 		super(props);
-
 		this.LoadMore = this.LoadMore.bind(this);
 	}
 	getLetter() {

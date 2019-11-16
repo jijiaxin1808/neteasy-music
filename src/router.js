@@ -3,6 +3,7 @@ import { Router, Route, Switch } from "react-router-dom";
 import Header from "./routes/header";
 import Footer from "./routes/footer";
 import PlayBar from "./routes/playBar";
+import AuthRoute from "./routes/authRoute";
 import apps from "./app";
 
 function RouterConfig({ history }) {
@@ -10,6 +11,7 @@ function RouterConfig({ history }) {
 
 		<Router history={history}>
 			<div className="body">
+				<AuthRoute />
 				<Header />
 				<Switch>
 					{

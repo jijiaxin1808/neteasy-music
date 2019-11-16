@@ -5,9 +5,49 @@
   }
 }
 .verify-input {
+  text-align: center;
   width: 24px;
   margin: 0 13px;
   border: none;
   font-size: 24px;
-  background: blue;
+  outline: none;
+}
+.u-word {
+    @width: 50px;
+    position: relative;
+    width: @width;
+    float: left;
+    margin-right: 5px;
+  &:before {
+    content: '';
+    display: table;
+    position: absolute;
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  &:after {
+    content: '';
+    display: table;
+    position: absolute;
+    bottom: 0;
+    width: 0px;
+    height: 2px;
+    background-color: #B82712;
+    transition: width 200ms ease-in-out;
+    -webkit-transition: width 200ms ease-in-out;
+  }
+  &.slide-enter:after {
+    width: 0;
+  }
+  &.slide-enter-active:after {
+    width: @width;
+  }
+  &.slide-enter-done:after {
+    width: @width;
+  }
+}
+.Button_blue {
+  margin-top: 25px;
 }

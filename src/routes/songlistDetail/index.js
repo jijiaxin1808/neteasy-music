@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { connect } from "dva";
 import LayoutOne from "../../components/detail/layout/layout1";
 import PicList from "../../components/picList";
@@ -10,12 +10,16 @@ import "./index.less";
 function SongListDetail(props) {
 
 	const { details, subscribers, recSongList, getSubecriber, getRecList, getSongListDetail } = props;
-	let arrAll = JSON.stringify(details) !== "{}" && subscribers.length !== 0 && recSongList.length !== 0;
+	let arrAll = JSON.stringify(details) !== "{}";
+	let id = props.location.search.substring(1);
+
 	useEffect(() => {
-		getSongListDetail(2875784937);
-		getSubecriber(544215255, 8);
-		getRecList(324231);
-	}, []); 
+		if(id) {
+			getSongListDetail(id);
+			getSubecriber(id, 8);
+			getRecList(id);
+		}
+	}, [id]); 
 
 	return (
 		<LayoutOne>
@@ -25,6 +29,7 @@ function SongListDetail(props) {
 						{
 							tag: "喜欢这个歌单的人",
 							more: false,
+							show: subscribers.length !== 0,
 							render: () => {
 								if(arrAll)
 									return (
@@ -35,6 +40,7 @@ function SongListDetail(props) {
 						{
 							tag: "相关推荐",
 							more: false,
+							show: recSongList.length !== 0,
 							render: () => {
 								if(arrAll)
 									return (
@@ -46,7 +52,10 @@ function SongListDetail(props) {
 					renderImg: () => {
 						return (
 							<React.Fragment>
-								<img style={styles.img} src="http://p3.music.126.net/v0guOXrzl3Wn24GLi-B-nw==/109951164389512106.jpg?param=200y200" alt="img"/>
+								{
+									details.playlist &&
+									<img style={styles.img} src={`${details.playlist.coverImgUrl}?param=200y200`} alt="img"/>	
+								}
 								<div style={styles.mask}></div>
 							</React.Fragment>
 						);
@@ -60,9 +69,16 @@ function SongListDetail(props) {
 						}
 					},
 					renderShowList: () => {
+						const others = {
+							options: {
+								album: true, 
+								artist: true
+							}, 
+							showTitle: true,
+						} 
 						if(arrAll) {
 							return (
-								<SongList flag="歌单" list={details.playlist.tracks} listData={listData}/>
+								<SongList flag="歌单" list={details.playlist} listData={listData} {...others}/>
 							);
 						}
 					}

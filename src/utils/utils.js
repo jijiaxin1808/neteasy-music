@@ -1,4 +1,4 @@
-//待扩展，支持传入数组和、或分开的多个参数
+// 待扩展，支持传入数组和、或分开的多个参数
 export function sliceObj(obj, keys) {
 	return keys.reduce((result, key) => {
 		if (obj.hasOwnProperty(key)) {

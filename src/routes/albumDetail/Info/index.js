@@ -6,26 +6,33 @@ import "./index.less";
 
 function Info(props) {
 
-  return (
+  const { album } = props;
+
+  const InfoComp = album ? (
     <div className="album-cont-c">
 			<div className="hd">
 				<i className="u-icn"></i>
 				<h2>
-          冴えない彼女の育てかた ギャルゲーカバーソングコレクション
+          {album.name}
           <br />
-          <span>路人女主的养成方法 GalGame Cover Song Collection</span>
+          <span>{album.alias[0]}</span>
         </h2>
 			</div>
 			<div className="songer">
         <div>
           歌手:&nbsp;&nbsp;
-          <span title="V.A."><a>V.A.</a></span>
+          <span title="V.A."><a>{album.artist.name}</a></span>
         </div>
         发行时间:&nbsp;&nbsp;
-        2019-09-25
+        {timeUtils.dateFormat(album.publishTime)}
         <br/>
-        发行公司:&nbsp;&nbsp;
-        Aniplex
+        {
+          album.company &&
+          <>
+            发行公司:&nbsp;&nbsp;
+            {album.company}
+          </>
+        }
 			</div>
 			<div className="oper">
 				<Icon1 />
@@ -35,7 +42,9 @@ function Info(props) {
 				<Icon className="uBtnComment" Info="收藏"/>
 			</div>
 		</div>
-  );
+  ) : null;
+
+  return InfoComp;
 }
 
 export default Info;

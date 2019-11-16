@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useEffect} from "react";
 import { connect } from "dva";
 import { Link } from "react-router-dom";
 import SongList from "../../components/songlist2";
@@ -17,15 +17,15 @@ const { TabPane } = Tabs;
 function ArtistDetail(props) {
   
   const { mv, songs, album, desc, getSongList, getAlbum, getDesc, getMv } = props;
-
-  const [id, setId] = useState("");
+  
+  const id = props.location.search.substring(1);
 
   useEffect(() => {
-    getSongList(7763);
-    getAlbum(7763, 12, 0);
-    getDesc(7763);
-    getMv(7763);
-  }, []);
+    getSongList(id);
+    getAlbum(id, 12, 0);
+    getDesc(id);
+    getMv(id);
+  }, [id]);
 
   return (
     <div className="wrap">
@@ -34,10 +34,12 @@ function ArtistDetail(props) {
         <div className="g-wrap">
           <div className="artist-cover">
             <div className="hd">
-              <h3>G.E.M.邓紫棋</h3>
-              <h2>G.E.M.</h2>
+              <h3>{album.artist && album.artist.name}</h3>
+              <h2>{album.artist && album.artist.alias && album.artist.alias[0]}</h2>
             </div>
-            <img src="http://p1.music.126.net/o2qzE0Is5Qh1pfSKQiVGkA==/18646617697368402.jpg?param=640y300" alt="img"/>
+            {
+              album.artist && <img src={`${album.artist.picUrl}?param=640y300`} alt="img"/>
+            }
             <Link className="p-page" title="个人主页">个人主页</Link>
             <a className="collect" title="收藏">收藏</a>
           </div>
@@ -59,7 +61,7 @@ function ArtistDetail(props) {
               </TabPane>
               <TabPane tab="所有专辑" key="2">
                 <div>
-                  <AlbumList size="mid" hotAlbum={album} itemR={"9px"}/>
+                  <AlbumList size="mid" hotAlbum={album.hotAlbums} itemR={"9px"}/>
                   <Pagination />
                 </div>
               </TabPane>
@@ -74,7 +76,7 @@ function ArtistDetail(props) {
                   <div className="n-artdesc">
                     <h2>
                       <i>&nbsp;</i>
-                      歌手简介
+                      {album.artist && album.artist.name}简介
                     </h2>
                     <p>
                       {desc.briefDesc}

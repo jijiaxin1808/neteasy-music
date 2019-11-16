@@ -15,12 +15,12 @@ class TopArtistList extends React.Component {
 					artists.slice(0, index).map( item => {
 						return(
 							<li className="artists-top-item" key={item}>
-								<Link to="/" className="artist-top-name">
+								<Link to={`/artist?${item.id}`} className="artist-top-name">
 									<img src={`${item.img1v1Url}?param=130y130` } alt = { item.coverImgUrl } />
 									<div className="mask" />
 								</Link>
 								<p className="dec">
-									<Link to="/">{item.name}</Link>
+									<Link to={`/artist?${item.id}`}>{item.name}</Link>
 									<a><i className="icon-perPage">个人主页</i></a>
 								</p>
 							</li>
