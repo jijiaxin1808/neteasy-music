@@ -1,11 +1,11 @@
 /*详情页的歌曲/专辑 */
-import React, {useState,useEffect} from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "./index.less";
 
 function SongList(props) {
 
-  const { listData, options, showTitle, flag } = props;
+  const { listData, options, showTitle, flag, handlePlay } = props;
   let { list } = props;
   if (!Array.isArray(list)) list = list.tracks;
 
@@ -57,7 +57,7 @@ function SongList(props) {
                     <td>
                       <div className="hd">
                         <span className="num">{index+1}</span>
-                        <span className="ply">&nbsp;</span>
+                        <span onClick={() => handlePlay(item.id)} className="ply">&nbsp;</span>
                       </div>
                     </td>
                     <td>

@@ -1,12 +1,12 @@
 .playqueue {
-  width: 986px;
-  height: 300px;
-  background: #1f1f1f;
+  position: absolute;
+  bottom: 47px;
   display: flex;
-  position: fixed;
-  bottom: 55px;
-  right: 200px;
-  visibility: hidden;
+  left: 288px;
+  flex-flow: row nowrap;
+  &.hide {
+    visibility: hidden;
+  }
 }
 .playqueue-hide {
     display:none;
@@ -96,6 +96,9 @@
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  &.active {
+    background-color: rgba(0,0,0,0.3);
+  }
   span {
     margin-right: 10px;
     color: #ccc;
@@ -151,8 +154,8 @@
   display: inline-block;
   width: 10px;
   height: 13px;
-  background-position: -182px 0;
   margin-left: 7px;
+  background-position: -182px 0;
 }
 .playqueue-lrc-content {
   overflow-y: auto;

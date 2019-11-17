@@ -1,7 +1,6 @@
 .footer-wrap {
   border-top: 1px solid #d3d3d3;
-  background-color: #f2f2f2;
-  opacity: 0.9;
+  background-color: currentColor;
   .footer-inner {
     width: 980px;
     height: 148px;
@@ -24,18 +23,19 @@
   p {
     line-height: 20px;
     padding-top: 5px;
-    color: #666;
+    color: #fff;
     span {
       margin-right: 5px;
     }
     a {
       cursor: pointer;
+      color: #fff;
     }
   }
 }
 
 .footer-service-l {
-  @color: #999;
+  @color:  #fff;
   @margin: 8px;
 
   a {
@@ -46,7 +46,7 @@
     display: inline-block;
     width: 1px;
     height: 10px;
-    background-color: #999;
+    background-color: #fff;
     margin: 0 @margin;
     color: @color;
   }
@@ -61,7 +61,7 @@
     display: inline-block;
     font-size: 6px;
     text-align: center;
-    color: #666;
+    color: #fff;
     margin-left: 34px;
     a {
       width: @size;

@@ -1,5 +1,6 @@
 import request from "../utils/request";
+import baseUrl from "../assets/baseUrl";
 
 export function getTopArtists({ limit, offset }) {
-	return request(`http://localhost:3000/top/artists?offset=${offset}&limit=${limit}`);
+	return request(`${baseUrl}top/artists?offset=${offset}&limit=${limit}`);
 }

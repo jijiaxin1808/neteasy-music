@@ -1,5 +1,4 @@
 const express = require("express");
-const fs = require('fs');
 const utils = require("utility");
 const sendMail = require('./middleware/sendMail.js')
 const Router = express.Router();
@@ -78,13 +77,16 @@ Router.get("/email", (req, res) => {
   const user = req.query.user || '';
   const verifyCode = createSixNum();
   const createDate = +new Date();
-  const isLive = "no";
+  const isLive = false;
 
   User.findOne({user}, (err, doc) => {
-
-    if (doc) {
-      return res.json({code:1,msg:"账号已经存在"});
-    } else {
+    const { isLive=false } = doc ? doc : {};
+    if (doc && JSON.stringify(doc) !== "{}" && isLive) {
+      return res.json({code: 1, msg: "账号已经存在"});
+    } else if (doc && !isLive && JSON.stringify(doc) !== "{}") {
+      User.deleteMany({user, isLive: false}, (err) => {
+        if (err) console.log(err);
+      });
       if (email && user) {
         res.json({code:0,message:"账号可注册"});
         User.create({user,email,verifyCode,createDate,isLive}, (err, doc) => {
@@ -124,14 +126,10 @@ Router.get("/captcha/verify", (req, res) => {
 
         res.json({code:0,msg:"注册成功"})
       } else {
-        // 这个命令删除用户
-        User.deleteOne({user, isLive: false}, (err) => {
-          if (err) console.log(err);
-        })
         res.json({code:1,msg:"验证码错误或已到期"});
       }
     } else {
-      res.json({code:1,msg:"用户不存在"});
+      res.json({code:1,msg:"程序出错了"});
     }
   });
 }); 
@@ -144,7 +142,7 @@ function md5Psw(psw) {
 
 function createSixNum() {
   var Num="";
-  for(let i = 0; i < 6; i++) {
+  for(let i = 0; i < 4; i++) {
       Num+=Math.floor(Math.random()*10);
   }
   return Num;

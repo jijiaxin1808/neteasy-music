@@ -5,7 +5,7 @@ function DownLoad() {
 
 	return (
 		<div className="multi-download">
-			<div className="hd">网易云音乐多端下载</div>
+			<div className="hd">海豚音乐音乐多端下载</div>
 			<ul className="bg">
 				<li>
 					<a className="iphone">iphone</a>

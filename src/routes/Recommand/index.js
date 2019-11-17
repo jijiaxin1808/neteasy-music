@@ -295,15 +295,15 @@ class Recommand extends React.Component {
 							<div className="rec-toplists-inner">
 								{[
 									{
-										name: "云音乐飙升榜",
+										name: "海豚音乐飙升榜",
 										imgSrc: "http://p2.music.126.net/DrRIg6CrgDfVLEph9SNh7w==/18696095720518497.jpg"
 									},
 									{
-										name: "云音乐新歌榜",
+										name: "海豚音乐新歌榜",
 										imgSrc: "http://p2.music.126.net/N2HO5xfYEqyQ8q6oxCw8IQ==/18713687906568048.jpg"
 									},
 									{
-										name: "网易原创歌曲榜",
+										name: "海豚原创歌曲榜",
 										imgSrc: "http://p2.music.126.net/sBzD11nforcuh1jdLSgX7g==/18740076185638788.jpg"
 									}
 								].map((item, index) => {
@@ -384,7 +384,7 @@ class Recommand extends React.Component {
 					</div>
 					<div className="rec-module-slide">
 						<div className="rec-login">
-							<p>登录网易云音乐，可以享受无限收藏的乐趣，并且无限同步到手机</p>
+							<p>登录海豚音乐，可以享受无限收藏的乐趣，并且无限同步到手机</p>
 							<a className="rec-login-btn" onClick={hanldeLogin}>用户登录</a>
 						</div>
 						<div className="rec-songer">
@@ -408,7 +408,7 @@ class Recommand extends React.Component {
 								})
 							}
 							<div className="btn">
-								<a>申请成为网易音乐人</a>
+								<a>哈哈哈哈</a>
 							</div>
 						</div>
 						<div className="rec-anchor">

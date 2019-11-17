@@ -9,7 +9,7 @@ h3 {
 }
 .body {
     background-repeat: no-repeat;
-    background-image: url(https://bonky-picture.oss-cn-beijing.aliyuncs.com/pic/bjtup.jpeg);
+    background-image: url("./assets/2.png");
     background-size: 100vw 100vh;
     background-attachment: fixed;
     background-position: -10px -44px;

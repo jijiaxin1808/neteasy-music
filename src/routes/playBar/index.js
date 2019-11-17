@@ -42,17 +42,30 @@ class PlayBar extends React.Component {
 		this.handleLockClick = this.handleLockClick.bind(this);
 		this.handlPlayqueue = this.handlPlayqueue.bind(this);
 	}
+
+	componentDidUpdate(prevProps) {
+		if (prevProps.currentSong.url !== this.props.currentSong.url) {
+			// console.log("不同歌曲")
+			this.lectureAudio.current.play();
+			this.setState({
+				playState: "play"
+			},);
+		}
+	}
+
 	render() {
+
+		const { currentSong, songList } = this.props;
+
 		return (
 		    <div className="g-btmbar">
-				<PlayQueue   currentTime = { this.state.currentTime } isPlayqueueShow = { this.state.isPlayqueueShow }  />
+				<PlayQueue currentTime = { this.state.currentTime } isPlayqueueShow = { this.state.isPlayqueueShow } songList={songList}/>
 				<div
 					className={classnames({
 						playBar: true,
 						unlock: this.state.playbarState === "unlock",
 					})}
 				>
-					<PlayQueue currentTime = { this.state.currentTime } />
 					<div className="bg" />
 					<div className="hand" title="展开播放条" />
 					<div className="up-btn">
@@ -85,12 +98,12 @@ class PlayBar extends React.Component {
 						</div>
 						<div className="play">
 							<div className="head">
-								<img src="http://p2.music.126.net/rtezgU6AxamJZKDAScz0dw==/109951164351789011.jpg?param=34y34" alt = "歌名" />
+								<img src={`https://p2.music.126.net/Mqj2AlBSRo3jdE1wB2DnIQ==/109951163335585093.jpg?param=34y34`} alt = "歌名" />
 								<a className="mask">mask</a>
 							</div>
 							<div className="words">
 								<a className="play-flag">DI DI DA</a>
-								<a className="by"><span>王淘沙</span></a>
+								<a className="by"><span>{currentSong.id || "歌名ID"}</span></a>
 								<a className="icon-link">来自榜单</a>
 							</div>
 							<div className="p-bar">
@@ -167,6 +180,7 @@ class PlayBar extends React.Component {
 					ref={this.lectureAudio}
 					onCanPlay={this.handleCanPlay}
 					onTimeUpdate={this.handleTimeUpdate}
+					src={currentSong ? currentSong.url : ""}
 				/>
 			</div>
 		);
@@ -176,7 +190,10 @@ class PlayBar extends React.Component {
 		let audio = this.lectureAudio.current,
 			currentTime = audio.currentTime,
 			duration = 	audio.duration,
-			preloadTime = audio.buffered.end(0);
+			preloadTime;
+			if (audio.buffered.length !== 0) {
+				preloadTime = audio.buffered.end(0);
+			}
 			/*获取已缓冲的结束位置*/
 		if(audio.paused) {
 			this.setState({
@@ -250,9 +267,9 @@ class PlayBar extends React.Component {
 		/*获取鼠标位置*/
 		if(this.state.mouseIsDown) {
 			let x = e.clientX - e.currentTarget.getBoundingClientRect().left,
-				audio = this.lectureAudio.current,
-				width = e.currentTarget.offsetWidth,
-				currentTime = (x / width) * audio.duration;
+			audio = this.lectureAudio.current,
+			width = e.currentTarget.offsetWidth,
+			currentTime = (x / width) * audio.duration;
 			audio.currentTime = currentTime;
 			this.setState({
 				currentTime,
@@ -260,7 +277,6 @@ class PlayBar extends React.Component {
 				audio.currentTime = currentTime;
 				(this.state.playState === "play") && audio.play();
 			});
-
 		}
 	}
 	handleProBtnMouseUp(e) {
@@ -335,6 +351,6 @@ class PlayBar extends React.Component {
 	}
 }
 
-export default connect()(PlayBar);
+export default connect(({player}) => player)(PlayBar);
 
 

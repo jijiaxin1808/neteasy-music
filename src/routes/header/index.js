@@ -4,7 +4,6 @@ import Logo from "./Logo";
 import TopBar from "./topBar";
 import Login from "../Login";
 import "./icon.less";
-import SubBar from "./subBar";
 import ToTop from "../../components/toTop";
 
 class Header extends React.Component {
@@ -22,7 +21,6 @@ class Header extends React.Component {
 						<ToTop />
 					</div>
 				</div>
-				<SubBar />
 			</div>
 		);
 	}

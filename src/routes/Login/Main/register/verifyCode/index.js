@@ -11,11 +11,9 @@ class VerifyCode extends React.Component {
 		super(props);
 		this.state = {
 			words: [{ item: "", id: uuid() },
-			{ item: "", id: uuid() },
-			{ item: "", id: uuid() },
-			{ item: "", id: uuid() },
-			{ item: "", id: uuid() },
-			{ item: "", id: uuid() }],
+							{ item: "", id: uuid() },
+							{ item: "", id: uuid() },
+							{ item: "", id: uuid() }],
 			curIndex: 0,
 		}
 		this.inputRefs = [];

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "dva";
 import LayoutOne from "../../components/detail/layout/layout1";
 import PicList from "../../components/picList";
@@ -9,7 +9,7 @@ import "./index.less";
 
 function SongListDetail(props) {
 
-	const { details, subscribers, recSongList, getSubecriber, getRecList, getSongListDetail } = props;
+	const { details, subscribers, recSongList, getSongsUrl, handlePlay, getSubecriber, getRecList, getSongListDetail } = props;
 	let arrAll = JSON.stringify(details) !== "{}";
 	let id = props.location.search.substring(1);
 
@@ -20,6 +20,10 @@ function SongListDetail(props) {
 			getRecList(id);
 		}
 	}, [id]); 
+	
+	useEffect(() => {
+		details.playlist && getSongsUrl(details.playlist.trackIds);
+	}, [details]);
 
 	return (
 		<LayoutOne>
@@ -78,7 +82,7 @@ function SongListDetail(props) {
 						} 
 						if(arrAll) {
 							return (
-								<SongList flag="歌单" list={details.playlist} listData={listData} {...others}/>
+								<SongList flag="歌单" list={details.playlist} listData={listData} {...others} handlePlay={handlePlay}/>
 							);
 						}
 					}
@@ -151,6 +155,25 @@ const mapDispatch = (dispatch) => ({
 			payload: {
 				id,
 			},
+		});
+	},
+	handlePlay(id) {
+		// id number
+
+		dispatch({
+			type: "player/setCurSong",
+			payload: {
+				id,
+			}
+		});
+	},
+	getSongsUrl(id) {
+		// trackIds []
+		dispatch({
+			type: "player/getSongsUrl",
+			payload: {
+				id
+			}
 		});
 	}
 });

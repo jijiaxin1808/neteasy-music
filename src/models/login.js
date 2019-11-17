@@ -69,27 +69,7 @@ export default {
 			}
 		},
 		*sendVerifyCode ( { payload } , { put, call } ) {
-			loginService.verifyEmail(payload).then(res => {
-				if (res.status === 200) {
-					if (res.data.code === 0) {
-						put({
-							type:"clear"
-						});
-						put({
-							type:"changeStatus",
-							payload:{
-								type:"verifyCode"
-							}
-						});
-					} else if (res.data.code === 1) {
-						message.error("邮箱已注册");
-					} else {
-						message.error("用户名不能为空");
-					}
-				}
-			}).catch(err => {
-
-			});
+			
 		},
 		*verifyVerifyCode({ payload }, { put, call }) {
 			const res = yield call(loginService.verifyEmailCode, payload);
